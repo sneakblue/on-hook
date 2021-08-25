@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
+import { demo_login } from '../../store/session';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -19,6 +20,17 @@ function LoginForm() {
       }
     );
   };
+
+  const handleDemo = (e) => {
+      e.preventDefault();
+      return dispatch(demo_login()).catch(
+          async (res) => {
+              const data = await res.json();
+              if (data && data.errors) setErrors(data.errors);
+          }
+      )
+  }
+
 
   return (
     <div className='login__modal'>
@@ -49,6 +61,7 @@ function LoginForm() {
         </label>
         <button type="submit">Log In</button>
       </form>
+      <button type='button' onClick={handleDemo}>Demo</button>
     </div>
   );
 }
