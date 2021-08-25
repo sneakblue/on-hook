@@ -1,3 +1,18 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.navbar__main--div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px;
+    width: 100vw;
+    background-color: aquamarine;
+}
+
+.navbar__links--div {
+    width: auto;
+    height: 100%;
+    margin: 5px;
+}
