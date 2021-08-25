@@ -1,0 +1,14 @@
+.login__modal {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 250px;
+    align-items: center;
+}
+
+.login__modal--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
