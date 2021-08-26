@@ -11,15 +11,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Review.belongsTo(models.User, { foreignKey: 'user_id' });
-
       Review.belongsTo(models.Fishing_Spot, { foreignKey: 'fishing_spot_id' });
     }
   };
   Review.init({
-    user_id: DataTypes.INTEGER,
-    fishing_spot_id: DataTypes.INTEGER,
-    review: DataTypes.STRING,
-    rating: DataTypes.INTEGER
+    user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    fishing_spot_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    review: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    rating: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Review',

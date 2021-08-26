@@ -14,7 +14,7 @@ module.exports = {
         references: { model: 'Users' }
       },
       description: {
-          type: Sequelize.String(256),
+          type: Sequelize.STRING(256),
           allowNull: false
       },
       pic: {
