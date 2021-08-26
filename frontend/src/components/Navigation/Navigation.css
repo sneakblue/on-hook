@@ -11,8 +11,42 @@
     background-color: aquamarine;
 }
 
-.navbar__links--div {
-    width: auto;
-    height: 100%;
+.navbar--navlink {
+    text-decoration: none;
+    height: 20px;
+    width: 70px;
+    background-color: antiquewhite;
     margin: 5px;
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    border-radius: 3px;
+}
+
+.navbar--navlink:hover {
+    box-shadow: 2px 2px 2px black;
+}
+
+.navbar--navlink:active {
+    box-shadow: -2px -2px 2px black;
+}
+
+.navbar__profile--btn {
+    height: 20px;
+    width: 40px;
+    background-color: antiquewhite;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px;
+    border-radius: 3px;
+}
+
+.navbar__profile--btn:hover {
+    box-shadow: 2px 2px 2px black;
+}
+
+.navbar__profile--btn:active {
+    box-shadow: -2px -2px 2px black;
 }
