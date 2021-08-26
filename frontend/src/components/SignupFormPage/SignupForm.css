@@ -7,6 +7,7 @@
     height: auto;
     background-color: antiquewhite;
     padding: 15px;
+    border-radius: 5px;
 }
 
 .signup__main--div {
@@ -16,4 +17,24 @@
     justify-content: center;
     height: 500px;
     width: 100%;
+}
+
+.signup__submit--btn {
+    text-decoration: none;
+    height: 20px;
+    width: 70px;
+    background-color: aquamarine;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    border-radius: 3px;
+}
+
+.signup__submit--btn:hover {
+    box-shadow: 2px 2px 2px black;
+}
+
+.signup__submit--btn:active {
+    box-shadow: -2px -2px 2px black;
 }

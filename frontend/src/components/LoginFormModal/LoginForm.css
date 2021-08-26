@@ -4,6 +4,7 @@
     width: 350px;
     height: 250px;
     align-items: center;
+    background-color: antiquewhite;
 }
 
 .login__modal--form {
@@ -11,4 +12,25 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: antiquewhite;
+}
+
+.login--btn {
+    text-decoration: none;
+    height: 20px;
+    width: 70px;
+    background-color: aquamarine;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    border-radius: 3px;
+}
+
+.login--btn:hover {
+    box-shadow: 2px 2px 2px black;
+}
+
+.login--btn:active {
+    box-shadow: -2px -2px 2px black;
 }

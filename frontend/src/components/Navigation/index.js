@@ -17,17 +17,14 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup" className='navbar--navlink'>Sign Up</NavLink>
       </>
     );
   }
 
   return (
     <div className='navbar__main--div'>
-        <div className='navbar__links--div'>
-
-        </div>
-        <NavLink exact to="/home">Home</NavLink>
+        <NavLink exact to="/home" className='navbar--navlink'>Home</NavLink>
         {isLoaded && sessionLinks}
     </div>
   );
