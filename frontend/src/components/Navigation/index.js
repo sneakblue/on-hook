@@ -11,7 +11,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+        <>
+            <NavLink to='/create-fishing-spot' className='navbar--navlink'>Create</NavLink>
+            <ProfileButton user={sessionUser} />
+        </>
     );
   } else {
     sessionLinks = (

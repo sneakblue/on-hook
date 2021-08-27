@@ -44,6 +44,7 @@
     justify-content: center;
     border: 0px;
     border-radius: 3px;
+    color: black;
 }
 
 .navbar--navlink:hover {

@@ -14,7 +14,7 @@
 .Homepage__main--div {
     width: 100vw;
     height: auto;
-    /* overflow: hidden; */
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }

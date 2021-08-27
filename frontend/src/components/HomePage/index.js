@@ -22,7 +22,7 @@ export default function HomePage() {
                     return (
                         <div>
                             <h4>{fishingSpot.name}</h4>
-                            <img src={fishingSpot.pic}/>
+                            <img alt={fishingSpot.id} src={fishingSpot.pic}/>
                         </div>
                     )
                 })}
