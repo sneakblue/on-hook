@@ -38,6 +38,7 @@ export default function FishingSpotForm () {
         if (city.length === 0) {
             errors.push('Must provide a city')
         };
+        console.log('before state error check')
         if (state.length === 0) {
             errors.push('Must provide a state')
         };
@@ -50,8 +51,9 @@ export default function FishingSpotForm () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        checkErrors();
-        if (errors.length === 0) {
+        let submitErrors = checkErrors();
+        if (submitErrors.length === 0) {
+            console.log('passed error check')
             const newFishingSpot = {
                 user_id: sessionUser.id,
                 name,
@@ -71,6 +73,9 @@ export default function FishingSpotForm () {
 
     return (
         <>
+            <ul className='errors'>
+                {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
             <form
                 onSubmit={handleSubmit}
                 className='fishing-spot--form'
@@ -81,6 +86,7 @@ export default function FishingSpotForm () {
                         type='text'
                         name='name'
                         value={name}
+                        required={true}
                         onChange={e => setName(e.target.value)}
                     />
                 </div>
@@ -91,6 +97,7 @@ export default function FishingSpotForm () {
                         value={description}
                         wrap='soft'
                         spellCheck='true'
+                        required={true}
                         className='description--input'
                         onChange={e => setDescription(e.target.value)}
                     />
@@ -101,6 +108,7 @@ export default function FishingSpotForm () {
                         type='url'
                         name='pic'
                         value={pic}
+                        required={true}
                         onChange={e => setPic(e.target.value)}
                     />
                 </div>
@@ -110,6 +118,7 @@ export default function FishingSpotForm () {
                         type='text'
                         name='city'
                         value={city}
+                        required={true}
                         onChange={e => setCity(e.target.value)}
                     />
                 </div>
@@ -119,6 +128,7 @@ export default function FishingSpotForm () {
                         type='text'
                         name='state'
                         value={state}
+                        required={true}
                         onChange={e => setState(e.target.value)}
                     />
                 </div>
@@ -128,6 +138,7 @@ export default function FishingSpotForm () {
                         type='text'
                         name='country'
                         value={country}
+                        required={true}
                         onChange={e => setCountry(e.target.value)}
                     />
                 </div>
@@ -137,6 +148,7 @@ export default function FishingSpotForm () {
                         type='number'
                         name='lat'
                         value={lat}
+                        required={true}
                         onChange={e => setLat(e.target.value)}
                     />
                 </div>
@@ -146,6 +158,7 @@ export default function FishingSpotForm () {
                         type='number'
                         name='lng'
                         value={lng}
+                        required={true}
                         onChange={e => setLng(e.target.value)}
                     />
                 </div>
