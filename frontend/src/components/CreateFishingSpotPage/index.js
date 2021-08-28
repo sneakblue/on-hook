@@ -1,10 +1,13 @@
 import FishingSpotForm from "../FishingSpotForm"
+import './CreateFishingSpotPage.css';
 
 export default function CreateFishingSpot () {
     return (
-        <>
-            <h2>Create Fishing Spot Page</h2>
-            <FishingSpotForm />
-        </>
+        <div className='create-fishing-spot-main--div'>
+            <div className='fishing-spot-form'>
+                <h2 className='create-fishing-spot--title'>Create A Fishing Spot</h2>
+                <FishingSpotForm />
+            </div>
+        </div>
     )
 }

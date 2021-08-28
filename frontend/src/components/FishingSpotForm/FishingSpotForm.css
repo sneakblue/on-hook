@@ -1,0 +1,21 @@
+.form__input--div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px;
+}
+
+.fishing-spot--form {
+    display: flex;
+    flex-direction: column;
+    height: 425px;
+    width: 300px;
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.description--input {
+    height: 80px;
+    resize: none;
+    border-radius: 2px;
+}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createFishingSpot } from '../../store/fishing_spots';
+import './FishingSpotForm.css';
 
 export default function FishingSpotForm () {
     const dispatch = useDispatch();
@@ -70,11 +71,11 @@ export default function FishingSpotForm () {
 
     return (
         <>
-            <h2>Fishing Spot Form</h2>
             <form
                 onSubmit={handleSubmit}
+                className='fishing-spot--form'
             >
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='name'>Name</label>
                     <input
                         type='text'
@@ -83,16 +84,18 @@ export default function FishingSpotForm () {
                         onChange={e => setName(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='description'>Description</label>
-                    <input
-                        type='text'
+                    <textarea
                         name='description'
                         value={description}
+                        wrap='soft'
+                        spellCheck='true'
+                        className='description--input'
                         onChange={e => setDescription(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='pic'>Picture</label>
                     <input
                         type='url'
@@ -101,7 +104,7 @@ export default function FishingSpotForm () {
                         onChange={e => setPic(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='city'>City</label>
                     <input
                         type='text'
@@ -110,7 +113,7 @@ export default function FishingSpotForm () {
                         onChange={e => setCity(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='state'>State</label>
                     <input
                         type='text'
@@ -119,7 +122,7 @@ export default function FishingSpotForm () {
                         onChange={e => setState(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='country'>Country</label>
                     <input
                         type='text'
@@ -128,7 +131,7 @@ export default function FishingSpotForm () {
                         onChange={e => setCountry(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='lat'>Lattitude</label>
                     <input
                         type='number'
@@ -137,7 +140,7 @@ export default function FishingSpotForm () {
                         onChange={e => setLat(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className='form__input--div'>
                     <label htmlFor='lng'>Longitude</label>
                     <input
                         type='number'
