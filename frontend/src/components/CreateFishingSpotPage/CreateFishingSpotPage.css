@@ -1,0 +1,30 @@
+.create-fishing-spot-main--div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: seashell;
+    flex: wrap;
+    height: 95vh;
+    background-image: url('../../images/boat.jpg');
+    background-size: cover;
+}
+
+.create-fishing-spot-side--img {
+    background-size: cover;
+    height: 750px;
+    width: 500px;
+    border-radius: 5px;
+    margin: 15px;
+
+}
+
+.fishing-spot-form {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .create-fishing-spot--title {
+    color: rgb(192, 183, 176);
+} */
