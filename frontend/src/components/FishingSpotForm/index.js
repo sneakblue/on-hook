@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { createFishingSpot } from '../../store/fishing_spots';
+import { createFishingSpot, renewFishingSpot } from '../../store/fishing_spots';
 import './FishingSpotForm.css';
 
-export default function FishingSpotForm () {
+export default function FishingSpotForm ({ isEdit, fishingSpot }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -21,6 +21,21 @@ export default function FishingSpotForm () {
     if(!sessionUser) {
         history.push('/home');
     }
+
+    useEffect(() => {
+        if (isEdit) {
+            setPic(fishingSpot.pic);
+            setDescription(fishingSpot.description);
+            setName(fishingSpot.name);
+            setCity(fishingSpot.city);
+            setState(fishingSpot.state);
+            setCountry(fishingSpot.country);
+            setLat(fishingSpot.lat);
+            setLng(fishingSpot.lng);
+        }
+
+    }, [fishingSpot, isEdit])
+
 
     const checkErrors = () => {
         const errors = [];
@@ -54,19 +69,36 @@ export default function FishingSpotForm () {
         let submitErrors = checkErrors();
         if (submitErrors.length === 0) {
             console.log('passed error check')
-            const newFishingSpot = {
-                user_id: sessionUser.id,
-                name,
-                pic,
-                description,
-                city,
-                state,
-                country,
-                lat,
-                lng
+            if (isEdit) {
+                const newFishingSpot = {
+                    id: fishingSpot.id,
+                    user_id: fishingSpot.user_id,
+                    name,
+                    pic,
+                    description,
+                    city,
+                    state,
+                    country,
+                    lat,
+                    lng
+                }
+                dispatch(renewFishingSpot(newFishingSpot));
+                history.push(`/fishing-spot/${fishingSpot.id}`)
+            } else {
+                const newFishingSpot = {
+                    user_id: sessionUser.id,
+                    name,
+                    pic,
+                    description,
+                    city,
+                    state,
+                    country,
+                    lat,
+                    lng
+                }
+                dispatch(createFishingSpot(newFishingSpot));
+                history.push('/home');
             }
-            dispatch(createFishingSpot(newFishingSpot));
-            history.push('/home');
         }
     }
 

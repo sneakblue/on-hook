@@ -23,3 +23,28 @@
     height: 100%;
     width: 100%;
 }
+
+.home__fishing-spot--div {
+    width: 80%;
+    height: 100px;
+    display: flex;
+}
+
+.home__fishing-spot-img--div {
+    height: 90px;
+    width: 90px;
+    overflow: hidden;
+}
+
+.home__fishing-spot--img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.Homepage__main-fishing-spot--div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import HomePage from './components/HomePage';
+import FishingSpotPage from './components/FishingSpotPage/FishingSpotPage';
 import CreateFishingSpot from './components/CreateFishingSpotPage';
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path='/create-fishing-spot'>
               <CreateFishingSpot />
+          </Route>
+          <Route path='/fishing-spot/:id'>
+              <FishingSpotPage />
           </Route>
         </Switch>
       )}
