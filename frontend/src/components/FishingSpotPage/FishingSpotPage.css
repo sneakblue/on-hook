@@ -19,6 +19,8 @@
 .fishing-spot-img--div {
     height: 300px;
     width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .fishing-spot-img--img {
@@ -41,6 +43,7 @@
     border: 0px;
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
+    border-radius: 3px;
 }
 
 .edit-delete--btn:hover {

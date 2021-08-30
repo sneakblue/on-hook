@@ -194,7 +194,7 @@ export default function FishingSpotForm ({ isEdit, fishingSpot }) {
                         onChange={e => setLng(e.target.value)}
                     />
                 </div>
-                <button type='submit'>Submit</button>
+                <button type='submit' className='form__submit--btn'>Submit</button>
             </form>
         </>
     )
