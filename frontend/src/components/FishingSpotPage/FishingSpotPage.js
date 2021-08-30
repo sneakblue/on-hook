@@ -30,8 +30,8 @@ export default function FishingSpotPage() {
     if (sessionUser && sessionUser.id === fishingSpot.user_id) {
         content = (
             <div className='user__edit-delete-btn--div'>
-                <button type='button' onClick={() => setShowEdit(!showEdit)}>Edit</button>
-                <button type='button' onClick={handleDelete}>Delete</button>
+                <button type='button' className='edit-delete--btn' onClick={() => setShowEdit(!showEdit)}>Edit</button>
+                <button type='button' className='edit-delete--btn' onClick={handleDelete}>Delete</button>
             </div>
         )
     } else {

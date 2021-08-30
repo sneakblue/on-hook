@@ -36,6 +36,21 @@
 
 }
 
+.edit-delete--btn {
+    margin: 5px;
+    border: 0px;
+    background-color: aquamarine;
+    box-shadow: 1px 1px 1px black;
+}
+
+.edit-delete--btn:hover {
+    background-color: aqua;
+}
+
+.edit-delete--btn:active {
+    box-shadow: -1px -1px 1px black;
+}
+
 .user__edit-delete-btn--div {
     display: flex;
     flex-direction: column;
