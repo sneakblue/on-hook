@@ -14,7 +14,6 @@
 .Homepage__main--div {
     width: 100vw;
     height: auto;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -25,15 +24,23 @@
 }
 
 .home__fishing-spot--div {
-    width: 80%;
+    width: 50%;
     height: 100px;
     display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
 }
 
 .home__fishing-spot-img--div {
     height: 90px;
-    width: 90px;
+    width: 125px;
     overflow: hidden;
+    padding-right: 10px;
 }
 
 .home__fishing-spot--img {

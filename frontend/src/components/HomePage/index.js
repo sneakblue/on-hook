@@ -23,11 +23,14 @@ export default function HomePage() {
                         return (
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>
-                                    <h4>{fishingSpot.name}</h4>
-
+                                    <div className='home__fishing-spot-img--div'>
+                                        <img alt={fishingSpot.id} src={fishingSpot.pic} className='home__fishing-spot--img'/>
+                                    </div>
                                 </Link>
-                                <div className='home__fishing-spot-img--div'>
-                                    <img alt={fishingSpot.id} src={fishingSpot.pic} className='home__fishing-spot--img'/>
+                                <div>
+                                    <h4>{fishingSpot.name}</h4>
+                                    <h5>{fishingSpot.city}, {fishingSpot.state}</h5>
+                                    <h5>{fishingSpot.lat}, {fishingSpot.lng}</h5>
                                 </div>
                             </div>
                         )

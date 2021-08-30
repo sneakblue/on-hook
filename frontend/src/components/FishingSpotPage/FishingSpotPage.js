@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot } from '../../store/fishing_spots';
 import FishingSpotForm from '../FishingSpotForm';
+import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
     const dispatch = useDispatch();
@@ -27,10 +28,10 @@ export default function FishingSpotPage() {
     let content;
     if (sessionUser && sessionUser.id === fishingSpot.user_id) {
         content = (
-            <>
+            <div className='user__edit-delete-btn--div'>
                 <button type='button' onClick={() => setShowEdit(!showEdit)}>Edit</button>
                 <button type='button' onClick={handleDelete}>Delete</button>
-            </>
+            </div>
         )
     } else {
         content = (
@@ -40,13 +41,19 @@ export default function FishingSpotPage() {
     }
 
     return (
-        <div>
-            <h2>{fishingSpot.name}</h2>
-            <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
-            <img src={fishingSpot.pic} alt={fishingSpot.id}/>
-            <p>{fishingSpot.description}</p>
-            {content}
-            {showEdit && <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />}
+        <div className='fishing-spot__content--div'>
+            <div className='fishing-spot__content--div'>
+                <div className='fishing-spot__title--div'>
+                    <h2>{fishingSpot.name}</h2>
+                    <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
+                </div>
+                <div className='fishing-spot-img--div'>
+                    <img src={fishingSpot.pic} className='fishing-spot-img--img' alt={fishingSpot.id}/>
+                </div>
+                <p>{fishingSpot.description}</p>
+                {content}
+                {showEdit && <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />}
+            </div>
         </div>
     )
 }
