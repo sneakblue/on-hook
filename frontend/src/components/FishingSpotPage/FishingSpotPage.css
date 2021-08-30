@@ -6,9 +6,21 @@
     align-items: center;
 }
 
+.fishing-spot__main--div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fishing-spot__comments--div {
+    width: 50vw;
+    height: 500px;
+}
+
 .fishing-spot-img--div {
     height: 300px;
     width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .fishing-spot-img--img {
@@ -18,15 +30,28 @@
 
 .fishing-spot__title--div {
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    width: 100%;
-
+    flex-direction: column
 }
 
 .fishing-spot__content--div {
     display: flex;
 
+}
+
+.edit-delete--btn {
+    margin: 5px;
+    border: 0px;
+    background-color: aquamarine;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 3px;
+}
+
+.edit-delete--btn:hover {
+    background-color: aqua;
+}
+
+.edit-delete--btn:active {
+    box-shadow: -1px -1px 1px black;
 }
 
 .user__edit-delete-btn--div {
