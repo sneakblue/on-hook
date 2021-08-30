@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot } from '../../store/fishing_spots';
 import FishingSpotForm from '../FishingSpotForm';
+import { Modal } from '../../context/Modal';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -41,7 +42,7 @@ export default function FishingSpotPage() {
     }
 
     return (
-        <div className='fishing-spot__content--div'>
+        <div className='fishing-spot__main--div'>
             <div className='fishing-spot__content--div'>
                 <div className='fishing-spot__title--div'>
                     <h2>{fishingSpot.name}</h2>
@@ -52,7 +53,13 @@ export default function FishingSpotPage() {
                 </div>
                 <p>{fishingSpot.description}</p>
                 {content}
-                {showEdit && <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />}
+                {showEdit && <Modal onClose={() => setShowEdit(false)}>
+                        <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />
+                    </Modal>
+                }
+            </div>
+            <div className='fishing-spot__comments--div'>
+
             </div>
         </div>
     )

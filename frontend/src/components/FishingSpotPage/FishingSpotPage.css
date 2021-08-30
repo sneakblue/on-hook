@@ -6,6 +6,16 @@
     align-items: center;
 }
 
+.fishing-spot__main--div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fishing-spot__comments--div {
+    width: 50vw;
+    height: 500px;
+}
+
 .fishing-spot-img--div {
     height: 300px;
     width: 400px;
@@ -18,10 +28,7 @@
 
 .fishing-spot__title--div {
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    width: 100%;
-
+    flex-direction: column
 }
 
 .fishing-spot__content--div {
