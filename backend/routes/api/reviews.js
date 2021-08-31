@@ -11,8 +11,10 @@ router.get('/', asyncHandler( async(req, res) => {
 
 router.get('/:id', asyncHandler( async(req, res) => {
     const  { id } = req.params;
-    const review = await Review.findByPk(id);
-    return res.json({ review });
+    const reviews = await Review.findAll({
+        where: { fishing_spot_id: id }
+    });
+    return res.json({ reviews });
 }))
 
 router.post('/', asyncHandler( async(req, res) => {
