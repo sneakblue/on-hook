@@ -25,7 +25,8 @@ export default function reducer (state = initialState, action) {
         }
         case CREATE_FISHING_SPOT: {
             const newState = { ...state };
-            newState[action.fishing_spot.id] = action.fishing_spot;
+            console.log(action.payload.fishing_spot)
+            newState[action.payload.fishing_spot.id] = action.payload.fishing_spot;
             return newState;
         }
         case DELETE_FISHING_SPOT: {
