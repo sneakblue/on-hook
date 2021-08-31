@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot } from '../../store/fishing_spots';
 import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
+import ReviewSection from '../ReviewSection';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -57,6 +58,7 @@ export default function FishingSpotPage() {
                         <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />
                     </Modal>
                 }
+                <ReviewSection id={id} />
             </div>
             <div className='fishing-spot__comments--div'>
 

@@ -1,5 +1,4 @@
 const express = require("express");
-const { check } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 const { Fishing_Spot, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
 

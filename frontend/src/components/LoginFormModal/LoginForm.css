@@ -5,6 +5,7 @@
     height: 250px;
     align-items: center;
     background-color: antiquewhite;
+    border-radius: 5px;
 }
 
 .login__modal--form {
