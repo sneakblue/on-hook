@@ -97,6 +97,7 @@ export default function ReviewSection({ id }) {
                                     <textarea
                                         required={true}
                                         className='edit-review--textarea'
+                                        maxLength={255}
                                         value={newReview}
                                         onChange={e => setNewReview(e.target.value)}
                                     />
