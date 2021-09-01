@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot } from '../../store/fishing_spots';
 import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
+import ReviewSection from '../ReviewSection';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -13,11 +14,24 @@ export default function FishingSpotPage() {
     const [ showEdit, setShowEdit ] = useState(false);
     const fishingSpot = useSelector(state => state.fishing_spots[id]);
     const sessionUser = useSelector(state => state.session.user);
+    const reviews = useSelector(state => Object.values(state.reviews))
     const isEdit = true;
 
     useEffect(() => {
         dispatch(getFishingSpot(id));
-    }, [dispatch, id])
+    }, [dispatch, id]);
+    let average;
+    let fishingSpotReviews = [];
+    reviews.forEach(review => {
+        if (review.fishing_spot_id === Number(id)) {
+            fishingSpotReviews.push(review);
+        }
+    })
+    let sum = 0;
+    fishingSpotReviews.forEach(review => {
+        sum += review.rating;
+    })
+    average = sum / fishingSpotReviews.length;
 
     if (!fishingSpot) return null;
 
@@ -52,11 +66,13 @@ export default function FishingSpotPage() {
                     <img src={fishingSpot.pic} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                 </div>
                 <p>{fishingSpot.description}</p>
+                <h4>Rating: {average}</h4>
                 {content}
                 {showEdit && <Modal onClose={() => setShowEdit(false)}>
                         <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />
                     </Modal>
                 }
+                <ReviewSection id={id} />
             </div>
             <div className='fishing-spot__comments--div'>
 

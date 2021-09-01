@@ -53,7 +53,6 @@ export default function FishingSpotForm ({ isEdit, fishingSpot }) {
         if (city.length === 0) {
             errors.push('Must provide a city')
         };
-        console.log('before state error check')
         if (state.length === 0) {
             errors.push('Must provide a state')
         };
@@ -68,7 +67,6 @@ export default function FishingSpotForm ({ isEdit, fishingSpot }) {
         e.preventDefault();
         let submitErrors = checkErrors();
         if (submitErrors.length === 0) {
-            console.log('passed error check')
             if (isEdit) {
                 const newFishingSpot = {
                     id: fishingSpot.id,
