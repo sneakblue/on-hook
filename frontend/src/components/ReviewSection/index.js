@@ -61,7 +61,9 @@ export default function ReviewSection({ id }) {
             )}
             {reviews.map(review => {
                 if (Number(review.fishing_spot_id) === Number(id)) {
-                    if (showEdit) {
+                    console.log('going into show edit form')
+                    if (showEdit && review.user_id === sessionUser.id) {
+                        console.log('inside show edit')
                         if (prevReview !== review.review) {
                             setPrevReview(review.review)
                         }
