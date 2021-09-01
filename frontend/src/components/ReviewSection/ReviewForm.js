@@ -20,7 +20,7 @@ export default function ReviewForm({ sessionUser, id }) {
         return validationErrors;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         validateErrors();
         if (errors.length === 0) {
@@ -30,10 +30,8 @@ export default function ReviewForm({ sessionUser, id }) {
                 user_id: sessionUser.id,
                 fishing_spot_id: id
             }
-            dispatch(createReview(newReview));
-
+            await dispatch(createReview(newReview));
         }
-
     }
 
     return (

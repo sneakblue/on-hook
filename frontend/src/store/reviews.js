@@ -33,6 +33,7 @@ export default function reducer (state = initialState, action) {
         }
         case UPDATE_REVIEW: {
             const newState = { ...state };
+            newState[action.payload.id] = action.payload
             return newState;
         }
         default: {
@@ -45,11 +46,6 @@ const loadReviews = (payload) => ({
     type: LOAD_REVIEWS,
     payload
 });
-
-// const loadReview = (payload) => ({
-//     type: LOAD_REVIEW,
-//     payload
-// });
 
 const addReview = (payload) => ({
     type: CREATE_REVIEW,
@@ -91,7 +87,7 @@ export const createReview = (data) => async dispatch => {
 
 export const putReview = (data) => async dispatch => {
     const { user_id, fishing_spot_id, review, rating, id } = data;
-    const res = await csrfFetch('/api/reviews', {
+    const res = await csrfFetch(`/api/reviews/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ user_id, fishing_spot_id, review, rating, id })
     });
