@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getReviews, deleteReview, putReview } from "../../store/reviews";
 import ReviewForm from './ReviewForm';
 import { useEffect, useState } from 'react';
+import ('./Reviews.css')
 
 export default function ReviewSection({ id }) {
     const dispatch = useDispatch();
@@ -54,16 +55,14 @@ export default function ReviewSection({ id }) {
     }
 
     return (
-        <div>
-            <h1>Review Section</h1>
+        <div className='reviews-main--div'>
+            <h2 className='reviews-title--h2'>Reviews</h2>
             {(sessionUser && !hasReview) && (
                 <ReviewForm sessionUser={sessionUser} id={id}/>
             )}
             {reviews.map(review => {
                 if (Number(review.fishing_spot_id) === Number(id)) {
-                    console.log('going into show edit form')
                     if (showEdit && review.user_id === sessionUser.id) {
-                        console.log('inside show edit')
                         if (prevReview !== review.review) {
                             setPrevReview(review.review)
                         }
@@ -71,13 +70,14 @@ export default function ReviewSection({ id }) {
                             setPrevRating(review.rating)
                         }
                         return (
-                            <div key={review.id}>
+                            <div className='new-review--div' key={review.id}>
                                 <ul>
                                     {errors.map(error => {
                                         return <li>{error}</li>
                                     })}
                                 </ul>
                                 <form
+                                    className='review-edit--form'
                                     onSubmit={ async e => {
                                         e.preventDefault();
                                         validateErrors();
@@ -96,10 +96,13 @@ export default function ReviewSection({ id }) {
                                 >
                                     <textarea
                                         required={true}
+                                        className='edit-review--textarea'
                                         value={newReview}
                                         onChange={e => setNewReview(e.target.value)}
                                     />
+                                    <h5>Rating</h5>
                                     <select
+                                        className='review-edit-rating--select'
                                         value={rating}
                                         onChange={e => setRating(e.target.value)}
                                     >
@@ -114,19 +117,19 @@ export default function ReviewSection({ id }) {
                                         <option>9</option>
                                         <option>10</option>
                                     </select>
-                                    <button type='submit'>Submit</button>
+                                    <button type='submit' className='edit-review--btn'>Submit</button>
                                 </form>
                             </div>
                         )
                     } else {
                         return (
-                            <div key={review.id}>
+                            <div key={review.id} className='review--div'>
                                 <p>{review.review}</p>
-                                <h5>{review.rating}</h5>
+                                <h5>Rating: {review.rating}</h5>
                                 {(sessionUser && review.user_id === sessionUser.id) && (
                                     <div>
-                                        <button type='button' onClick={() => showEdit === false ? setShowEdit(true) : setShowEdit(false)}>Edit</button>
-                                        <button type='button' onClick={() => handleDelete(review.id)}>Delete</button>
+                                        <button className='review-edit-delete--btn' type='button' onClick={() => showEdit === false ? setShowEdit(true) : setShowEdit(false)}>Edit</button>
+                                        <button className='review-edit-delete--btn' type='button' onClick={() => handleDelete(review.id)}>Delete</button>
                                     </div>
                                 )}
                             </div>

@@ -36,6 +36,10 @@
     box-shadow: 2px 2px 2px black;
 }
 
+.home__fishing-spot--div:hover {
+    background-color: aqua;
+}
+
 .home__fishing-spot-img--div {
     height: 90px;
     width: 125px;
