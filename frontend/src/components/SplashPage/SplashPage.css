@@ -1,0 +1,58 @@
+.splashPage__main--div {
+    height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-image: url('https://images.unsplash.com/photo-1605499907240-d4240d766581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'); */
+}
+
+.splashPage__description--div {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splashPage__image--div {
+    width: 55%;
+    height: 80%;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 2px 2px 5px black;
+}
+
+.splashPage__image--img {
+    height: 100%;
+    width: 100%;
+}
+
+.splashPage__link--btn {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: aquamarine;
+    box-shadow: 1px 1px 3px black;
+}
+
+.splashPage__link--btn:hover {
+    background-color: aqua;
+}
+
+.splashPage__link--btn:active {
+    box-shadow: -1px -1px 3px black;
+}
+
+.splashPage__btn--div {
+    margin: 20px;
+}

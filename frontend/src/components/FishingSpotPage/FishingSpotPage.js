@@ -6,6 +6,7 @@ import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
 import CommentSection from '../CommentSection';
+import Footer from '../HomePage/footer';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -33,7 +34,7 @@ export default function FishingSpotPage() {
         sum += review.rating;
     })
     if (sum !== 0) {
-        average = Math.floor(sum / fishingSpotReviews.length);
+        average = (sum / fishingSpotReviews.length).toFixed(1);
     }
 
     if (!fishingSpot) return null;
@@ -83,6 +84,7 @@ export default function FishingSpotPage() {
             <div className='fishing-spot__comments--div'>
                 {/* <CommentSection /> */}
             </div>
+            {/* <Footer /> */}
         </div>
     )
 }

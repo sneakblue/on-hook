@@ -51,6 +51,7 @@ export default function ReviewForm({ sessionUser, id }) {
                     required={true}
                     value={review}
                     maxLength={255}
+                    className='edit-review--textarea'
                     onChange={e => setReview(e.target.value)}
                 />
                 <h5>Rating</h5>

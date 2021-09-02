@@ -49,6 +49,7 @@
 
 .navbar--navlink:hover {
     box-shadow: 2px 2px 2px black;
+    background-color: aqua;
 }
 
 .navbar--navlink:active {
@@ -61,6 +62,7 @@
     width: 40px;
     background-color: antiquewhite;
     margin: 5px;
+    margin-right: 25px;
     display: flex;
     justify-content: center;
     align-items: center;

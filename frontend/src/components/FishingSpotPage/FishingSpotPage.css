@@ -6,9 +6,17 @@
     align-items: center;
 }
 
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .fishing-spot__main--div {
     display: flex;
     flex-wrap: wrap;
+    background-color: rgba(12, 175, 180, 0.2);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .fishing-spot__comments--div {

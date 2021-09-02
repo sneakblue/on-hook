@@ -11,7 +11,13 @@
     margin-right: 20px;
 }
 
+.Homepage__title--h1 {
+    margin-left: 50px;
+}
+
 .Homepage__main--div {
+    background-size: cover;
+    background-image: url('https://images.unsplash.com/photo-1517384084767-6bc118943770?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80');
     width: 100vw;
     height: auto;
     display: flex;
