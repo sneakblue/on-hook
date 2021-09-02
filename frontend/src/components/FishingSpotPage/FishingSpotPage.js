@@ -5,6 +5,7 @@ import { getFishingSpot, deleteFishingSpot } from '../../store/fishing_spots';
 import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
+import CommentSection from '../CommentSection';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -20,7 +21,7 @@ export default function FishingSpotPage() {
     useEffect(() => {
         dispatch(getFishingSpot(id));
     }, [dispatch, id]);
-    let average;
+    let average = 'No User Ratings';
     let fishingSpotReviews = [];
     reviews.forEach(review => {
         if (review.fishing_spot_id === Number(id)) {
@@ -31,7 +32,9 @@ export default function FishingSpotPage() {
     fishingSpotReviews.forEach(review => {
         sum += review.rating;
     })
-    average = sum / fishingSpotReviews.length;
+    if (sum !== 0) {
+        average = Math.floor(sum / fishingSpotReviews.length);
+    }
 
     if (!fishingSpot) return null;
 
@@ -58,24 +61,27 @@ export default function FishingSpotPage() {
     return (
         <div className='fishing-spot__main--div'>
             <div className='fishing-spot__content--div'>
-                <div className='fishing-spot__title--div'>
-                    <h2>{fishingSpot.name}</h2>
-                    <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
+                <div className='fishing-spot__info--div'>
+                    <div className='fishing-spot__title--div'>
+                        <h2>{fishingSpot.name}</h2>
+                        <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
+                    </div>
+                    <div className='fishing-spot-img--div'>
+                        <img src={fishingSpot.pic} className='fishing-spot-img--img' alt={fishingSpot.id}/>
+                    </div>
+                    <h4>Description</h4>
+                    <p className='fishing-spot__description'>{fishingSpot.description}</p>
+                    <h4>Rating: {average}</h4>
+                    {content}
+                    {showEdit && <Modal onClose={() => setShowEdit(false)}>
+                            <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />
+                        </Modal>
+                    }
                 </div>
-                <div className='fishing-spot-img--div'>
-                    <img src={fishingSpot.pic} className='fishing-spot-img--img' alt={fishingSpot.id}/>
-                </div>
-                <p>{fishingSpot.description}</p>
-                <h4>Rating: {average}</h4>
-                {content}
-                {showEdit && <Modal onClose={() => setShowEdit(false)}>
-                        <FishingSpotForm isEdit={isEdit} fishingSpot={fishingSpot} />
-                    </Modal>
-                }
                 <ReviewSection id={id} />
             </div>
             <div className='fishing-spot__comments--div'>
-
+                {/* <CommentSection /> */}
             </div>
         </div>
     )

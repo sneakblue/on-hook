@@ -35,3 +35,7 @@
 .form__submit--btn:active {
     box-shadow: -1px -1px 1px black;
 }
+
+.errors {
+    color: red;
+}

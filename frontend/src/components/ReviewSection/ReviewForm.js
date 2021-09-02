@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createReview } from "../../store/reviews";
+import './Reviews.css';
 
 export default function ReviewForm({ sessionUser, id }) {
     const dispatch = useDispatch();
@@ -35,8 +36,8 @@ export default function ReviewForm({ sessionUser, id }) {
     }
 
     return (
-        <>
-            <h2>Review form</h2>
+        <div className='new-review--div'>
+            <h2>Write a Review</h2>
             <ul>
                 {errors.map(error => {
                     return <li>{error}</li>
@@ -44,13 +45,17 @@ export default function ReviewForm({ sessionUser, id }) {
             </ul>
             <form
                 onSubmit={handleSubmit}
+                className='review-edit--form'
             >
                 <textarea
                     required={true}
                     value={review}
+                    maxLength={255}
                     onChange={e => setReview(e.target.value)}
                 />
+                <h5>Rating</h5>
                 <select
+                    className='review-edit-rating--select'
                     value={rating}
                     onChange={e => setRating(e.target.value)}
                 >
@@ -65,8 +70,8 @@ export default function ReviewForm({ sessionUser, id }) {
                     <option>9</option>
                     <option>10</option>
                 </select>
-                <button type='submit'>Submit</button>
+                <button type='submit' className='edit-review--btn'>Submit</button>
             </form>
-        </>
+        </div>
     )
 }
