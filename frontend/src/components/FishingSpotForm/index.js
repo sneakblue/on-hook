@@ -128,6 +128,7 @@ export default function FishingSpotForm ({ isEdit, fishingSpot }) {
                         wrap='soft'
                         spellCheck='true'
                         required={true}
+                        maxLength={255}
                         className='description--input'
                         onChange={e => setDescription(e.target.value)}
                     />

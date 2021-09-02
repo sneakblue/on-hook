@@ -21,7 +21,7 @@ export default function FishingSpotPage() {
     useEffect(() => {
         dispatch(getFishingSpot(id));
     }, [dispatch, id]);
-    let average;
+    let average = 'No User Ratings';
     let fishingSpotReviews = [];
     reviews.forEach(review => {
         if (review.fishing_spot_id === Number(id)) {
@@ -32,7 +32,9 @@ export default function FishingSpotPage() {
     fishingSpotReviews.forEach(review => {
         sum += review.rating;
     })
-    average = Math.floor(sum / fishingSpotReviews.length);
+    if (sum !== 0) {
+        average = Math.floor(sum / fishingSpotReviews.length);
+    }
 
     if (!fishingSpot) return null;
 
@@ -67,7 +69,8 @@ export default function FishingSpotPage() {
                     <div className='fishing-spot-img--div'>
                         <img src={fishingSpot.pic} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                     </div>
-                    <p>{fishingSpot.description}</p>
+                    <h4>Description</h4>
+                    <p className='fishing-spot__description'>{fishingSpot.description}</p>
                     <h4>Rating: {average}</h4>
                     {content}
                     {showEdit && <Modal onClose={() => setShowEdit(false)}>

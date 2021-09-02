@@ -14,6 +14,11 @@
 .fishing-spot__comments--div {
     width: 48vw;
     height: 500px;
+    /* border: 1px solid black; */
+    margin: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 5px black;
 }
 
 .fishing-spot-img--div {
@@ -69,5 +74,16 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
     box-shadow: 1px 1px 3px black;
+}
+
+.fishing-spot__description {
+    margin: 10px;
+    width: 90%;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    /* box-shadow: 1px 1px 3px black; */
+    border-radius: 5px;
 }

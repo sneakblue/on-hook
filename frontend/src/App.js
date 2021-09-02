@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import HomePage from './components/HomePage';
+import SplashPage from './components/SplashPage';
 import FishingSpotPage from './components/FishingSpotPage/FishingSpotPage';
 import CreateFishingSpot from './components/CreateFishingSpotPage';
 // import LoginFormPage from "./components/LoginFormPage";
@@ -20,17 +21,8 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {/* <button onClick={() => setShowModal(true)}>Modal</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <h1>Hello I am a Modal</h1>
-        </Modal>
-      )} */}
       {isLoaded && (
         <Switch>
-          {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route> */}
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
@@ -42,6 +34,9 @@ function App() {
           </Route>
           <Route path='/fishing-spot/:id'>
               <FishingSpotPage />
+          </Route>
+          <Route path='/' exact={true}>
+              <SplashPage />
           </Route>
         </Switch>
       )}
