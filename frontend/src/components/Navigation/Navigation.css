@@ -47,6 +47,10 @@
     color: black;
 }
 
+.navbar-signup--navlink {
+    margin-right: 25px;
+}
+
 .navbar--navlink:hover {
     box-shadow: 2px 2px 2px black;
     background-color: aqua;
