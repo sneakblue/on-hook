@@ -56,7 +56,7 @@ export default function ReviewSection({ id }) {
 
     return (
         <div className='reviews-main--div'>
-            <h2 className='reviews-title--h2'>Reviews</h2>
+            <h2 className='reviews-title--h2'>User Reviews</h2>
             {(sessionUser && !hasReview) && (
                 <ReviewForm sessionUser={sessionUser} id={id}/>
             )}
