@@ -2,11 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot, renewFishingSpot } from '../../store/fishing_spots';
-import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
 // import CommentSection from '../CommentSection';
-// import Footer from '../HomePage/footer';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -26,7 +24,6 @@ export default function FishingSpotPage() {
     const [ errors, setErrors ] = useState([]);
     const sessionUser = useSelector(state => state.session.user);
     const reviews = useSelector(state => Object.values(state.reviews))
-    const isEdit = true;
 
     useEffect(() => {
         dispatch(getFishingSpot(id));
@@ -41,7 +38,7 @@ export default function FishingSpotPage() {
         setLat(fishingSpot?.lat);
         setLng(fishingSpot?.lng);
         setDescription(fishingSpot?.description);
-    }, [showEdit])
+    }, [showEdit, fishingSpot?.pic, fishingSpot?.name, fishingSpot?.city, fishingSpot?.state, fishingSpot?.country, fishingSpot?.lat, fishingSpot?.lng, fishingSpot?.description ])
 
     let average = 'No User Ratings';
     let fishingSpotReviews = [];
