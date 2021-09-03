@@ -31,11 +31,13 @@
     justify-content: flex-end;
     height: 40px;
     width: 100vw;
+    box-shadow: 1px 0px 3px black;
     background-color: aquamarine;
 }
 
 .navbar--navlink {
     text-decoration: none;
+    font-weight: bold;
     height: 20px;
     width: 70px;
     background-color: antiquewhite;

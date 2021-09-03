@@ -81,7 +81,7 @@ export default function FishingSpotForm ({ isEdit, fishingSpot }) {
                     lng
                 }
                 dispatch(renewFishingSpot(newFishingSpot));
-                history.push(`/fishing-spot/${fishingSpot.id}`)
+                history.push(`/fishing-spot/${fishingSpot.id}`);
             } else {
                 const newFishingSpot = {
                     user_id: sessionUser.id,
