@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import fishingSpotReducer from './fishing_spots';
 import reviewReducer from './reviews';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
   session,
   fishing_spots: fishingSpotReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  comments: commentReducer
 });
 
 let enhancer;
