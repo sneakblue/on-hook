@@ -12,6 +12,9 @@ export default function reducer(state = initialState, action) {
     switch(action.type) {
         case LOAD_COMMENTS: {
             const newState = { ...state }
+            action.payload.forEach(comment => {
+                newState[comment.id] = comment;
+            });
             return newState;
         }
         case CREATE_COMMENT: {
