@@ -1,0 +1,16 @@
+.comment-div {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    background-color: seashell;
+    box-shadow: 1px 1px 3px black;
+}
+
+.comment-btns {
+    margin: 5px;
+    border: 0px;
+    background-color: aquamarine;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 3px;
+}

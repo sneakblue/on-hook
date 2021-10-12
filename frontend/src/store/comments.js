@@ -19,14 +19,17 @@ export default function reducer(state = initialState, action) {
         }
         case CREATE_COMMENT: {
             const newState = { ...state }
+            newState[action.payload.id] = action.payload;
             return newState;
         }
         case UPDATE_COMMENT: {
             const newState = { ...state }
+            newState[action.payload.id] = action.payload;
             return newState;
         }
         case DELETE_COMMENT: {
-            const newState = { ...state }
+            const newState = { ...state };
+            delete newState[action.id];
             return newState;
         }
         default: {
@@ -92,7 +95,7 @@ export const putComment = (data) => async dispatch => {
     }
 }
 
-export const deleteReview = (id) => async dispatch => {
+export const deleteComment = (id) => async dispatch => {
     const res = await csrfFetch(`/api/comments/${id}`, {
         method: 'DELETE'
     });

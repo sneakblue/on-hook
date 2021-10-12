@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getFishingSpot, deleteFishingSpot, renewFishingSpot } from '../../store/fishing_spots';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
-// import CommentSection from '../CommentSection';
+import CommentSection from '../CommentSection';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -241,7 +241,7 @@ export default function FishingSpotPage() {
                 <ReviewSection id={id} />
             </div>
             <div className='fishing-spot__comments--div'>
-                {/* <CommentSection /> */}
+                <CommentSection fishingSpot={fishingSpot} sessionUser={sessionUser}/>
             </div>
             {/* <Footer /> */}
         </div>
