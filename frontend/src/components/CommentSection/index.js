@@ -24,6 +24,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
 
     const handlePost = (e) => {
         e.preventDefault();
+        if (comment.length === 0) return;
         const newComment = {
             user_id: sessionUser.id,
             fishing_spot_id: fishingSpot.id,
@@ -78,7 +79,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
     }
 
     return (
-        <div>
+        <div className='main-comments-div'>
             <h3>Comments</h3>
             {content}
             {comments.map(comment => {
