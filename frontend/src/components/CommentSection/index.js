@@ -83,7 +83,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
             {content}
             {comments.map(comment => {
                 let commentBtns = null;
-                if (sessionUser.id === comment.user_id) {
+                if (sessionUser && sessionUser.id === comment.user_id) {
                     commentBtns = (
                         <div>
                             <button type='button' className='comment-btns' onClick={() => {
