@@ -37,6 +37,25 @@
     /* padding: 5px; */
 }
 
+.comment-edit--div {
+    border-radius: 5px;
+    background-color: seashell;
+    box-shadow: 1px 1px 3px black;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: auto;
+    flex-direction: column;
+}
+
+.comment-edit--textarea {
+    width: 90%;
+    font-size: 16px;
+    height: 80px;
+    overflow-x: none;
+}
+
 .post-comment-form {
     width: 100%;
     display: flex;
