@@ -105,9 +105,9 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
                 let commentContent = null;
                 if (showEdit && editingComment === comment.id) {
                     commentContent = (
-                        <div key={comment.id}>
-                            <textarea value={updatedComment} onChange={(e) => setUpdatedComment(e.target.value)}/>
-                            <button type='submit' onClick={() => handlePut(comment.id)}>Submit</button>
+                        <div key={comment.id} className='comment-edit--div'>
+                            <textarea value={updatedComment} className='comment-edit--textarea' onChange={(e) => setUpdatedComment(e.target.value)}/>
+                            <button type='submit' className='comment-btns' onClick={() => handlePut(comment.id)}>Submit</button>
                         </div>
                     )
                 } else {
