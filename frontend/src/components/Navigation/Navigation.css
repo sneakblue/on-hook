@@ -26,6 +26,7 @@
 }
 
 .navbar__main--div {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: flex-end;

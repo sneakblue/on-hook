@@ -17,6 +17,7 @@ body {
     background-color: rgba(12, 175, 180, 0.2);
     overflow-x: hidden;
     min-height: 100vh;
+    padding-top: 50px;
 }
 
 .fishing-spot__comments--div {
