@@ -22,7 +22,10 @@ body {
 
 .fishing-spot__comments--div {
     width: 48vw;
+    max-width: 600px;
     height: 500px;
+    display: flex;
+    justify-content: center;
     /* border: 1px solid black; */
     margin: 10px;
     border-radius: 5px;
