@@ -1,4 +1,5 @@
 import Footer from "./footer";
+import MapSection from "../MapSection";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFishingSpots } from "../../store/fishing_spots";
@@ -18,6 +19,7 @@ export default function HomePage() {
         <div className='Homepage__main--div'>
             <div className='Homepage__content--div'>
                 <h1 className='Homepage__title--h1'>Current Fishing Spots</h1>
+                <MapSection />
                 <div className='Homepage__main-fishing-spot--div'>
                     {fishingSpots.map(fishingSpot => {
                         return (

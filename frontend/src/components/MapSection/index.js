@@ -1,9 +1,9 @@
 import GoogleMapReact from 'google-map-react';
 import SpotMarker from './SpotMarker';
 
-function MapSection() {
-    console.log(process.env.REACT_APP_MAPS_KEY)
+import './MapSection.css';
 
+function MapSection() {
 
     return (
         <div className="map--div">
