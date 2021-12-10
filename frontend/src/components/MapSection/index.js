@@ -1,9 +1,19 @@
 import GoogleMapReact from 'google-map-react';
 import SpotMarker from './SpotMarker';
+import { useState, useEffect } from 'react';
 
 import './MapSection.css';
 
 function MapSection() {
+    const [currLat, setCurrLat] = useState(0);
+    const [currLong, setCurrLong] = useState(0);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((pos) => {
+            setCurrLat(pos.coords.latitude);
+            setCurrLong(pos.coords.longitude);
+        });
+    }, [])
 
     return (
         <div className="map--div">
