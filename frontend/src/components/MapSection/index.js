@@ -15,6 +15,8 @@ function MapSection({ fishingSpots }) {
         });
     }, [])
 
+    console.log(process.env.REACT_APP_MAPS_KEY)
+
     return (
         <div className="map--div">
             <GoogleMapReact
