@@ -141,100 +141,100 @@ export default function FishingSpotPage() {
                     <h4>Rating: {average}</h4>
                     {content}
                     {showEdit && <Modal onClose={() => setShowEdit(false)}>
-                    <>
-            <ul className='errors'>
-                {errors.map((error) => <li key={error}>{error}</li>)}
-            </ul>
-            <form
-                onSubmit={handleSubmit}
-                className='fishing-spot--form'
-            >
-                <div className='form__input--div'>
-                    <label htmlFor='name'>Name</label>
-                    <input
-                        type='text'
-                        name='name'
-                        value={name}
-                        required={true}
-                        onChange={e => setName(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='description'>Description</label>
-                    <textarea
-                        name='description'
-                        value={description}
-                        wrap='soft'
-                        spellCheck='true'
-                        required={true}
-                        maxLength={255}
-                        className='description--input'
-                        onChange={e => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='pic'>Picture</label>
-                    <input
-                        type='url'
-                        name='pic'
-                        value={pic}
-                        required={true}
-                        onChange={e => setPic(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='city'>City</label>
-                    <input
-                        type='text'
-                        name='city'
-                        value={city}
-                        required={true}
-                        onChange={e => setCity(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='state'>State</label>
-                    <input
-                        type='text'
-                        name='state'
-                        value={state}
-                        required={true}
-                        onChange={e => setState(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='country'>Country</label>
-                    <input
-                        type='text'
-                        name='country'
-                        value={country}
-                        required={true}
-                        onChange={e => setCountry(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='lat'>Lattitude</label>
-                    <input
-                        type='number'
-                        name='lat'
-                        value={lat}
-                        required={true}
-                        onChange={e => setLat(e.target.value)}
-                    />
-                </div>
-                <div className='form__input--div'>
-                    <label htmlFor='lng'>Longitude</label>
-                    <input
-                        type='number'
-                        name='lng'
-                        value={lng}
-                        required={true}
-                        onChange={e => setLng(e.target.value)}
-                    />
-                </div>
-                <button type='submit' className='form__submit--btn'>Submit</button>
-            </form>
-        </>
+                        <>
+                            <ul className='errors'>
+                                {errors.map((error) => <li key={error}>{error}</li>)}
+                            </ul>
+                            <form
+                                onSubmit={handleSubmit}
+                                className='fishing-spot--form'
+                            >
+                                <div className='form__input--div'>
+                                    <label htmlFor='name'>Name</label>
+                                    <input
+                                        type='text'
+                                        name='name'
+                                        value={name}
+                                        required={true}
+                                        onChange={e => setName(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='description'>Description</label>
+                                    <textarea
+                                        name='description'
+                                        value={description}
+                                        wrap='soft'
+                                        spellCheck='true'
+                                        required={true}
+                                        maxLength={255}
+                                        className='description--input'
+                                        onChange={e => setDescription(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='pic'>Picture</label>
+                                    <input
+                                        type='url'
+                                        name='pic'
+                                        value={pic}
+                                        required={true}
+                                        onChange={e => setPic(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='city'>City</label>
+                                    <input
+                                        type='text'
+                                        name='city'
+                                        value={city}
+                                        required={true}
+                                        onChange={e => setCity(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='state'>State</label>
+                                    <input
+                                        type='text'
+                                        name='state'
+                                        value={state}
+                                        required={true}
+                                        onChange={e => setState(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='country'>Country</label>
+                                    <input
+                                        type='text'
+                                        name='country'
+                                        value={country}
+                                        required={true}
+                                        onChange={e => setCountry(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='lat'>Lattitude</label>
+                                    <input
+                                        type='number'
+                                        name='lat'
+                                        value={lat}
+                                        required={true}
+                                        onChange={e => setLat(e.target.value)}
+                                    />
+                                </div>
+                                <div className='form__input--div'>
+                                    <label htmlFor='lng'>Longitude</label>
+                                    <input
+                                        type='number'
+                                        name='lng'
+                                        value={lng}
+                                        required={true}
+                                        onChange={e => setLng(e.target.value)}
+                                    />
+                                </div>
+                                <button type='submit' className='form__submit--btn'>Submit</button>
+                            </form>
+                        </>
                         </Modal>
                     }
                 </div>

@@ -61,6 +61,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
                         <textarea
                             className='post-comment-textarea'
                             value={comment}
+                            
                             onChange={(e) => setComment(e.target.value)}
                         />
                         <button

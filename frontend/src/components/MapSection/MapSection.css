@@ -1,0 +1,37 @@
+.map--div {
+    height: 500px;
+    width: 500px;
+    margin-bottom: 20px;
+    border: 5px solid black;
+    box-shadow: 0px 0px 30px rgb(127, 140, 255);
+    border-radius: 5px;
+}
+
+.marker--div {
+    height: 10px;
+    width: 10px;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.xtraInfo--div {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    bottom: 105px;
+    /* border: 1px solid black; */
+    box-shadow: 3px 3px 5px black;
+    border-radius: 5px;
+    padding-top: 5px;
+    background-color: aquamarine;
+}
+
+.xtraInfo--img {
+    width: 100%;
+    height: 50px;
+}
+
+.xtraInfo--Link {
+    text-decoration: none;
+    color: black;
+}

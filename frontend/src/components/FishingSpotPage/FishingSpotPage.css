@@ -1,5 +1,6 @@
 .fishing-spot__content--div {
     width: 48vw;
+    max-width: 600px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -14,14 +15,19 @@ body {
 .fishing-spot__main--div {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     background-color: rgba(12, 175, 180, 0.2);
     overflow-x: hidden;
     min-height: 100vh;
+    padding-top: 50px;
 }
 
 .fishing-spot__comments--div {
     width: 48vw;
+    max-width: 600px;
     height: 500px;
+    display: flex;
+    justify-content: center;
     /* border: 1px solid black; */
     margin: 10px;
     border-radius: 5px;

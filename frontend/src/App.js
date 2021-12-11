@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import HomePage from './components/HomePage';
 import SplashPage from './components/SplashPage';
+import MapSection from './components/MapSection';
 import FishingSpotPage from './components/FishingSpotPage/FishingSpotPage';
 import CreateFishingSpot from './components/CreateFishingSpotPage';
 // import LoginFormPage from "./components/LoginFormPage";
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/home'>
             <HomePage />
+          </Route>
+          <Route path='/map'>
+              <MapSection />
           </Route>
           <Route path='/create-fishing-spot'>
               <CreateFishingSpot />
