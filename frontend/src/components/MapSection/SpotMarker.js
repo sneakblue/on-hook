@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function SpotMarker ({ fishingSpot }) {
@@ -12,10 +13,13 @@ export default function SpotMarker ({ fishingSpot }) {
 
     if (showInfo) {
         xtraInfo = (
-            <div className='xtraInfo--div'>
-                {fishingSpot.name}
-                <img className='xtraInfo--img' alt='xtraimg' src={fishingSpot.pic} />
-            </div>
+            <Link to={`/fishing-spot/${fishingSpot.id}`} className='xtraInfo--Link'>
+                <div className='xtraInfo--div'>
+                    {fishingSpot.name}
+                    <img className='xtraInfo--img' alt='xtraimg' src={fishingSpot.pic} />
+                    <h5>{fishingSpot.description}</h5>
+                </div>
+            </Link>
         )
     } else {
         xtraInfo = (

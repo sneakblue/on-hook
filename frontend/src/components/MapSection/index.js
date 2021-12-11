@@ -23,6 +23,12 @@ function MapSection({ fishingSpots }) {
                 defaultZoom={ 11 }
             >
                 {fishingSpots.map((fishingSpot) => {
+                    if (fishingSpot.lat === 0 || fishingSpot.lng === 0) {
+                        return (
+                            <>
+                            </>
+                        )
+                    }
                     return (
                         <SpotMarker
                             lat={fishingSpot.lat}
