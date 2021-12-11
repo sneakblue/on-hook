@@ -13,3 +13,20 @@
     background-color: blue;
     border-radius: 5px;
 }
+
+.xtraInfo--div {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    bottom: 105px;
+    /* border: 1px solid black; */
+    box-shadow: 3px 3px 5px black;
+    border-radius: 5px;
+    padding-top: 5px;
+    background-color: aquamarine;
+}
+
+.xtraInfo--img {
+    width: 100%;
+    height: 50px;
+}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import './MapSection.css';
 
-function MapSection() {
+function MapSection({ fishingSpots }) {
     const [currLat, setCurrLat] = useState(0);
     const [currLong, setCurrLong] = useState(0);
 
@@ -19,14 +19,20 @@ function MapSection() {
         <div className="map--div">
             <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
-                defaultCenter={{ lat: 59.95, lng: 30.33 }}
+                center={{ lat: currLat, lng: currLong }}
                 defaultZoom={ 11 }
             >
-                <SpotMarker
-                    lat={59.955413}
-                    lng={30.337844}
-                    text="My Marker"
-                />
+                {fishingSpots.map((fishingSpot) => {
+                    return (
+                        <SpotMarker
+                            lat={fishingSpot.lat}
+                            lng={fishingSpot.lng}
+                            text='spot'
+                            key={fishingSpot.lat}
+                            fishingSpot={fishingSpot}
+                        />
+                    )
+                })}
             </GoogleMapReact>
         </div>
     )

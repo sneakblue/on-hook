@@ -19,7 +19,7 @@ export default function HomePage() {
         <div className='Homepage__main--div'>
             <div className='Homepage__content--div'>
                 <h1 className='Homepage__title--h1'>Current Fishing Spots</h1>
-                <MapSection />
+                <MapSection fishingSpots={fishingSpots}/>
                 <div className='Homepage__main-fishing-spot--div'>
                     {fishingSpots.map(fishingSpot => {
                         return (
