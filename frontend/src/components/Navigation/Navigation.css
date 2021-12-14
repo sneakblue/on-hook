@@ -2,7 +2,7 @@
   position: absolute;
   background-color: antiquewhite;
   top: 35px;
-  right: 5px;
+  right: 20px;
   padding: 10px;
   height: 65px;
   width: auto;
@@ -79,6 +79,7 @@
 
 .navbar__profile--btn:hover {
     box-shadow: 2px 2px 2px black;
+    background-color: aqua;
 }
 
 .navbar__profile--btn:active {

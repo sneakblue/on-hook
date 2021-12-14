@@ -15,13 +15,16 @@ function MapSection({ fishingSpots }) {
         });
     }, [])
 
+    const onClick = ({x, y, lat, lng, event}) => console.log(x, y, lat, lng, event);
 
     return (
         <div className="map--div">
             <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
                 center={{ lat: currLat, lng: currLong }}
-                defaultZoom={ 11 }
+                defaultZoom={ 10.5 }
+                onClick={onClick}
+
             >
                 {fishingSpots.map((fishingSpot) => {
                     if (fishingSpot.lat === 0 || fishingSpot.lng === 0) {
