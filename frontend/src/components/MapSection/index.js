@@ -1,5 +1,6 @@
 import GoogleMapReact from 'google-map-react';
 import SpotMarker from './SpotMarker';
+import { Modal } from '../../context/Modal';
 import { useState, useEffect } from 'react';
 
 import './MapSection.css';
