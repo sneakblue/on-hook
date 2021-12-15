@@ -1,6 +1,6 @@
 import Footer from "./footer";
 import MapSection from "../MapSection";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFishingSpots } from "../../store/fishing_spots";
 import { Link } from "react-router-dom";
@@ -10,16 +10,25 @@ import './HomePage.css';
 export default function HomePage() {
     const dispatch = useDispatch();
     const fishingSpots = useSelector(state => Object.values(state.fishing_spots));
+    const [currLat, setCurrLat] = useState(0);
+    const [ currLong, setCurrLong ] = useState(0);
 
     useEffect(() => {
         dispatch(getFishingSpots());
+        navigator.geolocation.getCurrentPosition((pos) => {
+            setCurrLat(pos.coords.latitude);
+            setCurrLong(pos.coords.longitude);
+        });
     }, [dispatch]);
+
+
 
     return (
         <div className='Homepage__main--div'>
             <div className='Homepage__content--div'>
-                <h1 className='Homepage__title--h1'>Current Fishing Spots</h1>
-                <MapSection fishingSpots={fishingSpots}/>
+                <h1 className='Homepage__title--h1'>Nearby Fishing Spots</h1>
+                {(currLat !== 0 && currLong !== 0) && <MapSection
+                    fishingSpots={fishingSpots} />}
                 <div className='Homepage__main-fishing-spot--div'>
                     {fishingSpots.map(fishingSpot => {
                         return (
