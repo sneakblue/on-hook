@@ -16,9 +16,9 @@ function MapSection({ fishingSpots }) {
         });
     }, [])
 
-    // const onClick = ({x, y, lat, lng, event}) => {
+    const onClick = ({x, y, lat, lng, event}) => {
 
-    // };
+    };
 
     return (
         <div className="map--div">
