@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createFishingSpot } from '../../store/fishing_spots';
 import './FishingSpotForm.css';
 
-export default function FishingSpotForm ({ fishingSpot }) {
+export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowModal, setNewLat }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -21,6 +21,17 @@ export default function FishingSpotForm ({ fishingSpot }) {
     if(!sessionUser) {
         history.push('/home');
     }
+
+    useEffect(() => {
+        if (mapLat) {
+            setLat(mapLat)
+        }
+        if (mapLng) {
+            setLng(mapLng)
+        }
+    }, [mapLat, mapLng])
+
+
 
     const checkErrors = () => {
         const errors = [];
@@ -64,6 +75,10 @@ export default function FishingSpotForm ({ fishingSpot }) {
                 lng
             }
             dispatch(createFishingSpot(newFishingSpot));
+            if (isMapEdit) {
+                setShowModal(false);
+                setNewLat(0);
+            }
             history.push('/home');
         }
     }

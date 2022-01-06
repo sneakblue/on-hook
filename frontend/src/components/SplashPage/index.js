@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 import './SplashPage.css';
 
 export default function SplashPage() {
-
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            console.log(pos.coords.latitude);
-            console.log(pos.coords.longitude);
-        });
-    }, [])
 
     return (
         <div className='splashPage__main--div'>
