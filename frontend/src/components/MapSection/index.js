@@ -32,9 +32,6 @@ function MapSection({ fishingSpots }) {
         setNewLong(lng);
     };
 
-    console.log(newLat)
-    console.log(newLong)
-
     return (
         <div className="map--div">
             {(currLat !== 0 && currLong !== 0) && <GoogleMapReact
@@ -69,7 +66,10 @@ function MapSection({ fishingSpots }) {
                     )
                 })}
             </GoogleMapReact>}
-            {showModal && <Modal onClose={() => setShowModal(false)}>
+            {showModal && <Modal onClose={() => {
+                setShowModal(false);
+                setNewLat(0);
+            }}>
                 <FishingSpotForm
                     mapLat={createLat}
                     mapLng={createLng}
