@@ -26,6 +26,7 @@ body {
     width: 48vw;
     max-width: 600px;
     height: 800px;
+    max-height: auto;
     display: flex;
     justify-content: center;
     margin: 10px;
@@ -33,6 +34,61 @@ body {
     background-color: whitesmoke;
     box-shadow: 1px 1px 5px black;
     overflow-y: auto;
+    scrollbar-color: aqua;
+
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar {
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button {
+    background-color: seashell;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #555555 transparent;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button:decrement:hover {
+    border-color: transparent transparent #777777 transparent;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button:decrement:active {
+    background-color: rgb(209, 201, 196);
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment {
+    border-width: 8px 8px 0 8px;
+    border-color: #555555 transparent transparent transparent;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:hover {
+    border-color: #777777 transparent transparent transparent;
+}
+
+fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:active {
+    background-color: rgb(209, 201, 196);
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-thumb {
+    background-color: aquamarine;
+    border: 1px 0 1px 0 solid black;
+    border-radius: 5px;
+    box-shadow: 1px 0 3px black;
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(103, 212, 176);
+}
+
+.fishing-spot__comments--div::-webkit-scrollbar-thumb:active {
+    background-color: rgb(95, 182, 153);
 }
 
 .fishing-spot-img--div {
