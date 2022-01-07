@@ -29,12 +29,11 @@
     border-radius: 5px;
     background-color: seashell;
     box-shadow: 1px 1px 3px black;
-    /* margin: 6px; */
+    margin-bottom: 5px;
     width: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* padding: 5px; */
 }
 
 .comment-edit--div {

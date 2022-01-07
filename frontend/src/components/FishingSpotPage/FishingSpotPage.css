@@ -35,6 +35,7 @@ body {
     box-shadow: 1px 1px 5px black;
     overflow-y: auto;
     scrollbar-color: aqua;
+    padding-bottom: 5px;
 
 }
 
