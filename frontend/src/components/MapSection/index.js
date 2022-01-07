@@ -4,6 +4,7 @@ import NewSpotMarker from './NewSpotMarker';
 import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
 import { useState, useEffect } from 'react';
+import cities from 'cities';
 
 import './MapSection.css';
 
@@ -28,8 +29,16 @@ function MapSection({ fishingSpots }) {
     }, [showModal])
 
     const onClick = ({x, y, lat, lng, event}) => {
-        setNewLat(lat);
-        setNewLong(lng);
+        if (newLat === 0) {
+            setNewLat(lat);
+        } else {
+            setNewLat(0);
+        }
+        if (newLong === 0) {
+            setNewLong(lng);
+        } else {
+            setNewLong(0);
+        }
     };
 
     return (

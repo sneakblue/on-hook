@@ -61,7 +61,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
                         <textarea
                             className='post-comment-textarea'
                             value={comment}
-                            
+
                             onChange={(e) => setComment(e.target.value)}
                         />
                         <button
@@ -82,7 +82,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
     return (
         <div className='main-comments-div'>
             <h3>Comments</h3>
-            {content}
+
             {comments.map(comment => {
                 let commentBtns = null;
                 if (sessionUser && sessionUser.id === comment.user_id) {
@@ -126,6 +126,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
                     </>
                 )
             })}
+            {content}
         </div>
     )
 }

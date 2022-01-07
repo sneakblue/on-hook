@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createFishingSpot } from '../../store/fishing_spots';
+import cities from 'cities';
 import './FishingSpotForm.css';
 
 export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowModal, setNewLat }) {
@@ -13,7 +14,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     const [ name, setName ] = useState('');
     const [ city, setCity ] = useState('');
     const [ state, setState ] = useState('');
-    const [ country, setCountry ] = useState('');
+    const [ country, setCountry ] = useState('USA');
     const [ lat, setLat ] = useState(0.0);
     const [ lng, setLng ] = useState(0.0);
     const [ errors, setErrors ] = useState([]);
@@ -23,12 +24,15 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     }
 
     useEffect(() => {
-        if (mapLat) {
+        if (mapLat && mapLng) {
             setLat(mapLat)
-        }
-        if (mapLng) {
             setLng(mapLng)
+            const locationData = cities.gps_lookup(mapLat, mapLng);
+            setState(locationData.state_abbr);
+            setCity(locationData.city)
         }
+        // if (mapLng) {
+        // }
     }, [mapLat, mapLng])
 
 

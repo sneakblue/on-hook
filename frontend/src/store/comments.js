@@ -11,7 +11,7 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case LOAD_COMMENTS: {
-            const newState = { ...state }
+            const newState = { }
             action.payload.forEach(comment => {
                 newState[comment.id] = comment;
             });
