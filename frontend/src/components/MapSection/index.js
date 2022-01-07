@@ -4,6 +4,7 @@ import NewSpotMarker from './NewSpotMarker';
 import FishingSpotForm from '../FishingSpotForm';
 import { Modal } from '../../context/Modal';
 import { useState, useEffect } from 'react';
+import cities from 'cities';
 
 import './MapSection.css';
 
