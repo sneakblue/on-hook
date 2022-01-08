@@ -48,7 +48,6 @@ function MapSection({ fishingSpots }) {
                 center={{ lat: currLat, lng: currLong }}
                 defaultZoom={ 10.5 }
                 onClick={onClick}
-
             >
                 {(newLat !== 0 && newLong !== 0) && <NewSpotMarker
                     lat={newLat}
