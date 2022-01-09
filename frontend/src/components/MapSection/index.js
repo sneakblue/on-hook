@@ -15,6 +15,7 @@ function MapSection({ fishingSpots }) {
     const [createLat, setCreateLat] = useState(0);
     const [createLng, setCreateLng] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const [nearby, setNearby] = useState([]);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((pos) => {
@@ -26,6 +27,10 @@ function MapSection({ fishingSpots }) {
     useEffect(() => {
 
     }, [showModal])
+
+    // useEffect(() => {
+    //     console.log(fishingSpots)
+    // }, [])
 
     const onClick = ({x, y, lat, lng, event}) => {
         if (newLat === 0) {
