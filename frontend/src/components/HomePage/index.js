@@ -12,6 +12,7 @@ export default function HomePage() {
     const fishingSpots = useSelector(state => Object.values(state.fishing_spots));
     const [currLat, setCurrLat] = useState(0);
     const [ currLong, setCurrLong ] = useState(0);
+    const [nearby, setNearby] = useState([]);
 
     useEffect(() => {
         dispatch(getFishingSpots());
