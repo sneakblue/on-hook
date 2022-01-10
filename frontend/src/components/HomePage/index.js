@@ -43,7 +43,7 @@ export default function HomePage() {
 
     useEffect(() => {
         let newNearby = [];
-        if (currLat !== 0 && currLong !== 0) {
+        if (currLat !== 0 && currLong !== 0 && nearby.length === 0) {
             fishingSpots.forEach(spot => {
                 let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
                 console.log(res);
@@ -53,14 +53,7 @@ export default function HomePage() {
             })
             setNearby(newNearby);
         }
-    }, [currLat, currLong])
-
-    // if (currLat !== 0) {
-    //     let res = distanceCalc(currLat, currLong, fishingSpots[1].lat, fishingSpots[1].lng);
-    //     console.log(res);
-    // }
-
-    console.log(nearby)
+    }, [currLat, currLong, fishingSpots, nearby])
 
     return (
         <div className='Homepage__main--div'>
@@ -69,7 +62,7 @@ export default function HomePage() {
                 {(currLat !== 0 && currLong !== 0) && <MapSection
                     fishingSpots={fishingSpots} />}
                 <div className='Homepage__main-fishing-spot--div'>
-                    {fishingSpots.map(fishingSpot => {
+                    {nearby.map(fishingSpot => {
                         return (
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>
