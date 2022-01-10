@@ -7,6 +7,25 @@ import { Link } from "react-router-dom";
 
 import './HomePage.css';
 
+function distanceCalc(lat1, long1, lat2, long2) {
+    const earthRadKm = 6371;
+    const earthRadMi = 3959;
+
+    const degToRadians = (degree) => {
+        return degree * Math.PI / 180;
+    }
+
+    const dLat = degToRadians(lat2 - lat1);
+    const dLon = degToRadians(long2 - long1);
+
+    lat1 = degToRadians(lat1);
+    lat2 = degToRadians(lat2);
+
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return earthRadKm * c;
+}
+
 export default function HomePage() {
     const dispatch = useDispatch();
     const fishingSpots = useSelector(state => Object.values(state.fishing_spots));
@@ -24,10 +43,24 @@ export default function HomePage() {
 
     useEffect(() => {
         let newNearby = [];
-        fishingSpots.forEach(spot => {
+        if (currLat !== 0 && currLong !== 0) {
+            fishingSpots.forEach(spot => {
+                let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
+                console.log(res);
+                if (res < 10) {
+                    newNearby.push(spot);
+                }
+            })
+            setNearby(newNearby);
+        }
+    }, [currLat, currLong])
 
-        })
-    }, [])
+    // if (currLat !== 0) {
+    //     let res = distanceCalc(currLat, currLong, fishingSpots[1].lat, fishingSpots[1].lng);
+    //     console.log(res);
+    // }
+
+    console.log(nearby)
 
     return (
         <div className='Homepage__main--div'>
