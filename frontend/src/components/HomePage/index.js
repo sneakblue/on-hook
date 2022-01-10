@@ -22,7 +22,12 @@ export default function HomePage() {
         });
     }, [dispatch]);
 
+    useEffect(() => {
+        let newNearby = [];
+        fishingSpots.forEach(spot => {
 
+        })
+    }, [])
 
     return (
         <div className='Homepage__main--div'>
