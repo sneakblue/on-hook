@@ -9,7 +9,7 @@ import './HomePage.css';
 
 function distanceCalc(lat1, long1, lat2, long2) {
     const earthRadKm = 6371;
-    const earthRadMi = 3959;
+    // const earthRadMi = 3959;
 
     const degToRadians = (degree) => {
         return degree * Math.PI / 180;
@@ -41,22 +41,24 @@ export default function HomePage() {
         });
     }, [dispatch]);
 
-    // nearby calc causing infinite loop, need to look
-    // into solution:
-    
-    // useEffect(() => {
-    //     let newNearby = [];
-    //     if (currLat !== 0 && currLong !== 0 && nearby.length === 0) {
-    //         fishingSpots.forEach(spot => {
-    //             let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
-    //             console.log(res);
-    //             if (res < 10) {
-    //                 newNearby.push(spot);
-    //             }
-    //         })
-    //         setNearby(newNearby);
-    //     }
-    // }, [currLat, currLong, fishingSpots, nearby])
+
+    useEffect(() => {
+        let newNearby = [];
+        if (currLat !== 0 && currLong !== 0 && nearby.length === 0 && fishingSpots.length > 0) {
+            fishingSpots.forEach(spot => {
+                let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
+                console.log(res);
+                if (res < 20) {
+                    newNearby.push(spot);
+                }
+            })
+            console.log(nearby.length)
+            if (nearby.length === 0) {
+                console.log('setting newNearby')
+                setNearby(newNearby);
+            }
+        }
+    }, [fishingSpots, currLat, currLong, nearby])
 
     return (
         <div className='Homepage__main--div'>
