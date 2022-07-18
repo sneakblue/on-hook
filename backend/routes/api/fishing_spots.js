@@ -16,10 +16,9 @@ router.get('/:id', asyncHandler( async (req, res) => {
 }));
 
 router.post('/', asyncHandler( async (req, res) => {
-    const { user_id, pic, description, name, city, state, country, lat, lng } = req.body;
+    const { user_id, description, name, city, state, country, lat, lng } = req.body;
     const fishing_spot = await Fishing_Spot.create({
         user_id,
-        pic,
         description,
         name,
         city,
