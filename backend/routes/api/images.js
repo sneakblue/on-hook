@@ -5,8 +5,14 @@ const { Image } = require('../../db/models');
 
 const router = express.Router();
 
+router.get('/', asyncHandler( async (req, res) => {
+    const images = await Image.findAll();
+    return res.json({ images });
+}));
+
 router.post('/create-single/:id', singleMulterUpload('image'), asyncHandler( async (req, res) => {
     const { id } = req.params;
+    console.log('uploading ---> ' + id)
     const imageUrl = await singlePublicFileUpload(req.file);
     const image = await Image.create({
         spotId: id,

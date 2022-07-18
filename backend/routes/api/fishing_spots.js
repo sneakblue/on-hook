@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Fishing_Spot, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
+const { Fishing_Spot, Image, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
 
 const router = express.Router();
 
@@ -49,6 +49,11 @@ router.delete('/:id', asyncHandler( async (req, res) => {
     await Review.destroy({
         where: {
             fishing_spot_id: id,
+        }
+    });
+    await Image.destroy({
+        where: {
+            spotId: id,
         }
     });
     await Favorite.destroy({
