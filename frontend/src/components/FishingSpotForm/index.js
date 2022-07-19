@@ -9,7 +9,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [ pic, setPic ] = useState('');
+    // const [ pic, setPic ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ name, setName ] = useState('');
     const [ city, setCity ] = useState('');
@@ -20,6 +20,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     const [ errors, setErrors ] = useState([]);
     const [ image, setImage ] = useState(null);
     const [ images, setImages ] = useState([]);
+    // const [ imagesPrev, setImagesPrev ] = useState([]);
 
     if(!sessionUser) {
         history.push('/home');
@@ -77,7 +78,6 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
             const newFishingSpot = {
                 user_id: sessionUser.id,
                 name,
-                pic,
                 description,
                 city,
                 state,

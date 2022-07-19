@@ -37,7 +37,7 @@ router.post('/create-mult/:spotId', multipleMulterUpload('images'), asyncHandler
 
 router.delete('/:id', asyncHandler( async (req, res) => {
     const { id } = req.params;
-    await Image.destory({
+    await Image.destroy({
         where: { id }
     });
     return res.json({ message: 'Image deleted' });

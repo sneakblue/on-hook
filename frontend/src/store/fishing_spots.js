@@ -37,7 +37,6 @@ export default function reducer (state = initialState, action) {
         }
         case CREATE_FISHING_SPOT: {
             const newState = { ...state };
-            console.log(action.payload.fishing_spot)
             let newImages = [];
             if (action.images.image !== undefined) {
                 newImages.push(action.images.image.url)
