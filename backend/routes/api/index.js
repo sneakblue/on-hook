@@ -4,6 +4,7 @@ const usersRouter = require("./users.js");
 const fishingSpotRouter = require('./fishing_spots.js');
 const commentRouter = require('./comments.js');
 const reviewsRouter = require('./reviews.js');
+const imagesRouter = require('./images.js');
 
 router.post("/test", function (req, res) {
   res.json({ requestBody: req.body });
@@ -18,5 +19,7 @@ router.use('/fishing_spots', fishingSpotRouter);
 router.use('/reviews', reviewsRouter);
 
 router.use('/comments', commentRouter);
+
+router.use('/images', imagesRouter);
 
 module.exports = router;

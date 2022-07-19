@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Fishing_Spot, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
+const { Fishing_Spot, Image, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
 
 const router = express.Router();
 
@@ -16,10 +16,9 @@ router.get('/:id', asyncHandler( async (req, res) => {
 }));
 
 router.post('/', asyncHandler( async (req, res) => {
-    const { user_id, pic, description, name, city, state, country, lat, lng } = req.body;
+    const { user_id, description, name, city, state, country, lat, lng } = req.body;
     const fishing_spot = await Fishing_Spot.create({
         user_id,
-        pic,
         description,
         name,
         city,
@@ -50,6 +49,11 @@ router.delete('/:id', asyncHandler( async (req, res) => {
     await Review.destroy({
         where: {
             fishing_spot_id: id,
+        }
+    });
+    await Image.destroy({
+        where: {
+            spotId: id,
         }
     });
     await Favorite.destroy({

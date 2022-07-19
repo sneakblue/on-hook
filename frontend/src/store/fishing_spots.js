@@ -14,18 +14,38 @@ export default function reducer (state = initialState, action) {
         case LOAD_FISHING_SPOTS: {
             const newFishingSpots = {};
             action.payload.forEach(fishingSpot => {
+                fishingSpot.images = [];
+                action.images.forEach(image => {
+                    if (image.spotId === fishingSpot.id) {
+                        fishingSpot.images.push(image.url)
+                    }
+                })
                 newFishingSpots[fishingSpot.id] = fishingSpot;
             });
             return { ...state, ...newFishingSpots};
         }
         case LOAD_FISHING_SPOT: {
             const newState = { ...state };
+            action.payload.images = [];
+            action.images.forEach(image => {
+                if (image.spotId === action.payload.id) {
+                    action.payload.images.push(image.url)
+                }
+            })
             newState[action.payload.id] = action.payload;
             return newState;
         }
         case CREATE_FISHING_SPOT: {
             const newState = { ...state };
-            console.log(action.payload.fishing_spot)
+            let newImages = [];
+            if (action.images.image !== undefined) {
+                newImages.push(action.images.image.url)
+            } else {
+                action.images.newImages.forEach(image => {
+                    newImages.push(image.url);
+                });
+            }
+            action.payload.fishing_spot.images = newImages;
             newState[action.payload.fishing_spot.id] = action.payload.fishing_spot;
             return newState;
         }
@@ -45,19 +65,22 @@ export default function reducer (state = initialState, action) {
     }
 }
 
-const loadFishingSpots = (payload) => ({
+const loadFishingSpots = (payload, images) => ({
     type: LOAD_FISHING_SPOTS,
-    payload
+    payload,
+    images
 });
 
-const loadFishingSpot = (payload) => ({
+const loadFishingSpot = (payload, images) => ({
     type: LOAD_FISHING_SPOT,
-    payload
+    payload,
+    images
 });
 
-const addFishingSpot = (payload) => ({
+const addFishingSpot = (payload, images) => ({
     type: CREATE_FISHING_SPOT,
-    payload
+    payload,
+    images
 });
 
 const removeFishingSpot = (id) => ({
@@ -72,32 +95,67 @@ const updateFishingSpot = (payload) => ({
 
 export const getFishingSpots = () => async dispatch => {
     const res = await csrfFetch('/api/fishing_spots');
+    const imgRes = await csrfFetch('/api/images');
 
-    if (res.ok) {
+    if (res.ok && imgRes.ok) {
         const data = await res.json();
-        dispatch(loadFishingSpots(data.fishing_spots))
+        const imageData = await imgRes.json();
+        dispatch(loadFishingSpots(data.fishing_spots, imageData.images))
     }
 }
 
 export const getFishingSpot = (id) => async dispatch => {
     const res = await csrfFetch(`/api/fishing_spots/${id}`);
+    const imgRes = await csrfFetch('/api/images');
 
-    if (res.ok) {
+    if (res.ok && imgRes.ok) {
         const data = await res.json();
-        dispatch(loadFishingSpot(data.fishing_spot));
+        const imageData = await imgRes.json();
+        dispatch(loadFishingSpot(data.fishing_spot, imageData.images));
     }
 }
 
 export const createFishingSpot = (data) => async dispatch => {
-    const { user_id, name, pic, description, city, state, country, lat, lng } = data;
-    const res = await csrfFetch('/api/fishing_spots', {
+    const { user_id, name, description, city, state, country, lat, lng, images, image } = data;
+    const fishingRes = await csrfFetch('/api/fishing_spots', {
         method: 'POST',
-        body: JSON.stringify({ user_id, pic, city, state, country, lat, lng, name, description })
+        body: JSON.stringify({ user_id, city, state, country, lat, lng, name, description })
     });
 
-    if (res.ok) {
-        const payload = await res.json();
-        dispatch(addFishingSpot(payload));
+    if (fishingRes.ok) {
+        const payload = await fishingRes.json();
+        const formData = new FormData();
+
+        if (images && images.length !== 1) {
+            for (let i = 0; i < images.length; i++) {
+                formData.append("images", images[i]);
+            }
+        }
+
+        if (image) formData.append("image", image);
+        console.log(formData);
+        let res;
+        if (images.length !== 1) {
+            res = await csrfFetch(`/api/images/create-mult/${payload.fishing_spot.id}`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+                body: formData,
+            })
+        } else {
+            res = await csrfFetch(`/api/images/create-single/${payload.fishing_spot.id}`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+                body: formData,
+            });
+        }
+
+        const newImages = await res.json();
+
+        dispatch(addFishingSpot(payload, newImages));
         return payload;
     }
 }

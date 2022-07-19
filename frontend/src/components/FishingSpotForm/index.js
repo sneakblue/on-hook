@@ -9,7 +9,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [ pic, setPic ] = useState('');
+    // const [ pic, setPic ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ name, setName ] = useState('');
     const [ city, setCity ] = useState('');
@@ -18,6 +18,9 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
     const [ lat, setLat ] = useState(0.0);
     const [ lng, setLng ] = useState(0.0);
     const [ errors, setErrors ] = useState([]);
+    const [ image, setImage ] = useState(null);
+    const [ images, setImages ] = useState([]);
+    // const [ imagesPrev, setImagesPrev ] = useState([]);
 
     if(!sessionUser) {
         history.push('/home');
@@ -31,8 +34,6 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
             setState(locationData.state_abbr);
             setCity(locationData.city)
         }
-        // if (mapLng) {
-        // }
     }, [mapLat, mapLng])
 
 
@@ -44,9 +45,9 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
         } else if (name.length === 0) {
             errors.push('Must provide a name');
         };
-        if (pic.length === 0) {
-            errors.push('Must provide a picture url')
-        };
+        // if (pic.length === 0) {
+        //     errors.push('Must provide a picture url')
+        // };
         if (description.length === 0) {
             errors.push('Must provide a description')
         };
@@ -63,6 +64,13 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
         return errors;
     }
 
+    const handleImages = (e) => {
+        const files = e.target.files;
+        if (files.length === 1) setImage(e.target.files[0]);
+        else setImage(null);
+        setImages(files);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let submitErrors = checkErrors();
@@ -70,13 +78,14 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
             const newFishingSpot = {
                 user_id: sessionUser.id,
                 name,
-                pic,
                 description,
                 city,
                 state,
                 country,
                 lat,
-                lng
+                lng,
+                images,
+                image
             }
             dispatch(createFishingSpot(newFishingSpot));
             if (isMapEdit) {
@@ -121,13 +130,12 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='pic'>Picture</label>
+                    <label htmlFor='pic'>Pictures</label>
                     <input
-                        type='url'
+                        type='file'
+                        multiple
                         name='pic'
-                        value={pic}
-                        required={true}
-                        onChange={e => setPic(e.target.value)}
+                        onChange={handleImages}
                     />
                 </div>
                 <div className='form__input--div'>

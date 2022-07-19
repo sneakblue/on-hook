@@ -15,16 +15,13 @@ module.exports = (sequelize, DataTypes) => {
       Fishing_Spot.hasMany(models.Review, { foreignKey: 'fishing_spot_id'});
       Fishing_Spot.hasMany(models.Favorite, { foreignKey: 'fishing_spot_id' });
       Fishing_Spot.hasMany(models.Fish_Type, { foreignKey: 'fishing_spot_id' });
+      Fishing_Spot.hasMany(models.Image, { foreignKey: 'spotId' });
     }
   };
   Fishing_Spot.init({
     user_id:{
         type: DataTypes.INTEGER,
         allowNull:false
-    },
-    pic: {
-        type: DataTypes.STRING,
-        allowNull: false
     },
     description: {
         type: DataTypes.TEXT,

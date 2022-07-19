@@ -72,7 +72,7 @@ export default function HomePage() {
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>
                                     <div className='home__fishing-spot-img--div'>
-                                        <img alt={fishingSpot.id} src={fishingSpot.pic} className='home__fishing-spot--img'/>
+                                        <img alt={fishingSpot.id} src={fishingSpot.images[0]} className='home__fishing-spot--img'/>
                                     </div>
                                 </Link>
                                 <div>
