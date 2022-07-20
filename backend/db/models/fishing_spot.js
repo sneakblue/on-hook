@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Fishing_Spot.belongsTo(models.User, { foreignKey: 'user_id' });
-      Fishing_Spot.hasMany(models.Comment, { foreignKey: 'fishing_spot_id' });
-      Fishing_Spot.hasMany(models.Review, { foreignKey: 'fishing_spot_id'});
-      Fishing_Spot.hasMany(models.Favorite, { foreignKey: 'fishing_spot_id' });
-      Fishing_Spot.hasMany(models.Fish_Type, { foreignKey: 'fishing_spot_id' });
-      Fishing_Spot.hasMany(models.Image, { foreignKey: 'spotId' });
+      Fishing_Spot.hasMany(models.Comment, { foreignKey: 'fishing_spot_id', onDelete: 'CASCADE', hooks: true });
+      Fishing_Spot.hasMany(models.Review, { foreignKey: 'fishing_spot_id', onDelete: 'CASCADE', hooks: true});
+      Fishing_Spot.hasMany(models.Favorite, { foreignKey: 'fishing_spot_id', onDelete: 'CASCADE', hooks: true });
+      Fishing_Spot.hasMany(models.Fish_Type, { foreignKey: 'fishing_spot_id', onDelete: 'CASCADE', hooks: true });
+      Fishing_Spot.hasMany(models.Image, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true });
     }
   };
   Fishing_Spot.init({
