@@ -1,17 +1,34 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Fishing_Spot } = require('../../db/models')
+const { Fishing_Spot, Image } = require('../../db/models')
 
 const router = express.Router();
 
 router.get('/', asyncHandler( async(req, res) => {
-    const fishing_spots = await Fishing_Spot.findAll();
+    const fishing_spots = await Fishing_Spot.findAll({
+        include: [
+            {
+                model: Image,
+                as: 'images'
+            }
+        ]
+    });
     return res.json({fishing_spots});
 }));
 
 router.get('/:id', asyncHandler( async (req, res) => {
     const { id } = req.params;
-    const fishing_spot = await Fishing_Spot.findByPk(id);
+    console.log(id)
+    const fishing_spot = await Fishing_Spot.findByPk(id, {
+        include: [
+            {
+                model: Image,
+                as: 'images'
+            }
+        ]
+    });
+    console.log(fishing_spot);
+    console.log(fishing_spot.images)
     return res.json({ fishing_spot });
 }));
 

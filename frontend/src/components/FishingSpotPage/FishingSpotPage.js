@@ -136,7 +136,7 @@ export default function FishingSpotPage() {
                         <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
                     </div>
                     <div className='fishing-spot-img--div'>
-                        <img src={fishingSpot.images[0]} className='fishing-spot-img--img' alt={fishingSpot.id}/>
+                        <img src={fishingSpot.images[0].url} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                     </div>
                     <h4>Description</h4>
                     <p className='fishing-spot__description'>{fishingSpot.description}</p>

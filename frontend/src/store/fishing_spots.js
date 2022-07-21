@@ -14,24 +14,24 @@ export default function reducer (state = initialState, action) {
         case LOAD_FISHING_SPOTS: {
             const newFishingSpots = {};
             action.payload.forEach(fishingSpot => {
-                fishingSpot.images = [];
-                action.images.forEach(image => {
-                    if (image.spotId === fishingSpot.id) {
-                        fishingSpot.images.push(image.url)
-                    }
-                })
+                // fishingSpot.images = [];
+                // action.images.forEach(image => {
+                //     if (image.spotId === fishingSpot.id) {
+                //         fishingSpot.images.push(image.url)
+                //     }
+                // })
                 newFishingSpots[fishingSpot.id] = fishingSpot;
             });
             return { ...state, ...newFishingSpots};
         }
         case LOAD_FISHING_SPOT: {
             const newState = { ...state };
-            action.payload.images = [];
-            action.images.forEach(image => {
-                if (image.spotId === action.payload.id) {
-                    action.payload.images.push(image.url)
-                }
-            })
+            // action.payload.images = [];
+            // action.images.forEach(image => {
+            //     if (image.spotId === action.payload.id) {
+            //         action.payload.images.push(image.url)
+            //     }
+            // })
             newState[action.payload.id] = action.payload;
             return newState;
         }
@@ -71,10 +71,9 @@ const loadFishingSpots = (payload, images) => ({
     images
 });
 
-const loadFishingSpot = (payload, images) => ({
+const loadFishingSpot = (payload) => ({
     type: LOAD_FISHING_SPOT,
-    payload,
-    images
+    payload
 });
 
 const addFishingSpot = (payload, images) => ({
@@ -99,6 +98,8 @@ export const getFishingSpots = () => async dispatch => {
 
     if (res.ok && imgRes.ok) {
         const data = await res.json();
+        console.log('fishing spot data from db --->');
+        console.log(data);
         const imageData = await imgRes.json();
         dispatch(loadFishingSpots(data.fishing_spots, imageData.images))
     }
@@ -106,12 +107,14 @@ export const getFishingSpots = () => async dispatch => {
 
 export const getFishingSpot = (id) => async dispatch => {
     const res = await csrfFetch(`/api/fishing_spots/${id}`);
-    const imgRes = await csrfFetch('/api/images');
+    // const imgRes = await csrfFetch('/api/images');
 
-    if (res.ok && imgRes.ok) {
+    if (res.ok) {
         const data = await res.json();
-        const imageData = await imgRes.json();
-        dispatch(loadFishingSpot(data.fishing_spot, imageData.images));
+        console.log('raw fishing spot data from db ------->');
+        console.log(data);
+        // const imageData = await imgRes.json();
+        dispatch(loadFishingSpot(data.fishing_spot));
     }
 }
 
