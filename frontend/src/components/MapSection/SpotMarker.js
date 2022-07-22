@@ -16,7 +16,7 @@ export default function SpotMarker ({ fishingSpot }) {
             <Link to={`/fishing-spot/${fishingSpot.id}`} className='xtraInfo--Link'>
                 <div className='xtraInfo--div'>
                     {fishingSpot.name}
-                    <img className='xtraInfo--img' alt='xtraimg' src={fishingSpot.images[0]} />
+                    <img className='xtraInfo--img' alt='xtraimg' src={fishingSpot.images[0].url} />
                     <h5>{fishingSpot.description}</h5>
                 </div>
             </Link>

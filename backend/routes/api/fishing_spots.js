@@ -18,7 +18,6 @@ router.get('/', asyncHandler( async(req, res) => {
 
 router.get('/:id', asyncHandler( async (req, res) => {
     const { id } = req.params;
-    console.log(id)
     const fishing_spot = await Fishing_Spot.findByPk(id, {
         include: [
             {
@@ -27,8 +26,6 @@ router.get('/:id', asyncHandler( async (req, res) => {
             }
         ]
     });
-    console.log(fishing_spot);
-    console.log(fishing_spot.images)
     return res.json({ fishing_spot });
 }));
 

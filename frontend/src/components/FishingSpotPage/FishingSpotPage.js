@@ -40,8 +40,6 @@ export default function FishingSpotPage() {
         setDescription(fishingSpot?.description);
     }, [showEdit, fishingSpot?.pic, fishingSpot?.name, fishingSpot?.city, fishingSpot?.state, fishingSpot?.country, fishingSpot?.lat, fishingSpot?.lng, fishingSpot?.description ])
 
-    console.log(fishingSpot);
-
     let average = 'No User Ratings';
     let fishingSpotReviews = [];
     reviews.forEach(review => {
