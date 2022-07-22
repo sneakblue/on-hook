@@ -1,17 +1,31 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Fishing_Spot, Image, Fish_Type, Favorite, Comment, Review } = require('../../db/models')
+const { Fishing_Spot, Image } = require('../../db/models')
 
 const router = express.Router();
 
 router.get('/', asyncHandler( async(req, res) => {
-    const fishing_spots = await Fishing_Spot.findAll();
+    const fishing_spots = await Fishing_Spot.findAll({
+        include: [
+            {
+                model: Image,
+                as: 'images'
+            }
+        ]
+    });
     return res.json({fishing_spots});
 }));
 
 router.get('/:id', asyncHandler( async (req, res) => {
     const { id } = req.params;
-    const fishing_spot = await Fishing_Spot.findByPk(id);
+    const fishing_spot = await Fishing_Spot.findByPk(id, {
+        include: [
+            {
+                model: Image,
+                as: 'images'
+            }
+        ]
+    });
     return res.json({ fishing_spot });
 }));
 
@@ -46,31 +60,7 @@ router.put('/:id', asyncHandler( async (req, res) => {
 
 router.delete('/:id', asyncHandler( async (req, res) => {
     const { id } = req.params;
-    await Review.destroy({
-        where: {
-            fishing_spot_id: id,
-        }
-    });
-    await Image.destroy({
-        where: {
-            spotId: id,
-        }
-    });
-    await Favorite.destroy({
-        where: {
-            fishing_spot_id: id,
-        }
-    });
-    await Comment.destroy({
-        where: {
-            fishing_spot_id: id,
-        }
-    });
-    await Fish_Type.destroy({
-        where: {
-            fishing_spot_id: id,
-        }
-    });
+
     await Fishing_Spot.destroy({
         where: { id }
     });

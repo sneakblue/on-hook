@@ -12,26 +12,14 @@ const initialState = {};
 export default function reducer (state = initialState, action) {
     switch (action.type) {
         case LOAD_FISHING_SPOTS: {
-            const newFishingSpots = {};
+            const newState = {...state};
             action.payload.forEach(fishingSpot => {
-                fishingSpot.images = [];
-                action.images.forEach(image => {
-                    if (image.spotId === fishingSpot.id) {
-                        fishingSpot.images.push(image.url)
-                    }
-                })
-                newFishingSpots[fishingSpot.id] = fishingSpot;
+                newState[fishingSpot.id] = fishingSpot;
             });
-            return { ...state, ...newFishingSpots};
+            return newState;
         }
         case LOAD_FISHING_SPOT: {
             const newState = { ...state };
-            action.payload.images = [];
-            action.images.forEach(image => {
-                if (image.spotId === action.payload.id) {
-                    action.payload.images.push(image.url)
-                }
-            })
             newState[action.payload.id] = action.payload;
             return newState;
         }
@@ -65,16 +53,14 @@ export default function reducer (state = initialState, action) {
     }
 }
 
-const loadFishingSpots = (payload, images) => ({
+const loadFishingSpots = (payload) => ({
     type: LOAD_FISHING_SPOTS,
-    payload,
-    images
+    payload
 });
 
-const loadFishingSpot = (payload, images) => ({
+const loadFishingSpot = (payload) => ({
     type: LOAD_FISHING_SPOT,
-    payload,
-    images
+    payload
 });
 
 const addFishingSpot = (payload, images) => ({
@@ -95,23 +81,19 @@ const updateFishingSpot = (payload) => ({
 
 export const getFishingSpots = () => async dispatch => {
     const res = await csrfFetch('/api/fishing_spots');
-    const imgRes = await csrfFetch('/api/images');
 
-    if (res.ok && imgRes.ok) {
+    if (res.ok) {
         const data = await res.json();
-        const imageData = await imgRes.json();
-        dispatch(loadFishingSpots(data.fishing_spots, imageData.images))
+        dispatch(loadFishingSpots(data.fishing_spots))
     }
 }
 
 export const getFishingSpot = (id) => async dispatch => {
     const res = await csrfFetch(`/api/fishing_spots/${id}`);
-    const imgRes = await csrfFetch('/api/images');
 
-    if (res.ok && imgRes.ok) {
+    if (res.ok) {
         const data = await res.json();
-        const imageData = await imgRes.json();
-        dispatch(loadFishingSpot(data.fishing_spot, imageData.images));
+        dispatch(loadFishingSpot(data.fishing_spot));
     }
 }
 
@@ -133,7 +115,6 @@ export const createFishingSpot = (data) => async dispatch => {
         }
 
         if (image) formData.append("image", image);
-        console.log(formData);
         let res;
         if (images.length !== 1) {
             res = await csrfFetch(`/api/images/create-mult/${payload.fishing_spot.id}`, {
