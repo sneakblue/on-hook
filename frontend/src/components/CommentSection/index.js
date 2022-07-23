@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getComments, createComment, putComment, deleteComment } from '../../store/comments';
-
+import CommentCard from './CommentCard';
 import './CommentSection.css';
 
 export default function CommentSection({ fishingSpot, sessionUser }) {
@@ -16,11 +16,14 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
 
 
     useEffect(() => {
-        dispatch(getComments(fishingSpot.id));
         if (sessionUser) {
             setIsUser(true);
         };
-    }, [ dispatch, fishingSpot, sessionUser ]);
+    }, [ sessionUser ]);
+
+    useEffect(() => {
+        dispatch(getComments(fishingSpot.id));
+    }, [dispatch, fishingSpot]);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -84,46 +87,49 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
             <h3>Comments</h3>
 
             {comments.map(comment => {
-                let commentBtns = null;
-                if (sessionUser && sessionUser.id === comment.user_id) {
-                    commentBtns = (
-                        <div>
-                            <button type='button' className='comment-btns' onClick={() => {
-                                setShowEdit(true);
-                                setEditingComment(comment.id);
-                                setUpdatedComment(comment.comment)
-                            }}>Edit</button>
-                            <button type='button' className='comment-btns' onClick={() => handleDelete(comment.id)}>Delete</button>
-                        </div>
-                    )
-                } else {
-                    commentBtns = (
-                        <>
-                        </>
-                    )
-                }
+                // let commentBtns = null;
+                // if (sessionUser && sessionUser.id === comment.user_id) {
+                //     commentBtns = (
+                //         <div>
+                //             <button type='button' className='comment-btns' onClick={() => {
+                //                 setShowEdit(true);
+                //                 setEditingComment(comment.id);
+                //                 setUpdatedComment(comment.comment)
+                //             }}>Edit</button>
+                //             <button type='button' className='comment-btns' onClick={() => handleDelete(comment.id)}>Delete</button>
+                //         </div>
+                //     )
+                // } else {
+                //     commentBtns = (
+                //         <>
+                //         </>
+                //     )
+                // }
 
-                let commentContent = null;
-                if (showEdit && editingComment === comment.id) {
-                    commentContent = (
-                        <div key={comment.id} className='comment-edit--div'>
-                            <textarea value={updatedComment} className='comment-edit--textarea' onChange={(e) => setUpdatedComment(e.target.value)}/>
-                            <button type='submit' className='comment-btns' onClick={() => handlePut(comment.id)}>Submit</button>
-                        </div>
-                    )
-                } else {
-                    commentContent = (
-                        <div className='comment-div' key={comment.id}>
-                            <p>{comment.comment}</p>
-                            {commentBtns}
-                        </div>
-                    )
-                }
+                // let commentContent = null;
+                // if (showEdit && editingComment === comment.id) {
+                //     commentContent = (
+                //         <div key={comment.id} className='comment-edit--div'>
+                //             <textarea value={updatedComment} className='comment-edit--textarea' onChange={(e) => setUpdatedComment(e.target.value)}/>
+                //             <button type='submit' className='comment-btns' onClick={() => handlePut(comment.id)}>Submit</button>
+                //         </div>
+                //     )
+                // } else {
+                //     commentContent = (
+                //         <div className='comment-div' key={comment.id}>
+                //             <p>{comment.comment}</p>
+                //             {commentBtns}
+                //         </div>
+                //     )
+                // }
 
+                // return (
+                //     <>
+                //         {commentContent}
+                //     </>
+                // )
                 return (
-                    <>
-                        {commentContent}
-                    </>
+                    <CommentCard comment={comment} sessionUser={sessionUser} fishingSpot={fishingSpot} />
                 )
             })}
             {content}
