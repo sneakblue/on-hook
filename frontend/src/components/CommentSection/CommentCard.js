@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import CommentBtns from "./CommentBtns";
 import { putComment, deleteComment } from "../../store/comments";
@@ -7,8 +7,7 @@ import { putComment, deleteComment } from "../../store/comments";
 export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
     const dispatch = useDispatch();
     const [ showEdit, setShowEdit ] = useState(false);
-    const [ editingComment, setEditingComment ] = useState(0);
-    const [ updatedComment, setUpdatedComment ] = useState('');
+    const [ updatedComment, setUpdatedComment ] = useState(comment.comment);
 
     const handlePut = () => {
         const newComment = {
@@ -19,7 +18,6 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
         }
         dispatch(putComment(newComment));
         setShowEdit(false);
-        setUpdatedComment('');
     }
 
     const handleDelete = () => {
@@ -27,10 +25,9 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
     }
 
     let commentContent = null;
-    if (showEdit && editingComment === comment.id) {
+    if (showEdit) {
         commentContent = (
             <div
-                key={comment.id}
                 className='comment-edit--div'
             >
                 <textarea
@@ -41,7 +38,7 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                 <button
                     type='submit'
                     className='comment-btns'
-                    onClick={() => handlePut(comment.id)}
+                    onClick={handlePut}
                 >Submit</button>
             </div>
         )
@@ -52,7 +49,12 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                 key={comment.id}
             >
                 <p>{comment.comment}</p>
-                <CommentBtns sessionUser={sessionUser} comment={comment} setShowEdit={setShowEdit} setEditingComment={setEditingComment} setUpdatedComment={setUpdatedComment} handleDelete={handleDelete}/>
+                <CommentBtns
+                    sessionUser={sessionUser}
+                    comment={comment}
+                    setShowEdit={setShowEdit}
+                    handleDelete={handleDelete}
+                />
             </div>
         )
     }
