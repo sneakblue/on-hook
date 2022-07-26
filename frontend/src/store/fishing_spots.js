@@ -48,13 +48,9 @@ export default function reducer (state = initialState, action) {
             const newState = {...state};
             let newImages = [...newState[action.spotId].images];
             if (action.images.image !== undefined) {
-                console.log('single image', action.images.image);
                 newImages.push(action.images.image)
             } else {
-                console.log('multi-images ', action.images.newImages);
                 action.images.newImages.forEach(image => {
-                    console.log('adding images!!!!')
-                    console.log(image);
                     newImages.push(image);
                 });
             }
@@ -202,9 +198,7 @@ export const addSpotImage = (data) => async dispatch => {
         for (let i = 0; i < images.length; i++) {
             formData.append("images", images[i]);
         }
-    }
-
-    if (image) formData.append("image", image);
+    } else if (image) formData.append("image", image);
     let res;
     if (images.length !== 1) {
         res = await csrfFetch(`/api/images/create-mult/${spotId}`, {
@@ -225,7 +219,6 @@ export const addSpotImage = (data) => async dispatch => {
     }
     if (res.ok) {
         const newImages = await res.json();
-        console.log(newImages);
         dispatch(addImage(newImages, spotId));
     }
 }

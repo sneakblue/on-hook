@@ -84,6 +84,9 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
         const newImages = [...images];
         newImages.splice(i, 1);
         setImages(newImages);
+        if (newImages.length === 1) {
+            setImage(newImages[0]);
+        }
     }
 
     const handleSubmit = (e) => {

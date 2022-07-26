@@ -48,16 +48,10 @@ export default function HomePage() {
         if (currLat !== 0 && currLong !== 0 && nearby.length === 0 && fishingSpots.length > 0) {
             fishingSpots.forEach(spot => {
                 let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
-                console.log(res);
                 if (res < 20) {
                     newNearby.push(spot);
                 }
             })
-            console.log(nearby.length)
-            // if (nearby.length === 0) {
-            //     console.log('setting newNearby')
-            //     setNearby(newNearby);
-            // }
             setNearby(newNearby);
         }
     }, [fishingSpots, currLat, currLong, nearby])

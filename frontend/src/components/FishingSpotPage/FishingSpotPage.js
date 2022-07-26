@@ -115,6 +115,9 @@ export default function FishingSpotPage() {
             const updatedImages = [...newImages];
             updatedImages.splice(i, 1);
             setNewImages(updatedImages);
+            if (updatedImages.length === 1) {
+                setNewImage(updatedImages[0]);
+            }
         }
     }
 
