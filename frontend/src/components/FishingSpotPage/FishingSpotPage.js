@@ -84,8 +84,8 @@ export default function FishingSpotPage() {
 
     if (!fishingSpot) return null;
 
-    const handleDelete = () => {
-        dispatch(deleteFishingSpot(id));
+    const handleDelete = async () => {
+        await dispatch(deleteFishingSpot(id));
         history.push('/home');
     }
 
