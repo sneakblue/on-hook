@@ -27,10 +27,10 @@ export default function reducer (state = initialState, action) {
             const newState = { ...state };
             let newImages = [];
             if (action.images.image !== undefined) {
-                newImages.push(action.images.image.url)
+                newImages.push(action.images.image)
             } else {
                 action.images.newImages.forEach(image => {
-                    newImages.push(image.url);
+                    newImages.push(image);
                 });
             }
             action.payload.fishing_spot.images = newImages;

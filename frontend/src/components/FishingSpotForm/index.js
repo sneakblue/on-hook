@@ -68,7 +68,22 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
         const files = e.target.files;
         if (files.length === 1) setImage(e.target.files[0]);
         else setImage(null);
-        setImages(files);
+        // if (images.length) {
+            // let newImages = [...images];
+            // Object.values(e.target.files.forEach(file => {
+            //     newImages.push(file);
+            // }))
+            // setImages([...images, ...files])
+        // } else {
+            setImages([...images, ...files]);
+        // }
+    }
+
+    const handleImageRemove = (e, i) => {
+        e.preventDefault();
+        const newImages = [...images];
+        newImages.splice(i, 1);
+        setImages(newImages);
     }
 
     const handleSubmit = (e) => {
@@ -94,6 +109,34 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
             }
             history.push('/home');
         }
+    }
+
+    let previewImages;
+
+    if (images.length) {
+        previewImages = (
+            <div className={'preview_images--div'}>
+                {images.map((image, i) => {
+                    return (
+                        <div key={i} className={'preview_images_single--div'}>
+                            <button
+                                className={'preview_images--btn'}
+                                onClick={(e) => handleImageRemove(e, i)}
+                            >x</button>
+                            <img
+                                className={'preview_images--img'}
+                                src={URL.createObjectURL(image)}
+                            />
+                        </div>
+                    )
+                })}
+            </div>
+        )
+    } else {
+        previewImages = (
+            <>
+            </>
+        )
     }
 
 
@@ -189,6 +232,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <button type='submit' className='form__submit--btn'>Submit</button>
+                {previewImages}
             </form>
         </>
     )

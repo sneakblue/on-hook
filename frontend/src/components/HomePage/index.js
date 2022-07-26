@@ -53,10 +53,11 @@ export default function HomePage() {
                 }
             })
             console.log(nearby.length)
-            if (nearby.length === 0) {
-                console.log('setting newNearby')
-                setNearby(newNearby);
-            }
+            // if (nearby.length === 0) {
+            //     console.log('setting newNearby')
+            //     setNearby(newNearby);
+            // }
+            setNearby(newNearby);
         }
     }, [fishingSpots, currLat, currLong, nearby])
 

@@ -7,7 +7,7 @@
 .fishing-spot--form {
     display: flex;
     flex-direction: column;
-    height: 425px;
+    height: auto;
     width: 300px;
     background-color: aquamarine;
     padding: 10px;
@@ -38,4 +38,26 @@
 
 .errors {
     color: red;
+}
+
+.preview_images--div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.preview_images--img {
+    height: 50px;
+    width: 50px;
+}
+
+.preview_images--btn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+.preview_images_single--div {
+    position: relative;
 }
