@@ -12,7 +12,6 @@ router.get('/', asyncHandler( async (req, res) => {
 
 router.post('/create-single/:id', singleMulterUpload('image'), asyncHandler( async (req, res) => {
     const { id } = req.params;
-    console.log('uploading ---> ' + id)
     const imageUrl = await singlePublicFileUpload(req.file);
     const image = await Image.create({
         spotId: id,
@@ -25,13 +24,14 @@ router.post('/create-mult/:spotId', multipleMulterUpload('images'), asyncHandler
     const { spotId } = req.params;
     const imageUrls = await multiplePublicFileUpload(req.files);
     let newImages = [];
-    imageUrls.forEach(async (url) => {
+    for (let i = 0; i < imageUrls.length; i++) {
+        let url = imageUrls[i];
         const image = await Image.create({
             spotId,
             url
         });
         newImages.push(image);
-    });
+    }
     return res.json({ newImages });
 }));
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import defaultImage from '../../images/fishing-rod.jpg';
 
 export default function SpotMarker ({ fishingSpot }) {
     const [showInfo, setShowInfo] = useState(false);
@@ -16,7 +16,11 @@ export default function SpotMarker ({ fishingSpot }) {
             <Link to={`/fishing-spot/${fishingSpot.id}`} className='xtraInfo--Link'>
                 <div className='xtraInfo--div'>
                     {fishingSpot.name}
-                    <img className='xtraInfo--img' alt='xtraimg' src={fishingSpot.images[0].url} />
+                    <img
+                        className='xtraInfo--img'
+                        alt='xtraimg'
+                        src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage}
+                    />
                     <h5>{fishingSpot.description}</h5>
                 </div>
             </Link>

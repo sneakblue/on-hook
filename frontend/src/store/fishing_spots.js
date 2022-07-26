@@ -6,6 +6,8 @@ const LOAD_FISHING_SPOT = 'fishing_spots/LOAD_FISHING_SPOT';
 const CREATE_FISHING_SPOT = 'fishing_spots/CREATE_FISHING_SPOT';
 const DELETE_FISHING_SPOT = 'fishing_spots/DELETE_FISHING_SPOT';
 const UPDATE_FISHING_SPOT = 'fishing_spots/UPDATE_FISHING_SPOT';
+const DELETE_IMAGE = 'fishing_spots/DELETE_IMAGE';
+const ADD_IMAGE = 'fishing_spots/ADD_IMAGE';
 
 const initialState = {};
 
@@ -27,10 +29,10 @@ export default function reducer (state = initialState, action) {
             const newState = { ...state };
             let newImages = [];
             if (action.images.image !== undefined) {
-                newImages.push(action.images.image.url)
+                newImages.push(action.images.image)
             } else {
                 action.images.newImages.forEach(image => {
-                    newImages.push(image.url);
+                    newImages.push(image);
                 });
             }
             action.payload.fishing_spot.images = newImages;
@@ -40,6 +42,36 @@ export default function reducer (state = initialState, action) {
         case DELETE_FISHING_SPOT: {
             const newState = { ...state };
             delete newState[action.id]
+            return newState;
+        }
+        case ADD_IMAGE: {
+            const newState = {...state};
+            let newImages = [...newState[action.spotId].images];
+            if (action.images.image !== undefined) {
+                console.log('single image', action.images.image);
+                newImages.push(action.images.image)
+            } else {
+                console.log('multi-images ', action.images.newImages);
+                action.images.newImages.forEach(image => {
+                    console.log('adding images!!!!')
+                    console.log(image);
+                    newImages.push(image);
+                });
+            }
+            newState[action.spotId].images = newImages;
+            return newState;
+        }
+        case DELETE_IMAGE: {
+            const newState = {...state};
+            const updatedImages = [...newState[action.spotId].images];
+            for (let i = 0; i < updatedImages.length; i++) {
+                let image = updatedImages[i];
+                if (image.id === action.imageId) {
+                    updatedImages.splice(i, 1);
+                    break;
+                }
+            }
+            newState[action.spotId].images = updatedImages;
             return newState;
         }
         case UPDATE_FISHING_SPOT: {
@@ -79,6 +111,18 @@ const updateFishingSpot = (payload) => ({
     payload
 });
 
+const deleteImage = (spotId, imageId) => ({
+    type: DELETE_IMAGE,
+    spotId,
+    imageId
+})
+
+const addImage = (images, spotId) => ({
+    type: ADD_IMAGE,
+    images,
+    spotId
+})
+
 export const getFishingSpots = () => async dispatch => {
     const res = await csrfFetch('/api/fishing_spots');
 
@@ -112,9 +156,7 @@ export const createFishingSpot = (data) => async dispatch => {
             for (let i = 0; i < images.length; i++) {
                 formData.append("images", images[i]);
             }
-        }
-
-        if (image) formData.append("image", image);
+        } else if (image) formData.append("image", image);
         let res;
         if (images.length !== 1) {
             res = await csrfFetch(`/api/images/create-mult/${payload.fishing_spot.id}`, {
@@ -151,11 +193,59 @@ export const deleteFishingSpot = (id) => async dispatch => {
     }
 };
 
+export const addSpotImage = (data) => async dispatch => {
+    const { image, images, spotId } = data;
+
+    const formData = new FormData();
+
+    if (images && images.length !== 1) {
+        for (let i = 0; i < images.length; i++) {
+            formData.append("images", images[i]);
+        }
+    }
+
+    if (image) formData.append("image", image);
+    let res;
+    if (images.length !== 1) {
+        res = await csrfFetch(`/api/images/create-mult/${spotId}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            body: formData,
+        })
+    } else {
+        res = await csrfFetch(`/api/images/create-single/${spotId}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            body: formData,
+        });
+    }
+    if (res.ok) {
+        const newImages = await res.json();
+        console.log(newImages);
+        dispatch(addImage(newImages, spotId));
+    }
+}
+
+export const deleteSpotImage = (data) => async dispatch => {
+    const { spotId, id} = data;
+    const res = await csrfFetch(`/api/images/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        dispatch(deleteImage(spotId, id))
+    }
+};
+
 export const renewFishingSpot = (data) => async dispatch => {
-    const { user_id, name, pic, description, city, state, country, lat, lng, id } = data;
+    const { user_id, name, description, city, state, country, lat, lng, id } = data;
     const res = await csrfFetch(`/api/fishing_spots/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ user_id, pic, city, state, country, lat, lng, name, description })
+        body: JSON.stringify({ user_id, city, state, country, lat, lng, name, description })
     });
 
     if (res.ok) {

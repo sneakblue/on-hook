@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { getFishingSpot, deleteFishingSpot, renewFishingSpot } from '../../store/fishing_spots';
+import { getFishingSpot, deleteFishingSpot, renewFishingSpot, deleteSpotImage, addSpotImage } from '../../store/fishing_spots';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
 import CommentSection from '../CommentSection';
+import defaultImage from '../../images/fishing-rod.jpg';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -13,7 +14,7 @@ export default function FishingSpotPage() {
     const { id } = useParams();
     const fishingSpot = useSelector(state => state.fishing_spots[id]);
     const [ showEdit, setShowEdit ] = useState(false);
-    const [ pic, setPic ] = useState('');
+    // const [ pic, setPic ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ name, setName ] = useState('');
     const [ city, setCity ] = useState('');
@@ -22,6 +23,8 @@ export default function FishingSpotPage() {
     const [ lat, setLat ] = useState(0.0);
     const [ lng, setLng ] = useState(0.0);
     const [ errors, setErrors ] = useState([]);
+    const [ newImage, setNewImage ] = useState(null);
+    const [ newImages, setNewImages ] = useState([]);
     const sessionUser = useSelector(state => state.session.user);
     const reviews = useSelector(state => Object.values(state.reviews))
 
@@ -30,7 +33,7 @@ export default function FishingSpotPage() {
     }, [dispatch, id]);
 
     useEffect(() => {
-        setPic(fishingSpot?.pic);
+        // setPic(fishingSpot?.pic);
         setName(fishingSpot?.name);
         setCity(fishingSpot?.city);
         setState(fishingSpot?.state);
@@ -55,9 +58,9 @@ export default function FishingSpotPage() {
         } else if (name.length === 0) {
             errors.push('Must provide a name');
         };
-        if (pic.length === 0) {
-            errors.push('Must provide a picture url')
-        };
+        // if (pic.length === 0) {
+        //     errors.push('Must provide a picture url')
+        // };
         if (description.length === 0) {
             errors.push('Must provide a description')
         };
@@ -84,9 +87,35 @@ export default function FishingSpotPage() {
 
     if (!fishingSpot) return null;
 
-    const handleDelete = () => {
-        dispatch(deleteFishingSpot(id));
+    const handleDelete = async () => {
+        await dispatch(deleteFishingSpot(id));
         history.push('/home');
+    }
+
+    const handleImages = (e) => {
+        const files = e.target.files;
+        if (files.length === 1) setNewImage(e.target.files[0]);
+        else setNewImage(null);
+        // if (images.length) {
+            // let newImages = [...images];
+            // Object.values(e.target.files.forEach(file => {
+            //     newImages.push(file);
+            // }))
+            // setImages([...images, ...files])
+        // } else {
+            setNewImages([...newImages, ...files]);
+        // }
+    }
+
+    const handleImageDelete = async (e, id, i) => {
+        e.preventDefault();
+        if (id !== undefined) {
+            dispatch(deleteSpotImage({spotId: fishingSpot.id, id}))
+        } else {
+            const updatedImages = [...newImages];
+            updatedImages.splice(i, 1);
+            setNewImages(updatedImages);
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -97,7 +126,7 @@ export default function FishingSpotPage() {
                 id: fishingSpot.id,
                 user_id: fishingSpot.user_id,
                 name,
-                pic,
+                // pic,
                 description,
                 city,
                 state,
@@ -106,8 +135,30 @@ export default function FishingSpotPage() {
                 lng
             }
             await dispatch(renewFishingSpot(newFishingSpot));
+            if (newImage || newImages.length > 0) {
+                await dispatch(addSpotImage({
+                    spotId: fishingSpot.id,
+                    image: newImage,
+                    images: newImages
+                }))
+                setNewImages([]);
+                setNewImage(null);
+            }
             setShowEdit(false);
         }
+    }
+
+    let errorContent;
+    if (errors.length) {
+        errorContent = (
+            <ul className='errors'>
+                {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
+        )
+    } else {
+        errorContent = (
+            <></>
+        )
     }
 
     let content;
@@ -134,20 +185,21 @@ export default function FishingSpotPage() {
                         <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
                     </div>
                     <div className='fishing-spot-img--div'>
-                        <img src={fishingSpot.images[0].url} className='fishing-spot-img--img' alt={fishingSpot.id}/>
+                        <img src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                     </div>
                     <h4>Description</h4>
                     <p className='fishing-spot__description'>{fishingSpot.description}</p>
                     <h4>Rating: {average}</h4>
                     {content}
                     {showEdit && <Modal onClose={() => setShowEdit(false)}>
-                        <>
-                            <ul className='errors'>
+                        <div className='fishing-spot--form'>
+                            {errorContent}
+                            {/* <ul className='errors'>
                                 {errors.map((error) => <li key={error}>{error}</li>)}
-                            </ul>
+                            </ul> */}
                             <form
                                 onSubmit={handleSubmit}
-                                className='fishing-spot--form'
+                                // className='fishing-spot--form'
                             >
                                 <div className='form__input--div'>
                                     <label htmlFor='name'>Name</label>
@@ -172,7 +224,7 @@ export default function FishingSpotPage() {
                                         onChange={e => setDescription(e.target.value)}
                                     />
                                 </div>
-                                <div className='form__input--div'>
+                                {/* <div className='form__input--div'>
                                     <label htmlFor='pic'>Picture</label>
                                     <input
                                         type='url'
@@ -181,7 +233,17 @@ export default function FishingSpotPage() {
                                         required={true}
                                         onChange={e => setPic(e.target.value)}
                                     />
+                                </div> */}
+                                <div className='form__input--div'>
+                                    <label htmlFor='pic'>Pictures</label>
+                                    <input
+                                        type='file'
+                                        multiple
+                                        name='pic'
+                                        onChange={handleImages}
+                                    />
                                 </div>
+
                                 <div className='form__input--div'>
                                     <label htmlFor='city'>City</label>
                                     <input
@@ -234,7 +296,39 @@ export default function FishingSpotPage() {
                                 </div>
                                 <button type='submit' className='form__submit--btn'>Submit</button>
                             </form>
-                        </>
+                            <div className={'preview_images--div'}>
+                                {fishingSpot.images.map((image, i) => {
+                                    return (
+                                        <div key={i} className={'preview_images_single--div'}>
+                                            <button
+                                                className={'preview_images--btn'}
+                                                onClick={(e) => handleImageDelete(e, image.id)}
+                                            >x</button>
+                                            <img
+                                                className={'preview_images--img'}
+                                                src={image.url}
+                                                alt={'preview'}
+                                            />
+                                        </div>
+                                    )
+                                })}
+                                {newImages.map((image, i) => {
+                                    return (
+                                        <div key={i} className={'preview_images_single--div'}>
+                                            <button
+                                                className={'preview_images--btn'}
+                                                onClick={(e) => handleImageDelete(e, image.id, i)}
+                                            >x</button>
+                                            <img
+                                                className={'preview_images--img'}
+                                                src={URL.createObjectURL(image)}
+                                                alt={'preview'}
+                                            />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
                         </Modal>
                     }
                 </div>
