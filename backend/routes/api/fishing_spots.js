@@ -9,7 +9,8 @@ router.get('/', asyncHandler( async(req, res) => {
         include: [
             {
                 model: Image,
-                as: 'images'
+                as: 'images',
+                order: ['id', 'ASC']
             }
         ]
     });
@@ -22,7 +23,8 @@ router.get('/:id', asyncHandler( async (req, res) => {
         include: [
             {
                 model: Image,
-                as: 'images'
+                as: 'images',
+                order: ['id', 'ASC']
             }
         ]
     });
@@ -54,7 +56,15 @@ router.put('/:id', asyncHandler( async (req, res) => {
             plain: true,
         }
     );
-    const updatedSpot = await Fishing_Spot.findByPk(id);
+    const updatedSpot = await Fishing_Spot.findByPk(id, {
+        include: [
+            {
+                model: Image,
+                as: 'images',
+                order: ['id', 'ASC']
+            }
+        ]
+    });
     return res.json({ updatedSpot });
 }));
 

@@ -38,6 +38,7 @@
 
 .errors {
     color: red;
+    min-height: 0px;
 }
 
 .preview_images--div {
