@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFishingSpots } from "../../store/fishing_spots";
 import { Link } from "react-router-dom";
+import defaultImage from '../../images/fishing-rod.jpg';
 
 import './HomePage.css';
 
@@ -73,7 +74,7 @@ export default function HomePage() {
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>
                                     <div className='home__fishing-spot-img--div'>
-                                        <img alt={fishingSpot.id} src={fishingSpot.images[0].url} className='home__fishing-spot--img'/>
+                                        <img alt={fishingSpot.id} src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='home__fishing-spot--img'/>
                                     </div>
                                 </Link>
                                 <div>

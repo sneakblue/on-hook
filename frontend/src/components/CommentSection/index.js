@@ -11,7 +11,7 @@ export default function CommentSection({ fishingSpot, sessionUser }) {
 
     useEffect(() => {
         dispatch(getComments(fishingSpot.id));
-    }, [dispatch, fishingSpot]);
+    }, [dispatch, fishingSpot.id]);
 
     return (
         <div className='main-comments-div'>

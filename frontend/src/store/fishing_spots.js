@@ -6,6 +6,7 @@ const LOAD_FISHING_SPOT = 'fishing_spots/LOAD_FISHING_SPOT';
 const CREATE_FISHING_SPOT = 'fishing_spots/CREATE_FISHING_SPOT';
 const DELETE_FISHING_SPOT = 'fishing_spots/DELETE_FISHING_SPOT';
 const UPDATE_FISHING_SPOT = 'fishing_spots/UPDATE_FISHING_SPOT';
+const DELETE_IMAGE = 'fishing_spots/DELETE_IMAGE';
 
 const initialState = {};
 
@@ -40,6 +41,19 @@ export default function reducer (state = initialState, action) {
         case DELETE_FISHING_SPOT: {
             const newState = { ...state };
             delete newState[action.id]
+            return newState;
+        }
+        case DELETE_IMAGE: {
+            const newState = {...state};
+            const updatedImages = [...newState[action.spotId].images];
+            for (let i = 0; i < updatedImages.length; i++) {
+                let image = updatedImages[i];
+                if (image.id === action.imageId) {
+                    updatedImages.splice(i, 1);
+                    break;
+                }
+            }
+            newState[action.spotId].images = updatedImages;
             return newState;
         }
         case UPDATE_FISHING_SPOT: {
@@ -78,6 +92,12 @@ const updateFishingSpot = (payload) => ({
     type: UPDATE_FISHING_SPOT,
     payload
 });
+
+const deleteImage = (spotId, imageId) => ({
+    type: DELETE_IMAGE,
+    spotId,
+    imageId
+})
 
 export const getFishingSpots = () => async dispatch => {
     const res = await csrfFetch('/api/fishing_spots');
@@ -148,6 +168,17 @@ export const deleteFishingSpot = (id) => async dispatch => {
 
     if (res.ok) {
         dispatch(removeFishingSpot(id))
+    }
+};
+
+export const deleteSpotImage = (data) => async dispatch => {
+    const { spotId, id} = data;
+    const res = await csrfFetch(`/api/images/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        dispatch(deleteImage(spotId, id))
     }
 };
 

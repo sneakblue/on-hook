@@ -126,6 +126,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                             <img
                                 className={'preview_images--img'}
                                 src={URL.createObjectURL(image)}
+                                alt={'preview'}
                             />
                         </div>
                     )

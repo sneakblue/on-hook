@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { getFishingSpot, deleteFishingSpot, renewFishingSpot } from '../../store/fishing_spots';
+import { getFishingSpot, deleteFishingSpot, renewFishingSpot, deleteSpotImage } from '../../store/fishing_spots';
 import { Modal } from '../../context/Modal';
 import ReviewSection from '../ReviewSection';
 import CommentSection from '../CommentSection';
+import defaultImage from '../../images/fishing-rod.jpg';
 import './FishingSpotPage.css';
 
 export default function FishingSpotPage() {
@@ -89,6 +90,11 @@ export default function FishingSpotPage() {
         history.push('/home');
     }
 
+    const handleImageDelete = async (e, id) => {
+        e.preventDefault();
+        dispatch(deleteSpotImage({spotId: fishingSpot.id, id}))
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let submitErrors = checkErrors();
@@ -134,7 +140,7 @@ export default function FishingSpotPage() {
                         <h3>{fishingSpot.city}, {fishingSpot.state}</h3>
                     </div>
                     <div className='fishing-spot-img--div'>
-                        <img src={fishingSpot.images[0].url} className='fishing-spot-img--img' alt={fishingSpot.id}/>
+                        <img src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                     </div>
                     <h4>Description</h4>
                     <p className='fishing-spot__description'>{fishingSpot.description}</p>
@@ -181,6 +187,23 @@ export default function FishingSpotPage() {
                                         required={true}
                                         onChange={e => setPic(e.target.value)}
                                     />
+                                </div>
+                                <div className={'preview_images--div'}>
+                                    {fishingSpot.images.map((image, i) => {
+                                        return (
+                                            <div key={i} className={'preview_images_single--div'}>
+                                                <button
+                                                    className={'preview_images--btn'}
+                                                    onClick={(e) => handleImageDelete(e, image.id)}
+                                                >x</button>
+                                                <img
+                                                    className={'preview_images--img'}
+                                                    src={image.url}
+                                                    alt={'preview'}
+                                                />
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                                 <div className='form__input--div'>
                                     <label htmlFor='city'>City</label>
