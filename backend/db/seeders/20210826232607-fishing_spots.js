@@ -6,13 +6,23 @@ module.exports = {
         {
           user_id: 1,
           description: 'This is a description of a Fishing Hole',
-          name: 'Test Spot',
+          name: 'Golden Ponds',
           city: 'Longmont',
           state: 'CO',
           country: 'USA',
           lat: 40.17012,
           lng: -105.13876
         },
+        {
+            user_id: 1,
+            description: 'A Beautiful lake with plenty of fishing. Lots of good spots and nice views!',
+            name: 'Union Reservoir',
+            city: 'Longmont',
+            state: 'CO',
+            country: 'USA',
+            lat: 40.18269324371436,
+            lng: -105.0397492725014
+          },
       ], {});
   },
 

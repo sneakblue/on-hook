@@ -16,6 +16,10 @@ module.exports = {
           url: 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/longmontco/Golden_Ponds_212ce4fd-2282-440e-b5e2-9462b6be9a40.jpg',
           spotId: 1
         },
+        {
+            url: 'https://on-hook.s3.amazonaws.com/1659464731618.jpg',
+            spotId: 2
+        }
       ], {});
   },
 
