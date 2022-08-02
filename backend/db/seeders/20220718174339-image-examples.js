@@ -100,6 +100,26 @@ module.exports = {
             url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659478779169.jpg',
             spotId: 22
         },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659480609925.jpg',
+            spotId: 23
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659480832251.jpg',
+            spotId: 24
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659481075060.jpg',
+            spotId: 25
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659481240881.jpg',
+            spotId: 26
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659481903580.JPG',
+            spotId: 27
+        },
       ], {});
   },
 

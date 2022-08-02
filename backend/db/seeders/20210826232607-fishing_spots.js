@@ -223,6 +223,56 @@ module.exports = {
             lat: 47.30341030586451,
             lng: -121.22660784967252
         },
+        {
+            user_id: 8,
+            description: 'Not a conventional fishing lake, but lots to be caught here.',
+            name: 'Lake of the Ozarks',
+            city: 'Sunrise Beach',
+            state: 'MO',
+            country: 'USA',
+            lat: 38.13760931159427,
+            lng: -92.81090880585839
+        },
+        {
+            user_id: 9,
+            description: 'A nice lake with lots of shore fishing and plenty of room for a good boat',
+            name: 'Alum Creek Lake',
+            city: 'Delaware',
+            state: 'OH',
+            country: 'USA',
+            lat: 40.21583430826761,
+            lng: -82.96677537889293
+        },
+        {
+            user_id: 10,
+            description: 'A fishing spot to put on your list. Lots of fishing here.',
+            name: 'Wheeler Lake',
+            city: 'Hillsboro',
+            state: 'AL',
+            country: 'USA',
+            lat: 34.73400396381677,
+            lng: -87.16525071961033
+        },
+        {
+            user_id: 10,
+            description: 'A Beautiful lake with plenty of fishing. Lots of good spots and nice views!',
+            name: 'Lake Marion',
+            city: 'Eutawville',
+            state: 'SC',
+            country: 'USA',
+            lat: 33.4638370791183,
+            lng: -80.28516565322306
+        },
+        {
+            user_id: 9,
+            description: 'A quaint lake. Lots of different species, and plenty of bites',
+            name: 'Lake Anna',
+            city: 'Bumpass',
+            state: 'VA',
+            country: 'USA',
+            lat: 38.02635632887184,
+            lng: -77.73208088514619
+        },
       ], {});
   },
 
