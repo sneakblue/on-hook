@@ -153,6 +153,76 @@ module.exports = {
             lat: 35.30186601520205,
             lng: -95.56310189329831
         },
+        {
+            user_id: 4,
+            description: 'A fishing spot to put on your list. Lots of fishing here.',
+            name: 'Wilson Lake',
+            city: 'Dorrance',
+            state: 'KS',
+            country: 'USA',
+            lat: 38.94476142569378,
+            lng: -98.56108073520551
+        },
+        {
+            user_id: 4,
+            description: 'A Beautiful lake with plenty of fishing. Lots of good spots and nice views!',
+            name: 'Clinton Lake',
+            city: 'Lawrence',
+            state: 'KS',
+            country: 'USA',
+            lat: 38.923254119951146,
+            lng: -95.37600663447807
+        },
+        {
+            user_id: 4,
+            description: 'A fishing spot to put on your list. Lots of fishing here.',
+            name: 'Lake McConaughy',
+            city: 'Lemoyne',
+            state: 'NE',
+            country: 'USA',
+            lat: 41.24551612017057,
+            lng: -101.79502899026313
+        },
+        {
+            user_id: 4,
+            description: 'A Beautiful lake with plenty of fishing. Lots of good spots and nice views!',
+            name: 'Lewis Lake',
+            city: 'Moran',
+            state: 'WY',
+            country: 'USA',
+            lat: 44.304797136108235,
+            lng: -110.62670552180937
+        },
+        {
+            user_id: 4,
+            description: 'A nice lake with lots of shore fishing and plenty of room for a good boat',
+            name: 'Klamath Lake',
+            city: 'Klamath Falls',
+            state: 'OR',
+            country: 'USA',
+            lat: 42.414963211147935,
+            lng: -121.91774721260165
+        },
+        {
+            user_id: 10,
+            description: 'A fishing spot to put on your list. Lots of fishing here.',
+            name: 'Lake Pend Oreille',
+            city: 'Hope',
+            state: 'ID',
+            country: 'USA',
+            lat: 48.15461616637111,
+            lng: -116.31607121894551
+        },
+        {
+            user_id: 9,
+            description: 'A Beautiful lake with plenty of fishing. Lots of good spots and nice views!',
+            name: 'Kachess Lake',
+            city: 'Easton',
+            state: 'WA',
+            country: 'USA',
+            lat: 47.30341030586451,
+            lng: -121.22660784967252
+        },
       ], {});
   },
 

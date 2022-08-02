@@ -71,7 +71,35 @@ module.exports = {
         {
             url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659472524804.jfif',
             spotId: 15
-        }
+        },
+        {
+            url: 'https://on-hook.s3.amazonaws.com/1659475460160.jpg',
+            spotId: 16
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659475660386.jpg',
+            spotId: 17
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659475952670.jpg',
+            spotId: 18
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659478000030.jpg',
+            spotId: 19
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659478224691.jpg',
+            spotId: 20
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659478620761.jpg',
+            spotId: 21
+        },
+        {
+            url: 'https://on-hook.s3.us-west-2.amazonaws.com/1659478779169.jpg',
+            spotId: 22
+        },
       ], {});
   },
 
