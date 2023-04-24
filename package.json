@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
     "google-map-react": "^2.1.10"
   }
 }
