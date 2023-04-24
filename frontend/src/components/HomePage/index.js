@@ -30,8 +30,8 @@ function distanceCalc(lat1, long1, lat2, long2) {
 export default function HomePage() {
     const dispatch = useDispatch();
     const fishingSpots = useSelector(state => Object.values(state.fishing_spots));
-    const [currLat, setCurrLat] = useState(35.20713);
-    const [ currLong, setCurrLong ] = useState(-101.83867);
+    const [currLat, setCurrLat] = useState(40.17751);
+    const [ currLong, setCurrLong ] = useState(-105.10269);
     const [nearby, setNearby] = useState([]);
 
     useEffect(() => {
@@ -46,21 +46,17 @@ export default function HomePage() {
     useEffect(() => {
         let newNearby = [];
         if (nearby.length === 0 && fishingSpots.length > 0) {
-            // console.log('new nearby!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111')
             fishingSpots.forEach(spot => {
                 let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
                 if (res < 20) {
                     newNearby.push(spot);
                 }
             })
-            // setNearby(newNearby);
         }
         if (nearby.length === 0 && newNearby.length === 0 && fishingSpots.length > 0) {
             for (let i = 0; i < 5; i++) {
                 newNearby.push(fishingSpots[i]);
             }
-            // setNearby(newNearby)
-            // console.log('HEY!!!!!!!!!!!!!!!!!!')
         }
         if (newNearby.length > 0) setNearby(newNearby)
 
