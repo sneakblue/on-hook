@@ -7,30 +7,28 @@ import { useState, useEffect } from 'react';
 
 import './MapSection.css';
 
-function MapSection({ fishingSpots }) {
-    const [currLat, setCurrLat] = useState(0);
-    const [currLong, setCurrLong] = useState(0);
+function MapSection({ fishingSpots, currLat, currLong }) {
+    const [mapLat, setCurrLat] = useState(currLat ? currLat : 0);
+    const [mapLong, setCurrLong] = useState(currLong ? currLong : 0);
     const [newLat, setNewLat] = useState(0);
     const [newLong, setNewLong] = useState(0);
     const [createLat, setCreateLat] = useState(0);
     const [createLng, setCreateLng] = useState(0);
     const [showModal, setShowModal] = useState(false);
-    // const [nearby, setNearby] = useState([]);
+
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((pos) => {
             setCurrLat(pos.coords.latitude);
             setCurrLong(pos.coords.longitude);
-        });
+        }, (err) => console.warn(`ERROR(${err.code}) ${err.message}`));
     }, [])
+    
 
     useEffect(() => {
 
     }, [showModal])
 
-    // useEffect(() => {
-    //     console.log(fishingSpots)
-    // }, [])
 
     const onClick = ({x, y, lat, lng, event}) => {
         if (newLat === 0) {
@@ -47,7 +45,7 @@ function MapSection({ fishingSpots }) {
 
     return (
         <div className="map--div">
-            {(currLat !== 0 && currLong !== 0) && <GoogleMapReact
+            {(mapLat !== 0 && mapLong !== 0) && <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
                 center={{ lat: currLat, lng: currLong }}
                 defaultZoom={ 10.5 }

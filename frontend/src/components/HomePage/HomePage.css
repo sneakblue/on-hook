@@ -23,7 +23,7 @@
     background-repeat: no-repeat;
     background-image: url('https://images.unsplash.com/photo-1520798851880-792b9c61b755?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1021&q=80');
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
