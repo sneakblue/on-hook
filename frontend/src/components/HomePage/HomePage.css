@@ -4,8 +4,8 @@
     background-color: bisque;
     width: 100%;
     height: 50px;
-    justify-content: flex-end;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -50,9 +50,11 @@
     background-color: aquamarine;
     border-radius: 5px;
     box-shadow: 2px 2px 2px black;
+    transition: background-color 0.5s;
 }
 
 .home__fishing-spot--div:hover {
+
     background-color: aqua;
 }
 

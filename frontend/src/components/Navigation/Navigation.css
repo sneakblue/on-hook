@@ -48,6 +48,7 @@
     border: 0px;
     border-radius: 3px;
     color: black;
+    transition: all 0.3s;
 }
 
 .navbar-signup--navlink {
@@ -55,12 +56,12 @@
 }
 
 .navbar--navlink:hover {
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 2px black;
     background-color: aqua;
 }
 
 .navbar--navlink:active {
-    box-shadow: -2px -2px 2px black;
+    box-shadow: -1px -1px 2px black;
     color: black;
 }
 
@@ -75,13 +76,14 @@
     align-items: center;
     border: 0px;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .navbar__profile--btn:hover {
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 2px black;
     background-color: aqua;
 }
 
 .navbar__profile--btn:active {
-    box-shadow: -2px -2px 2px black;
+    box-shadow: -1px -1px 2px black;
 }
