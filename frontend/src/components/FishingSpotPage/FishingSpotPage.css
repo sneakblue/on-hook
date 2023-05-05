@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgba(12, 175, 180, 0.2);
+    background-color: azure;
     overflow-x: hidden;
     min-height: 100vh;
     padding-top: 50px;
@@ -106,12 +106,17 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
 
 .fishing-spot__title--div {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    padding: 5px;
 }
 
 .fishing-spot__content--div {
     display: flex;
+}
 
+.fishing-spot_description--header {
+    padding-top: 10px;
+    font-size: 18px;
 }
 
 .edit-delete--btn {
