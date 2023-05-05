@@ -7,14 +7,13 @@ import SplashPage from './components/SplashPage';
 import MapSection from './components/MapSection';
 import FishingSpotPage from './components/FishingSpotPage/FishingSpotPage';
 import CreateFishingSpot from './components/CreateFishingSpotPage';
-// import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
-// import { Modal } from './context/Modal';
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-//   const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
