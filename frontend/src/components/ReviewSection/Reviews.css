@@ -51,6 +51,7 @@
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .review-edit-delete--btn {
@@ -59,6 +60,7 @@
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .review-edit-delete--btn:hover {

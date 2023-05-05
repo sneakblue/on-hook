@@ -26,6 +26,7 @@
     background-color: antiquewhite;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .form__submit--btn:hover {
@@ -33,6 +34,30 @@
 }
 
 .form__submit--btn:active {
+    box-shadow: -1px -1px 1px black;
+}
+
+.form__input__img--input {
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: azure;
+    padding: 5px 0px 5px 0px;
+}
+
+input[type=file]::file-selector-button {
+    margin: 5px;
+    border: 0px;
+    background-color: antiquewhite;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: aqua;
+}
+
+input[type=file]::file-selector-button:active {
     box-shadow: -1px -1px 1px black;
 }
 

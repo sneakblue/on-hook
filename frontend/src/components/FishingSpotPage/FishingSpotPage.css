@@ -125,6 +125,7 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .edit-delete--btn:hover {
