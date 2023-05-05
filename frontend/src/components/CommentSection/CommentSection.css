@@ -19,6 +19,7 @@
 
 .comment-btns:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 .comment-btns:active {

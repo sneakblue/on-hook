@@ -31,6 +31,7 @@
 
 .form__submit--btn:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 .form__submit--btn:active {
@@ -55,6 +56,7 @@ input[type=file]::file-selector-button {
 
 input[type=file]::file-selector-button:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 input[type=file]::file-selector-button:active {

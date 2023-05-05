@@ -65,6 +65,7 @@
 
 .review-edit-delete--btn:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 .review-edit-delete--btn:active {
@@ -73,6 +74,7 @@
 
 .edit-review--btn:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 .edit-review--btn:active {

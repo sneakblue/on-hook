@@ -130,6 +130,7 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
 
 .edit-delete--btn:hover {
     background-color: aqua;
+    cursor: pointer;
 }
 
 .edit-delete--btn:active {
