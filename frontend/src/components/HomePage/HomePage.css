@@ -27,6 +27,10 @@
     align-items: center;
 }
 
+.nav-lead-span {
+    height: 40px;
+}
+
 .Homepage__content--div {
     height: 100%;
     width: 100%;

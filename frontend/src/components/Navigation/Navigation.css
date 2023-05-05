@@ -19,15 +19,21 @@
     justify-content: center;
     border: 0px;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .profile__dropdown__logout--btn:hover {
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 2px black;
+    background-color: aqua;
     cursor: pointer;
 }
 
+.profile__dropdown__logout--btn:active {
+    box-shadow: -1px -1px 2px black;
+}
+
 .navbar__main--div {
-    /* position: absolute; */
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: flex-end;

@@ -33,10 +33,13 @@ body {
     justify-content: center;
     border: 0px;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .signup__submit--btn:hover {
     box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    background-color: aqua;
 }
 
 .signup__submit--btn:active {
@@ -45,6 +48,7 @@ body {
 
 .signup__main--h1 {
     margin-top: 200px;
+    color: white;
 }
 
 .signup__form--label {
