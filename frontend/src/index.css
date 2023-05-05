@@ -3,6 +3,59 @@ body {
     margin: 0;
 }
 
+body::-webkit-scrollbar {
+    background-color: seashell;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-button:single-button {
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+body::-webkit-scrollbar-button:single-button:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #555555 transparent;
+}
+
+body::-webkit-scrollbar-button:single-button:decrement:hover {
+    border-color: transparent transparent #777777 transparent;
+}
+
+body::-webkit-scrollbar-button:single-button:decrement:active {
+    background-color: rgba(216, 172, 144, 0.307);
+}
+
+body::-webkit-scrollbar-button:single-button:increment {
+    border-width: 8px 8px 0 8px;
+    border-color: #555555 transparent transparent transparent;
+}
+
+body::-webkit-scrollbar-button:single-button:increment:hover {
+    border-color: #777777 transparent transparent transparent;
+}
+
+body::-webkit-scrollbar-button:single-button:increment:active {
+    background-color: rgba(216, 172, 144, 0.307);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: aquamarine;
+    border: 1px 0 1px 0 solid black;
+    border-radius: 5px;
+    box-shadow: 1px 0 3px black;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(103, 212, 176);
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background-color: rgb(95, 182, 153);
+}
+
 * {
     font-family:Arial, Helvetica, sans-serif;
 }

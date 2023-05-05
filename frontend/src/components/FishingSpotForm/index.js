@@ -182,6 +182,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                         type='file'
                         multiple
                         name='pic'
+                        className='form__input__img--input'
                         onChange={handleImages}
                     />
                 </div>

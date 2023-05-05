@@ -21,7 +21,7 @@ export default function SpotMarker ({ fishingSpot }) {
                         alt='xtraimg'
                         src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage}
                     />
-                    <h5>{fishingSpot.description}</h5>
+                    <h5 className="xtraInfo--desc">{fishingSpot.description}</h5>
                 </div>
             </Link>
         )

@@ -2,8 +2,8 @@
     height: 500px;
     width: 500px;
     margin-bottom: 20px;
-    border: 5px solid black;
-    box-shadow: 0px 0px 30px rgb(127, 140, 255);
+    border: 5px solid rgba(36, 100, 218, 0.703);
+    /* box-shadow: 0px 0px 30px rgb(127, 140, 255); */
     border-radius: 5px;
 }
 
@@ -15,14 +15,18 @@
 
 .xtraInfo--div {
     position: relative;
-    height: 100px;
+    min-height: 100px;
     width: 100px;
     bottom: 110px;
-    box-shadow: 3px 3px 5px black;
+    box-shadow: 3px 3px 5px grey;
     border-radius: 5px;
     padding-top: 5px;
     background-color: aquamarine;
     z-index: 2;
+}
+
+.xtraInfo--desc {
+    padding: 5px;
 }
 
 .xtraInfo--img {
@@ -44,7 +48,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2px;
+    padding: 5px;
 
 }
 
@@ -56,6 +60,8 @@
     background-color: seashell;
     border-radius: 5px;
     border: none;
+    margin-top: 5px;
+    transition: all 0.3s;
 }
 
 .newSpot--btn:hover {
@@ -64,6 +70,6 @@
 }
 
 .newSpot--btn:active {
-    background-color: aqua;
+    /* background-color: aqua; */
     box-shadow: -2px -2px 3px black;
 }

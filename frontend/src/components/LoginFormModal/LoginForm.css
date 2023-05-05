@@ -28,14 +28,17 @@
     justify-content: center;
     border: 0px;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .login--btn:hover {
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 2px black;
+    background-color: aqua;
+    cursor: pointer;
 }
 
 .login--btn:active {
-    box-shadow: -2px -2px 2px black;
+    box-shadow: -1px -1px 2px black;
 }
 
 .login__modal--label {

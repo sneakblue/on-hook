@@ -190,7 +190,7 @@ export default function FishingSpotPage() {
                     <div className='fishing-spot-img--div'>
                         <img src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='fishing-spot-img--img' alt={fishingSpot.id}/>
                     </div>
-                    <h4>Description</h4>
+                    <h4 className='fishing-spot_description--header'>Description</h4>
                     <p className='fishing-spot__description'>{fishingSpot.description}</p>
                     <h4>Rating: {average}</h4>
                     {content}

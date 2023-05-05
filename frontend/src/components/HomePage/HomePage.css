@@ -1,11 +1,10 @@
 .footer {
     position: relative;
-    /* bottom: 0px; */
     background-color: bisque;
     width: 100%;
     height: 50px;
-    justify-content: flex-end;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -14,25 +13,25 @@
 }
 
 .Homepage__title--h1 {
-    /* margin-top: 50px; */
-    /* margin-left: 50px; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
 }
 
 .Homepage__main--div {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('https://images.unsplash.com/photo-1520798851880-792b9c61b755?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1021&q=80');
     width: 100vw;
-    /* height: 100vh; */
+    background-color: azure;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.nav-lead-span {
+    height: 40px;
+}
+
 .Homepage__content--div {
     height: 100%;
     width: 100%;
-    /* min-height: auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,6 +48,7 @@
     background-color: aquamarine;
     border-radius: 5px;
     box-shadow: 2px 2px 2px black;
+    transition: background-color 0.5s;
 }
 
 .home__fishing-spot--div:hover {
