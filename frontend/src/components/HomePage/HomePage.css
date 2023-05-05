@@ -18,8 +18,6 @@
 }
 
 .Homepage__main--div {
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100vw;
     background-color: azure;
     display: flex;
