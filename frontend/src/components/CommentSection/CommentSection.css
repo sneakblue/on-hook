@@ -8,7 +8,7 @@
 }
 
 .comment-btns {
-    margin: 5px;
+    margin: 10px 5px 10px 5px;
     border: 0px;
     width: 100px;
     background-color: aquamarine;
@@ -33,8 +33,7 @@
 }
 
 .comment-content-p {
-    /* font-style: italic; */
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 5px 10px;
 }
 
 .comment_time--p {
@@ -58,6 +57,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.post-comment--header {
+    margin: 10px;
 }
 
 .comment-edit--div {

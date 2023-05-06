@@ -26,7 +26,7 @@ export default function CreateComment ({sessionUser, fishingSpot}) {
         content = (
             <>
                 <div className='post-comment-div'>
-                    <h4>Post a Comment</h4>
+                    <h4 className='post-comment--header'>Post a Comment</h4>
                     <form className='post-comment-form' onSubmit={handlePost}>
                         <textarea
                             className='post-comment-textarea'
