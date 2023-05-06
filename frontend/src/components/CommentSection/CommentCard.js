@@ -24,6 +24,26 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
         dispatch(deleteComment(comment.id));
     }
 
+    let time;
+    if (comment.createdAt === comment.updatedAt) {
+        let createdDate = new Date(comment.createdAt);
+
+        console.log(createdDate.toDateString())
+        time = (
+            <p className="comment_time--p">
+                {`Posted: ${createdDate.toDateString()}`}
+            </p>
+        )
+    } else {
+        let updatedDate = new Date(comment.updatedAt);
+
+        time = (
+            <p className="comment_time--p">
+                {`Updated: ${updatedDate.toDateString()}`}
+            </p>
+        )
+    }
+
     let commentContent = null;
     if (showEdit) {
         commentContent = (
@@ -48,7 +68,11 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                 className='comment-div'
                 key={comment.id}
             >
-                <p>{comment.comment}</p>
+                <div className="comment-username-time--div">
+                    <h6 className="comment-username--header">{comment.user.username}</h6>
+                    {time}
+                </div>
+                <p className="comment-content-p">{comment.comment}</p>
                 <CommentBtns
                     sessionUser={sessionUser}
                     comment={comment}

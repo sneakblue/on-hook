@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Comment } = require('../../db/models');
+const { Comment, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -13,7 +13,11 @@ router.get('/:fishing_spot_id', asyncHandler( async(req, res) => {
     const { fishing_spot_id } = req.params;
 
     const comments = await Comment.findAll({
-        where: { fishing_spot_id}
+        where: { fishing_spot_id},
+        include: [{
+            model: User,
+            as: 'user'
+        }]
     });
     return res.json({ comments });
 }));
@@ -25,7 +29,16 @@ router.post('/', asyncHandler( async(req, res) => {
         fishing_spot_id,
         comment
     });
-    return res.json({ newComment });
+    const createdComment = await Comment.findOne({
+        where: {
+            id: newComment.id
+        },
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    })
+    return res.json({ createdComment });
 }));
 
 router.put('/:id', asyncHandler( async(req, res) => {
@@ -38,7 +51,12 @@ router.put('/:id', asyncHandler( async(req, res) => {
             plain: true,
         }
     );
-    const updatedComment = await Comment.findByPk(id);
+    const updatedComment = await Comment.findByPk(id, {
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    });
     return res.json({ updatedComment });
 }));
 
