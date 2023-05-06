@@ -27,10 +27,11 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
     let time;
     if (comment.createdAt === comment.updatedAt) {
         let createdDate = new Date(comment.createdAt);
-        console.log(createdDate)
+
+        console.log(createdDate.toDateString())
         time = (
             <p className="comment_time--p">
-                {`Posted: ${createdDate}`}
+                {`Posted: ${createdDate.toDateString()}`}
             </p>
         )
     }
@@ -59,7 +60,7 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                 className='comment-div'
                 key={comment.id}
             >
-                <div>
+                <div className="comment-username-time--div">
                     <h6 className="comment-username--header">{comment.user.username}</h6>
                     {time}
                 </div>

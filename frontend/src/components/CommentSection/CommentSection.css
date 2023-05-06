@@ -39,6 +39,14 @@
 
 .comment_time--p {
     font-size: 15px;
+    font-style: italic;
+    margin: 5px 5px 0px 5px;
+}
+
+.comment-username-time--div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .post-comment-div {
