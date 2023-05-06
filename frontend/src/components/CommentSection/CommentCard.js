@@ -34,6 +34,14 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                 {`Posted: ${createdDate.toDateString()}`}
             </p>
         )
+    } else {
+        let updatedDate = new Date(comment.updatedAt);
+
+        time = (
+            <p className="comment_time--p">
+                {`Updated: ${updatedDate.toDateString()}`}
+            </p>
+        )
     }
 
     let commentContent = null;
