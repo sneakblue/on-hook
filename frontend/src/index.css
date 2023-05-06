@@ -1,5 +1,6 @@
 /* TODO Add site wide styles */
-body {
+body,
+h6 {
     margin: 0;
 }
 
