@@ -11,7 +11,7 @@ const initialState = {};
 export default function reducer (state = initialState, action) {
     switch (action.type) {
         case LOAD_REVIEWS: {
-            const newState = { ...state };
+            const newState = { };
             action.payload.forEach(review => {
                 newState[review.id] = review;
             });
@@ -62,12 +62,13 @@ const updateReview = (payload) => ({
     payload
 });
 
-export const getReviews = () => async dispatch => {
-    const res = await csrfFetch('/api/reviews');
+export const getReviews = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/${id}`);
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(loadReviews(data.reviews))
+        dispatch(loadReviews(data.reviews));
+        return data;
     }
 }
 

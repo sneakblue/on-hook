@@ -17,7 +17,7 @@ export default function ReviewSection({ id }) {
     const [ errors, setErrors ] = useState([]);
 
     useEffect(() => {
-        dispatch(getReviews());
+        dispatch(getReviews(id));
     }, [ dispatch ]);
 
     useEffect(() => {
