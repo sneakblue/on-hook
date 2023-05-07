@@ -28,7 +28,6 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
     if (comment.createdAt === comment.updatedAt) {
         let createdDate = new Date(comment.createdAt);
 
-        console.log(createdDate.toDateString())
         time = (
             <p className="comment_time--p">
                 {`Posted: ${createdDate.toDateString()}`}

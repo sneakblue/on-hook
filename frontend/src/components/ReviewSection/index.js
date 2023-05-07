@@ -33,7 +33,7 @@ export default function ReviewSection({ id }) {
                 };
             });
         };
-    }, [ reviews, id, sessionUser ])
+    }, [ reviews, sessionUser ])
 
     if (!reviews) return null;
 
@@ -61,82 +61,80 @@ export default function ReviewSection({ id }) {
                 <ReviewForm sessionUser={sessionUser} id={id}/>
             )}
             {reviews.map(review => {
-                if (Number(review.fishing_spot_id) === Number(id)) {
-                    if (showEdit && review.user_id === sessionUser.id) {
-                        if (prevReview !== review.review) {
-                            setPrevReview(review.review)
-                        }
-                        if (prevRating !== review.rating) {
-                            setPrevRating(review.rating)
-                        }
-                        return (
-                            <div className='new-review--div' key={review.id}>
-                                <ul>
-                                    {errors.map(error => {
-                                        return <li>{error}</li>
-                                    })}
-                                </ul>
-                                <form
-                                    className='review-edit--form'
-                                    onSubmit={ async e => {
-                                        e.preventDefault();
-                                        validateErrors();
-                                        if (errors.length === 0) {
-                                            const editReview = {
-                                                id: review.id,
-                                                review: newReview,
-                                                rating,
-                                                user_id: sessionUser.id,
-                                                fishing_spot_id: id
-                                            }
-                                            await dispatch(putReview(editReview));
-                                            setShowEdit(false);
-                                        }
-                                    }}
-                                >
-                                    <textarea
-                                        required={true}
-                                        className='edit-review--textarea'
-                                        maxLength={255}
-                                        value={newReview}
-                                        onChange={e => setNewReview(e.target.value)}
-                                    />
-                                    <h5>Rating</h5>
-                                    <select
-                                        className='review-edit-rating--select'
-                                        value={rating}
-                                        onChange={e => setRating(e.target.value)}
-                                    >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                    </select>
-                                    <button type='submit' className='edit-review--btn'>Submit</button>
-                                </form>
-                            </div>
-                        )
-                    } else {
-                        return (
-                            <div key={review.id} className='review--div'>
-                                <p>{review.review}</p>
-                                <h5>Rating: {review.rating}</h5>
-                                {(sessionUser && review.user_id === sessionUser.id) && (
-                                    <div>
-                                        <button className='review-edit-delete--btn' type='button' onClick={() => showEdit === false ? setShowEdit(true) : setShowEdit(false)}>Edit</button>
-                                        <button className='review-edit-delete--btn' type='button' onClick={() => handleDelete(review.id)}>Delete</button>
-                                    </div>
-                                )}
-                            </div>
-                        )
+                if (showEdit && review.user_id === sessionUser.id) {
+                    if (prevReview !== review.review) {
+                        setPrevReview(review.review)
                     }
-                } else return null;
+                    if (prevRating !== review.rating) {
+                        setPrevRating(review.rating)
+                    }
+                    return (
+                        <div className='new-review--div' key={review.id}>
+                            <ul>
+                                {errors.map(error => {
+                                    return <li>{error}</li>
+                                })}
+                            </ul>
+                            <form
+                                className='review-edit--form'
+                                onSubmit={ async e => {
+                                    e.preventDefault();
+                                    validateErrors();
+                                    if (errors.length === 0) {
+                                        const editReview = {
+                                            id: review.id,
+                                            review: newReview,
+                                            rating,
+                                            user_id: sessionUser.id,
+                                            fishing_spot_id: id
+                                        }
+                                        await dispatch(putReview(editReview));
+                                        setShowEdit(false);
+                                    }
+                                }}
+                            >
+                                <textarea
+                                    required={true}
+                                    className='edit-review--textarea'
+                                    maxLength={255}
+                                    value={newReview}
+                                    onChange={e => setNewReview(e.target.value)}
+                                />
+                                <h5>Rating</h5>
+                                <select
+                                    className='review-edit-rating--select'
+                                    value={rating}
+                                    onChange={e => setRating(e.target.value)}
+                                >
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                                <button type='submit' className='edit-review--btn'>Submit</button>
+                            </form>
+                        </div>
+                    )
+                } else {
+                    return (
+                        <div key={review.id} className='review--div'>
+                            <p>{review.review}</p>
+                            <h5>Rating: {review.rating}</h5>
+                            {(sessionUser && review.user_id === sessionUser.id) && (
+                                <div>
+                                    <button className='review-edit-delete--btn' type='button' onClick={() => setShowEdit(!showEdit)}>Edit</button>
+                                    <button className='review-edit-delete--btn' type='button' onClick={() => handleDelete(review.id)}>Delete</button>
+                                </div>
+                            )}
+                        </div>
+                    )
+                }
             })}
         </div>
     )
