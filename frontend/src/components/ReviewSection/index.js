@@ -119,24 +119,26 @@ export default function ReviewSection({ id }) {
                                     value={newReview}
                                     onChange={e => setNewReview(e.target.value)}
                                 />
-                                <h5>Rating</h5>
-                                <select
-                                    className='review-edit-rating--select'
-                                    value={rating}
-                                    onChange={e => setRating(e.target.value)}
-                                >
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
-                                <div>
+                                <div className='review-edit-rating--div'>
+                                    <h5 className='review-edit-rating--header'>Rating: </h5>
+                                    <select
+                                        className='review-edit-rating--select'
+                                        value={rating}
+                                        onChange={e => setRating(e.target.value)}
+                                    >
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                <div className='review-edit-btns--div'>
                                     <button className='edit-review--btn' onClick={() => setShowEdit(false)}>Cancel</button>
                                     <button type='submit' className='edit-review--btn'>Submit</button>
                                 </div>

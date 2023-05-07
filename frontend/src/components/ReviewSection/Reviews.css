@@ -28,6 +28,23 @@
 .review-edit--form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-edit-rating--div {
+    display: flex;
+    justify-content: center;
+}
+
+.review-edit-rating--header {
+    display: flex;
+    align-items: center;
+}
+
+.review-edit-btns--div {
+    display: flex;
+    justify-content: center;
 }
 
 .review-rating--header {
@@ -44,7 +61,6 @@
 .review-edit-rating--select {
     width: 50px;
     margin: 5px;
-    margin-bottom: 10px;
 }
 
 .edit-review--btn {
