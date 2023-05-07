@@ -73,6 +73,7 @@
     width: 98%;
     height: auto;
     flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .comment-edit--textarea {

@@ -54,11 +54,14 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                     className='comment-edit--textarea'
                     onChange={(e) => setUpdatedComment(e.target.value)}
                 />
-                <button
-                    type='submit'
-                    className='comment-btns'
-                    onClick={handlePut}
-                >Submit</button>
+                <div>
+                    <button className="comment-btns" onClick={() => setShowEdit(false)}>Cancel</button>
+                    <button
+                        type='submit'
+                        className='comment-btns'
+                        onClick={handlePut}
+                    >Submit</button>
+                </div>
             </div>
         )
     } else {
