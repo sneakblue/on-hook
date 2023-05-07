@@ -32,7 +32,6 @@ export default function HomePage() {
     const fishingSpots = useSelector(state => Object.values(state.fishing_spots));
     const [currLat, setCurrLat] = useState(40.17751);
     const [ currLong, setCurrLong ] = useState(-105.10269);
-    const [nearby, setNearby] = useState([]);
 
     useEffect(() => {
         dispatch(getFishingSpots());
@@ -42,25 +41,22 @@ export default function HomePage() {
         });
     }, [dispatch]);
 
-
-    useEffect(() => {
-        let newNearby = [];
-        if (nearby.length === 0 && fishingSpots.length > 0) {
-            fishingSpots.forEach(spot => {
-                let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
-                if (res < 20) {
-                    newNearby.push(spot);
-                }
-            })
-        }
-        if (nearby.length === 0 && newNearby.length === 0 && fishingSpots.length > 0) {
-            for (let i = 0; i < 5; i++) {
-                newNearby.push(fishingSpots[i]);
+    let nearby = [];
+    if (fishingSpots.length > 0) {
+        fishingSpots.forEach(spot => {
+            let res = distanceCalc(currLat, currLong, spot.lat, spot.lng);
+            if (res < 20) {
+                nearby.push(spot)
+            }
+        })
+    }
+    if (fishingSpots.length > 0 && nearby.length === 0) {
+        for (let i  = 0; i < 5; i++) {
+            if (fishingSpots[i]) {
+                nearby.push(fishingSpots[i])
             }
         }
-        if (newNearby.length > 0) setNearby(newNearby)
-
-    }, [fishingSpots, currLat, currLong, nearby])
+    }
 
     return (
         <div className='Homepage__main--div'>
@@ -73,7 +69,7 @@ export default function HomePage() {
                     currLong={currLong}
                 />}
                 <div className='Homepage__main-fishing-spot--div'>
-                    {nearby.map(fishingSpot => {
+                    {nearby.length > 0 && nearby.map(fishingSpot => {
                         return (
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>

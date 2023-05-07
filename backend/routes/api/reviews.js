@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Review } = require('../../db/models')
+const { Review, User } = require('../../db/models')
 
 const router = express.Router();
 
@@ -12,7 +12,11 @@ router.get('/', asyncHandler( async(req, res) => {
 router.get('/:id', asyncHandler( async(req, res) => {
     const  { id } = req.params;
     const reviews = await Review.findAll({
-        where: { fishing_spot_id: id }
+        where: { fishing_spot_id: id },
+        include: [{
+            model: User,
+            as: 'user'
+        }]
     });
     return res.json({ reviews });
 }))
@@ -25,7 +29,16 @@ router.post('/', asyncHandler( async(req, res) => {
         review,
         rating
     });
-    return res.json({ newReview });
+    const createdReview = await Review.findOne({
+        where: {
+            id: newReview.id
+        },
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    })
+    return res.json({ createdReview });
 }));
 
 router.put('/:id', asyncHandler( async(req, res) => {
@@ -38,7 +51,12 @@ router.put('/:id', asyncHandler( async(req, res) => {
             plain: true,
         }
     );
-    const updatedReview = await Review.findByPk(id);
+    const updatedReview = await Review.findByPk(id, {
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    });
     return res.json({ updatedReview });
 }));
 

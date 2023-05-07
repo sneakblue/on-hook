@@ -28,7 +28,6 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
     if (comment.createdAt === comment.updatedAt) {
         let createdDate = new Date(comment.createdAt);
 
-        console.log(createdDate.toDateString())
         time = (
             <p className="comment_time--p">
                 {`Posted: ${createdDate.toDateString()}`}
@@ -55,11 +54,14 @@ export default function CommentCard ({ comment, sessionUser, fishingSpot }) {
                     className='comment-edit--textarea'
                     onChange={(e) => setUpdatedComment(e.target.value)}
                 />
-                <button
-                    type='submit'
-                    className='comment-btns'
-                    onClick={handlePut}
-                >Submit</button>
+                <div>
+                    <button className="comment-btns" onClick={() => setShowEdit(false)}>Cancel</button>
+                    <button
+                        type='submit'
+                        className='comment-btns'
+                        onClick={handlePut}
+                    >Submit</button>
+                </div>
             </div>
         )
     } else {
