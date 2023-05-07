@@ -55,7 +55,9 @@ export default function HomePage() {
         }
         if (nearby.length === 0 && newNearby.length === 0 && fishingSpots.length > 0) {
             for (let i = 0; i < 5; i++) {
-                newNearby.push(fishingSpots[i]);
+                if (fishingSpots[i]) {
+                    newNearby.push(fishingSpots[i]);
+                }
             }
         }
         if (newNearby.length > 0) setNearby(newNearby)
@@ -73,7 +75,9 @@ export default function HomePage() {
                     currLong={currLong}
                 />}
                 <div className='Homepage__main-fishing-spot--div'>
-                    {nearby.map(fishingSpot => {
+                    {nearby.length > 0 && nearby.map(fishingSpot => {
+                        console.log(nearby)
+                        console.log(fishingSpot)
                         return (
                             <div key={fishingSpot.id} className='home__fishing-spot--div'>
                                 <Link to={`/fishing-spot/${fishingSpot.id}`}>
