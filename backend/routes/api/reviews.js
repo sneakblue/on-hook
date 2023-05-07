@@ -29,7 +29,16 @@ router.post('/', asyncHandler( async(req, res) => {
         review,
         rating
     });
-    return res.json({ newReview });
+    const createdReview = await Review.findOne({
+        where: {
+            id: newReview.id
+        },
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    })
+    return res.json({ createdReview });
 }));
 
 router.put('/:id', asyncHandler( async(req, res) => {

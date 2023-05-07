@@ -81,7 +81,7 @@ export const createReview = (data) => async dispatch => {
 
     if (res.ok) {
         const payload = await res.json();
-        dispatch(addReview( payload.newReview ));
+        dispatch(addReview( payload.createdReview ));
         return payload;
     }
 }
