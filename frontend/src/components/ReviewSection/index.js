@@ -18,7 +18,7 @@ export default function ReviewSection({ id }) {
 
     useEffect(() => {
         dispatch(getReviews(id));
-    }, [ dispatch ]);
+    }, [ dispatch, id ]);
 
     useEffect(() => {
         setRating(prevRating)
