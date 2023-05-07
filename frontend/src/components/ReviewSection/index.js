@@ -54,6 +54,25 @@ export default function ReviewSection({ id }) {
         setHasReview(false);
     }
 
+    // let time;
+    // if (comment.createdAt === comment.updatedAt) {
+    //     let createdDate = new Date(comment.createdAt);
+
+    //     time = (
+    //         <p className="comment_time--p">
+    //             {`Posted: ${createdDate.toDateString()}`}
+    //         </p>
+    //     )
+    // } else {
+    //     let updatedDate = new Date(comment.updatedAt);
+
+    //     time = (
+    //         <p className="comment_time--p">
+    //             {`Updated: ${updatedDate.toDateString()}`}
+    //         </p>
+    //     )
+    // }
+
     return (
         <div className='reviews-main--div'>
             <h2 className='reviews-title--h2'>User Reviews</h2>
@@ -122,10 +141,34 @@ export default function ReviewSection({ id }) {
                         </div>
                     )
                 } else {
+
+                    let time;
+                    if (review.createdAt === review.updatedAt) {
+                        let createdDate = new Date(review.createdAt);
+
+                        time = (
+                            <p className="comment_time--p">
+                                {`Posted: ${createdDate.toDateString()}`}
+                            </p>
+                        )
+                    } else {
+                        let updatedDate = new Date(review.updatedAt);
+
+                        time = (
+                            <p className="comment_time--p">
+                                {`Updated: ${updatedDate.toDateString()}`}
+                            </p>
+                        )
+                    }
+
                     return (
                         <div key={review.id} className='review--div'>
-                            <p>{review.review}</p>
-                            <h5>Rating: {review.rating}</h5>
+                            <div className='comment-username-time--div'>
+                                <h6 className='comment-username--header'>{review.user.username}</h6>
+                                {time}
+                            </div>
+                            <p className='review-content--p'>{review.review}</p>
+                            <h5 className='review-rating--header'>Rating: {review.rating}</h5>
                             {(sessionUser && review.user_id === sessionUser.id) && (
                                 <div>
                                     <button className='review-edit-delete--btn' type='button' onClick={() => setShowEdit(!showEdit)}>Edit</button>
