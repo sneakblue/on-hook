@@ -51,7 +51,12 @@ router.put('/:id', asyncHandler( async(req, res) => {
             plain: true,
         }
     );
-    const updatedReview = await Review.findByPk(id);
+    const updatedReview = await Review.findByPk(id, {
+        include: [{
+            model: User,
+            as: 'user'
+        }]
+    });
     return res.json({ updatedReview });
 }));
 
