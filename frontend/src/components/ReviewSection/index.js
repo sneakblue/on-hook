@@ -136,7 +136,10 @@ export default function ReviewSection({ id }) {
                                     <option>9</option>
                                     <option>10</option>
                                 </select>
-                                <button type='submit' className='edit-review--btn'>Submit</button>
+                                <div>
+                                    <button className='edit-review--btn' onClick={() => setShowEdit(false)}>Cancel</button>
+                                    <button type='submit' className='edit-review--btn'>Submit</button>
+                                </div>
                             </form>
                         </div>
                     )
