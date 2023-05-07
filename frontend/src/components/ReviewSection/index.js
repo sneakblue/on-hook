@@ -28,7 +28,7 @@ export default function ReviewSection({ id }) {
     useEffect(() => {
         if (sessionUser) {
             reviews.forEach(review => {
-                if (review.user_id === sessionUser.id && review.fishing_spot_id === Number(id)) {
+                if (review.user_id === sessionUser.id) {
                     setHasReview(true);
                 };
             });
