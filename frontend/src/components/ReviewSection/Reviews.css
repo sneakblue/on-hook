@@ -19,7 +19,7 @@
 .review--div {
     width: 90%;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     background-color: seashell;
     box-shadow: 1px 1px 3px black;
@@ -94,5 +94,5 @@
 }
 
 .review-content--p {
-    margin: 5px;
+    margin: 0px 10px;
 }
