@@ -1,9 +1,8 @@
 .map--div {
     height: 500px;
-    width: 500px;
+    width: 100%;
     margin-bottom: 20px;
     border: 5px solid rgba(36, 100, 218, 0.703);
-    /* box-shadow: 0px 0px 30px rgb(127, 140, 255); */
     border-radius: 5px;
 }
 
