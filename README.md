@@ -7,6 +7,9 @@ in their city or state. Logged in users can favorite fishing spots and
 rate them as well. Users can also comment on a specific fishing spot's
 page.
 
+Live Link:
+[🐟Splash!][site-url]
+
 ## Architecture
 On-Hook is built using Express.js and Postgres for the backend, and React and Redux for the
 Frontend.
@@ -52,8 +55,10 @@ Frontend.
 * Users can edit their comments
 * Users can delete their comments
 
+## Site Preview
 
-[site-url]: https://hauntbnb.herokuapp.com/
+
+[site-url]: https://on-hook.herokuapp.com/
 
 [node-shield]: https://img.shields.io/badge/-NODE-green?style=for-the-badge&logo=nodedotjs
 [node-url]: https://nodejs.org/en
