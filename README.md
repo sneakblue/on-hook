@@ -56,7 +56,23 @@ Frontend.
 * Users can delete their comments
 
 ## Site Preview
+### Splash Page
+![img](./frontend/public/preview_images/splash_page.png)
 
+### Homepage
+![img](./frontend/public/preview_images/homepage.png)
+
+### Login
+![img](./frontend/public/preview_images/login.png)
+
+### Signup
+![img](./frontend/public/preview_images/signup.png)
+
+### Fishing Spot Details
+![img](./frontend/public/preview_images/fishing_spot_details.png)
+
+### Fishing Spot Form
+![img](./frontend/public/preview_images/fishing_spot_form.png)
 
 [site-url]: https://on-hook.herokuapp.com/
 
