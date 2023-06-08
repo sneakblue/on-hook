@@ -5,28 +5,22 @@
 On-Hook is a full stack app that allows users to look for fishing spots
 in their city or state. Logged in users can favorite fishing spots and
 rate them as well. Users can also comment on a specific fishing spot's
-page. The user's profile page contains a profile pic as well as a short
-description, a list of spots they have created and a list of all of their
-favorite spots.
+page.
 
 ## Architecture
-On-Hook is created using Express for the backend and React for the
-Frontend. It also utilizes PostgreSQL for the database.
+On-Hook is built using Express.js and Postgres for the backend, and React and Redux for the
+Frontend.
 
 ## Frontend
-
-### React
-On-Hook is built as a React application.
-
-### Redux
-On-Hook uses Redux for handling the state management of the application.
-State management is synced to the database using thunks with API calls to
-the backend.
+[![React][react-shield]][react-url]
+[![Redux][redux-shield]][redux-url]
+[![AWS][aws-shield]][aws-url]
+[![GoogleMaps][maps-shield]][maps-url]
 
 ## Backend
-
-### ExpressJS
-Express is used for the On-Hook server.
+[![Postgres][postgres-shield]][posgtres-url]
+[![Sequelize][sequelize-shield]][sequelize-url]
+[![Express][express-shield]][express-url]
 
 
 # Feature List
@@ -37,7 +31,6 @@ Express is used for the On-Hook server.
 * Address and location of the spot
 * Image of location
 * Rating of the fishing spot
-* List of different species at that fishing spot
 * List reviews on individual page
 * List of comments on individual page
 
@@ -49,7 +42,7 @@ Express is used for the On-Hook server.
 
 ## Users
 * Can create a user account
-* User must supply username, email, password, and bio, as well as fishing-style
+* User must supply username, email, password
 * Can write reviews as a user
 * Can create fishing spots as a user
 * Can comment on fishing spots as a user
@@ -58,3 +51,29 @@ Express is used for the On-Hook server.
 * Users can write multiple comments for a fishing spot
 * Users can edit their comments
 * Users can delete their comments
+
+
+[site-url]: https://hauntbnb.herokuapp.com/
+
+[node-shield]: https://img.shields.io/badge/-NODE-green?style=for-the-badge&logo=nodedotjs
+[node-url]: https://nodejs.org/en
+[javascript-shield]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[javascript-url]: https://www.javascript.com/
+[html-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[html-url]: https://www.w3.org/html/
+[css-shield]: https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white
+[css-url]: https://www.w3.org/Style/CSS/Overview.en.html
+[express-shield]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express
+[express-url]: https://expressjs.com/en/4x/api.html
+[sequelize-shield]: https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue
+[sequelize-url]: https://sequelize.org/docs/v6/
+[postgres-shield]: https://img.shields.io/badge/-POSTGRES-grey?style=for-the-badge&logo=postgresql
+[posgtres-url]: https://www.postgresql.org/docs/12/index.html
+[react-shield]: https://img.shields.io/badge/-REACT-blue?style=for-the-badge&logo=react
+[react-url]: https://react.dev/
+[redux-shield]: https://img.shields.io/badge/-REDUX-red?style=for-the-badge&logo=redux
+[redux-url]: https://redux.js.org/
+[aws-shield]: https://img.shields.io/badge/-AWSS3-yellow?style=for-the-badge&logo=amazonaws
+[aws-url]: https://docs.aws.amazon.com/s3/index.html
+[maps-shield]: https://img.shields.io/badge/-GOOGLEMAPS-green?style=for-the-badge&logo=googlemaps
+[maps-url]: https://developers.google.com/maps/documentation
