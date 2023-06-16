@@ -15,13 +15,15 @@ export default function SpotMarker ({ fishingSpot }) {
         xtraInfo = (
             <Link to={`/fishing-spot/${fishingSpot.id}`} className='xtraInfo--Link'>
                 <div className='xtraInfo--div'>
-                    {fishingSpot.name}
+                    <div className='xtraInfo--name'>
+                        {fishingSpot.name}
+                    </div>
                     <img
                         className='xtraInfo--img'
                         alt='xtraimg'
                         src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage}
                     />
-                    <h5 className="xtraInfo--desc">{fishingSpot.description}</h5>
+                    <p className="xtraInfo--desc">{fishingSpot.description}</p>
                 </div>
             </Link>
         )
