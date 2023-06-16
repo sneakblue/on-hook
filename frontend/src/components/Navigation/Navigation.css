@@ -48,6 +48,11 @@
     display: flex;
 }
 
+.navbar--site-title--link {
+    text-decoration: none;
+    color: black;
+}
+
 .navbar--site-title-h4 {
     padding: 0px 10px 0px 10px;
     font-family: 'Merienda', cursive;
