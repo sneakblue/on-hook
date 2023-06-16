@@ -60,7 +60,7 @@ export default function HomePage() {
 
     return (
         <div className='Homepage__main--div'>
-            <span className="nav-lead-span"></span>
+            {/* <div className="nav-lead-span"></div> */}
             <div className='Homepage__content--div'>
                 <h1 className='Homepage__title--h1'>Nearby Fishing Spots</h1>
                 {(currLat !== 0 && currLong !== 0) && <MapSection

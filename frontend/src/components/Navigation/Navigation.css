@@ -69,7 +69,6 @@
     display: flex;
     justify-content: center;
     border: 0px;
-    border-radius: 3px;
     padding: 10px;
     color: black;
     transition: all 0.3s;

@@ -13,8 +13,10 @@
 }
 
 .Homepage__title--h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
+    font-family: 'Merienda', cursive;
+    font-style: bold;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
 
 .Homepage__main--div {
@@ -26,16 +28,13 @@
     align-items: center;
 }
 
-.nav-lead-span {
-    height: 40px;
-}
-
 .Homepage__content--div {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .home_fishing-spot-outerlink {
