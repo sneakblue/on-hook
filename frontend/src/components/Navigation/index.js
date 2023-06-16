@@ -27,8 +27,11 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='navbar__main--div'>
-        <NavLink exact to="/home" className='navbar--navlink'>Home</NavLink>
-        {isLoaded && sessionLinks}
+        <h4 className='navbar--site-title-h4'>On-Hook 🎣</h4>
+        <div className='navbar--navlinks-div'>
+            <NavLink exact to="/home" className='navbar--navlink'>Home</NavLink>
+            {isLoaded && sessionLinks}
+        </div>
     </div>
   );
 }

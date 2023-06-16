@@ -20,6 +20,7 @@
     border: 0px;
     border-radius: 3px;
     transition: all 0.3s;
+    font-family: 'Merienda', cursive;
 }
 
 .profile__dropdown__logout--btn:hover {
@@ -36,16 +37,26 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 40px;
     width: 100vw;
     box-shadow: 1px 0px 3px black;
     background-color: aquamarine;
 }
 
+.navbar--navlinks-div {
+    display: flex;
+}
+
+.navbar--site-title-h4 {
+    padding: 0px 10px 0px 10px;
+    font-family: 'Merienda', cursive;
+}
+
 .navbar--navlink {
     text-decoration: none;
     font-weight: bold;
+    font-family: 'Merienda', cursive;
     height: 20px;
     width: 70px;
     background-color: antiquewhite;
@@ -54,6 +65,7 @@
     justify-content: center;
     border: 0px;
     border-radius: 3px;
+    padding: 10px;
     color: black;
     transition: all 0.3s;
 }
@@ -63,13 +75,11 @@
 }
 
 .navbar--navlink:hover {
-    box-shadow: 1px 1px 2px black;
     background-color: aqua;
     cursor: pointer;
 }
 
 .navbar--navlink:active {
-    box-shadow: -1px -1px 2px black;
     color: black;
 }
 

@@ -73,11 +73,9 @@ export default function HomePage() {
                         return (
                             <Link to={`/fishing-spot/${fishingSpot.id}`} className='home_fishing-spot-outerlink'>
                                 <div key={fishingSpot.id} className='home__fishing-spot--div'>
-
                                         <div className='home__fishing-spot-img--div'>
                                             <img alt={fishingSpot.id} src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='home__fishing-spot--img'/>
                                         </div>
-
                                     <div>
                                         <h4>{fishingSpot.name}</h4>
                                         <h5>{fishingSpot.city}, {fishingSpot.state}</h5>
