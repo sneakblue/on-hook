@@ -60,7 +60,6 @@ export default function HomePage() {
 
     return (
         <div className='Homepage__main--div'>
-            {/* <div className="nav-lead-span"></div> */}
             <div className='Homepage__content--div'>
                 <h1 className='Homepage__title--h1'>Nearby Fishing Spots</h1>
                 {(currLat !== 0 && currLong !== 0) && <MapSection
@@ -78,8 +77,8 @@ export default function HomePage() {
                                         </div>
                                     <div>
                                         <h4>{fishingSpot.name}</h4>
-                                        <h5>{fishingSpot.city}, {fishingSpot.state}</h5>
-                                        <h5>{fishingSpot.lat}, {fishingSpot.lng}</h5>
+                                        <p>{fishingSpot.city}, {fishingSpot.state}</p>
+                                        <p>{fishingSpot.lat}, {fishingSpot.lng}</p>
                                     </div>
                                 </div>
                             </Link>
