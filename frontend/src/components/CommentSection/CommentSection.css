@@ -30,6 +30,7 @@
 .comment-username--header {
     font-size: 15px;
     margin: 5px;
+    font-family: 'Merienda', cursive;
 }
 
 .comment-content-p {
@@ -38,6 +39,7 @@
 
 .comment_time--p {
     font-size: 15px;
+    font-family: 'Merienda', cursive;
     font-style: italic;
     margin: 5px 5px 0px 5px;
 }

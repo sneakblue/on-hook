@@ -160,8 +160,8 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
     margin: 10px;
     width: 90%;
     padding: 10px;
+    font-family: 'Merienda', cursive;
     background-color: whitesmoke;
-    border: 1px solid black;
-    /* box-shadow: 1px 1px 3px black; */
+    border: 1px dashed black;
     border-radius: 5px;
 }

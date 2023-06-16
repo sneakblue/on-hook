@@ -96,15 +96,7 @@ export default function FishingSpotPage() {
         const files = e.target.files;
         if (files.length === 1) setNewImage(e.target.files[0]);
         else setNewImage(null);
-        // if (images.length) {
-            // let newImages = [...images];
-            // Object.values(e.target.files.forEach(file => {
-            //     newImages.push(file);
-            // }))
-            // setImages([...images, ...files])
-        // } else {
-            setNewImages([...newImages, ...files]);
-        // }
+        setNewImages([...newImages, ...files]);
     }
 
     const handleImageDelete = async (e, id, i) => {
@@ -129,7 +121,6 @@ export default function FishingSpotPage() {
                 id: fishingSpot.id,
                 user_id: fishingSpot.user_id,
                 name,
-                // pic,
                 description,
                 city,
                 state,
@@ -197,12 +188,8 @@ export default function FishingSpotPage() {
                     {showEdit && <Modal onClose={() => setShowEdit(false)}>
                         <div className='fishing-spot--form'>
                             {errorContent}
-                            {/* <ul className='errors'>
-                                {errors.map((error) => <li key={error}>{error}</li>)}
-                            </ul> */}
                             <form
                                 onSubmit={handleSubmit}
-                                // className='fishing-spot--form'
                             >
                                 <div className='form__input--div'>
                                     <label htmlFor='name'>Name</label>
@@ -227,16 +214,6 @@ export default function FishingSpotPage() {
                                         onChange={e => setDescription(e.target.value)}
                                     />
                                 </div>
-                                {/* <div className='form__input--div'>
-                                    <label htmlFor='pic'>Picture</label>
-                                    <input
-                                        type='url'
-                                        name='pic'
-                                        value={pic}
-                                        required={true}
-                                        onChange={e => setPic(e.target.value)}
-                                    />
-                                </div> */}
                                 <div className='form__input--div'>
                                     <label htmlFor='pic'>Pictures</label>
                                     <input
@@ -340,7 +317,6 @@ export default function FishingSpotPage() {
             <div className='fishing-spot__comments--div'>
                 <CommentSection fishingSpot={fishingSpot} sessionUser={sessionUser}/>
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }
