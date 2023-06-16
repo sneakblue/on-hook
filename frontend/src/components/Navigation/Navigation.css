@@ -1,12 +1,17 @@
 .profile-dropdown {
   position: absolute;
   background-color: antiquewhite;
-  top: 35px;
+  top: 40px;
   right: 20px;
-  padding: 10px;
+  padding: 5px 10px 15px 10px;
   height: 65px;
   width: auto;
   border-radius: 5px;
+  z-index: 2;
+}
+
+.profile-dropdown-content {
+    font-family: 'Merienda', cursive;
 }
 
 .profile__dropdown__logout--btn {
@@ -14,23 +19,22 @@
     height: 20px;
     width: 70px;
     background-color: aquamarine;
-    margin: 5px;
+    padding: 3px;
     display: flex;
     justify-content: center;
-    border: 0px;
     border-radius: 3px;
     transition: all 0.3s;
     font-family: 'Merienda', cursive;
 }
 
 .profile__dropdown__logout--btn:hover {
-    box-shadow: 1px 1px 2px black;
     background-color: aqua;
     cursor: pointer;
 }
 
 .profile__dropdown__logout--btn:active {
     box-shadow: -1px -1px 2px black;
+    background-color: darkcyan;
 }
 
 .navbar__main--div {
@@ -85,10 +89,11 @@
 
 .navbar--navlink:active {
     color: black;
+    background-color: darkcyan;
 }
 
 .navbar__profile--btn {
-    height: 20px;
+    height: 40px;
     width: 40px;
     background-color: antiquewhite;
     margin: 5px;
@@ -102,11 +107,10 @@
 }
 
 .navbar__profile--btn:hover {
-    box-shadow: 1px 1px 2px black;
     background-color: aqua;
     cursor: pointer;
 }
 
 .navbar__profile--btn:active {
-    box-shadow: -1px -1px 2px black;
+    background-color: darkcyan;
 }
