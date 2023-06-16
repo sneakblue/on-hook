@@ -28,6 +28,10 @@
     align-items: center;
 }
 
+.home_fishing-spot-card-detail {
+    font-family: 'Merienda', cursive;
+}
+
 .Homepage__content--div {
     height: 100%;
     width: 100%;

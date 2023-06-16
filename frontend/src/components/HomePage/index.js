@@ -77,8 +77,8 @@ export default function HomePage() {
                                         </div>
                                     <div>
                                         <h4>{fishingSpot.name}</h4>
-                                        <p>{fishingSpot.city}, {fishingSpot.state}</p>
-                                        <p>{fishingSpot.lat}, {fishingSpot.lng}</p>
+                                        <p className='home_fishing-spot-card-detail'>{fishingSpot.city}, {fishingSpot.state}</p>
+                                        <p className='home_fishing-spot-card-detail'>{fishingSpot.lat}, {fishingSpot.lng}</p>
                                     </div>
                                 </div>
                             </Link>
