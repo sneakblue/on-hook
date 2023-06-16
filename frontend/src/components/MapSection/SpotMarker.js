@@ -40,7 +40,7 @@ export default function SpotMarker ({ fishingSpot }) {
             onMouseEnter={() => showInfo === false ? setShowInfo(true) : setShowInfo(false)}
             onMouseLeave={() => showInfo === true ? setShowInfo(false) : setShowInfo(true)}
         >
-            <i className="fas fa-map-pin fa-lg"/>
+            <i className="fas fa-fish fa-lg"/>
             {xtraInfo}
         </div>
     )

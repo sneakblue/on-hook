@@ -12,6 +12,10 @@
     border-radius: 5px;
 }
 
+.fa-fish {
+    color: blue;
+}
+
 .xtraInfo--div {
     position: relative;
     min-height: 100px;
