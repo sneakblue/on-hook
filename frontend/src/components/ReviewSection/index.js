@@ -54,25 +54,6 @@ export default function ReviewSection({ id }) {
         setHasReview(false);
     }
 
-    // let time;
-    // if (comment.createdAt === comment.updatedAt) {
-    //     let createdDate = new Date(comment.createdAt);
-
-    //     time = (
-    //         <p className="comment_time--p">
-    //             {`Posted: ${createdDate.toDateString()}`}
-    //         </p>
-    //     )
-    // } else {
-    //     let updatedDate = new Date(comment.updatedAt);
-
-    //     time = (
-    //         <p className="comment_time--p">
-    //             {`Updated: ${updatedDate.toDateString()}`}
-    //         </p>
-    //     )
-    // }
-
     return (
         <div className='reviews-main--div'>
             <h2 className='reviews-title--h2'>User Reviews</h2>
