@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid black; */
     box-shadow: 1px 1px 3px black;
     background-color: whitesmoke;
     border-radius: 5px;
@@ -67,6 +66,7 @@
     margin: 5px;
     border: 0px;
     max-width: 200px;
+    font-family: 'Merienda', cursive;
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
@@ -76,6 +76,7 @@
 .review-edit-delete--btn {
     margin: 5px;
     border: 0px;
+    font-family: 'Merienda', cursive;
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
