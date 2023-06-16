@@ -1,9 +1,8 @@
 .map--div {
     height: 500px;
-    width: 500px;
+    width: 100%;
     margin-bottom: 20px;
     border: 5px solid rgba(36, 100, 218, 0.703);
-    /* box-shadow: 0px 0px 30px rgb(127, 140, 255); */
     border-radius: 5px;
 }
 
@@ -25,8 +24,13 @@
     z-index: 2;
 }
 
+.xtraInfo--name {
+    font-family: 'Merienda', cursive;
+    padding: 0px 5px 0px 5px;
+}
+
 .xtraInfo--desc {
-    padding: 5px;
+    padding: 2px 5px 10px 5px;
 }
 
 .xtraInfo--img {
@@ -48,7 +52,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5px;
+    padding: 10px 5px 12px 5px;
 
 }
 
@@ -56,6 +60,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    font-family: 'Merienda', cursive;
     box-shadow: 1px 1px 2px black;
     background-color: seashell;
     border-radius: 5px;
@@ -66,10 +71,9 @@
 
 .newSpot--btn:hover {
     background-color: aquamarine;
-    box-shadow: 2px 2px 3px black;
 }
 
 .newSpot--btn:active {
-    /* background-color: aqua; */
-    box-shadow: -2px -2px 3px black;
+    background-color: darkcyan;
+    box-shadow: -3px -3px 1px black;
 }

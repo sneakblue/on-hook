@@ -23,6 +23,7 @@
 .form__submit--btn {
     margin: 5px;
     border: 0px;
+    font-family: 'Merienda', cursive;
     background-color: antiquewhite;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
@@ -48,6 +49,7 @@
 input[type=file]::file-selector-button {
     margin: 5px;
     border: 0px;
+    font-family: 'Merienda', cursive;
     background-color: antiquewhite;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
@@ -81,9 +83,20 @@ input[type=file]::file-selector-button:active {
 
 .preview_images--btn {
     position: absolute;
+    background-color: antiquewhite;
+    border: 0px;
     top: 0px;
     left: 0px;
     z-index: 2;
+    transition: background-color 0.5s;
+}
+
+.preview_images--btn:hover {
+    background-color: lightcoral;
+}
+
+.preview_images--btn:active {
+    background-color: darkcyan;
 }
 
 .preview_images_single--div {

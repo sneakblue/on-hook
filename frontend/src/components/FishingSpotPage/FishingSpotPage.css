@@ -12,6 +12,10 @@ body {
     overflow-y: auto;
 }
 
+.fishing-spot-form--label {
+    font-family: 'Merienda', cursive;
+}
+
 .fishing-spot__main--div {
     display: flex;
     flex-wrap: wrap;
@@ -122,6 +126,7 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
 .edit-delete--btn {
     margin: 5px;
     border: 0px;
+    font-family: 'Merienda', cursive;
     background-color: aquamarine;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
@@ -160,8 +165,8 @@ fishing-spot__comments--div::-webkit-scrollbar-button:single-button:increment:ac
     margin: 10px;
     width: 90%;
     padding: 10px;
+    font-family: 'Merienda', cursive;
     background-color: whitesmoke;
-    border: 1px solid black;
-    /* box-shadow: 1px 1px 3px black; */
+    border: 1px dashed black;
     border-radius: 5px;
 }

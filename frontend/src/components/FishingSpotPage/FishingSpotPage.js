@@ -96,15 +96,7 @@ export default function FishingSpotPage() {
         const files = e.target.files;
         if (files.length === 1) setNewImage(e.target.files[0]);
         else setNewImage(null);
-        // if (images.length) {
-            // let newImages = [...images];
-            // Object.values(e.target.files.forEach(file => {
-            //     newImages.push(file);
-            // }))
-            // setImages([...images, ...files])
-        // } else {
-            setNewImages([...newImages, ...files]);
-        // }
+        setNewImages([...newImages, ...files]);
     }
 
     const handleImageDelete = async (e, id, i) => {
@@ -129,7 +121,6 @@ export default function FishingSpotPage() {
                 id: fishingSpot.id,
                 user_id: fishingSpot.user_id,
                 name,
-                // pic,
                 description,
                 city,
                 state,
@@ -197,15 +188,11 @@ export default function FishingSpotPage() {
                     {showEdit && <Modal onClose={() => setShowEdit(false)}>
                         <div className='fishing-spot--form'>
                             {errorContent}
-                            {/* <ul className='errors'>
-                                {errors.map((error) => <li key={error}>{error}</li>)}
-                            </ul> */}
                             <form
                                 onSubmit={handleSubmit}
-                                // className='fishing-spot--form'
                             >
                                 <div className='form__input--div'>
-                                    <label htmlFor='name'>Name</label>
+                                    <label className='fishing-spot-form--label' htmlFor='name'>Name</label>
                                     <input
                                         type='text'
                                         name='name'
@@ -215,7 +202,7 @@ export default function FishingSpotPage() {
                                     />
                                 </div>
                                 <div className='form__input--div'>
-                                    <label htmlFor='description'>Description</label>
+                                    <label className='fishing-spot-form--label' htmlFor='description'>Description</label>
                                     <textarea
                                         name='description'
                                         value={description}
@@ -227,18 +214,8 @@ export default function FishingSpotPage() {
                                         onChange={e => setDescription(e.target.value)}
                                     />
                                 </div>
-                                {/* <div className='form__input--div'>
-                                    <label htmlFor='pic'>Picture</label>
-                                    <input
-                                        type='url'
-                                        name='pic'
-                                        value={pic}
-                                        required={true}
-                                        onChange={e => setPic(e.target.value)}
-                                    />
-                                </div> */}
                                 <div className='form__input--div'>
-                                    <label htmlFor='pic'>Pictures</label>
+                                    <label className='fishing-spot-form--label' htmlFor='pic'>Pictures</label>
                                     <input
                                         type='file'
                                         multiple
@@ -248,7 +225,7 @@ export default function FishingSpotPage() {
                                 </div>
 
                                 <div className='form__input--div'>
-                                    <label htmlFor='city'>City</label>
+                                    <label className='fishing-spot-form--label' htmlFor='city'>City</label>
                                     <input
                                         type='text'
                                         name='city'
@@ -258,7 +235,7 @@ export default function FishingSpotPage() {
                                     />
                                 </div>
                                 <div className='form__input--div'>
-                                    <label htmlFor='state'>State</label>
+                                    <label className='fishing-spot-form--label' htmlFor='state'>State</label>
                                     <input
                                         type='text'
                                         name='state'
@@ -268,7 +245,7 @@ export default function FishingSpotPage() {
                                     />
                                 </div>
                                 <div className='form__input--div'>
-                                    <label htmlFor='country'>Country</label>
+                                    <label className='fishing-spot-form--label' htmlFor='country'>Country</label>
                                     <input
                                         type='text'
                                         name='country'
@@ -278,7 +255,7 @@ export default function FishingSpotPage() {
                                     />
                                 </div>
                                 <div className='form__input--div'>
-                                    <label htmlFor='lat'>Lattitude</label>
+                                    <label className='fishing-spot-form--label' htmlFor='lat'>Lattitude</label>
                                     <input
                                         type='number'
                                         name='lat'
@@ -288,7 +265,7 @@ export default function FishingSpotPage() {
                                     />
                                 </div>
                                 <div className='form__input--div'>
-                                    <label htmlFor='lng'>Longitude</label>
+                                    <label className='fishing-spot-form--label' htmlFor='lng'>Longitude</label>
                                     <input
                                         type='number'
                                         name='lng'
@@ -340,7 +317,6 @@ export default function FishingSpotPage() {
             <div className='fishing-spot__comments--div'>
                 <CommentSection fishingSpot={fishingSpot} sessionUser={sessionUser}/>
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }

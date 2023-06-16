@@ -13,20 +13,23 @@
 }
 
 .Homepage__title--h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
+    font-family: 'Merienda', cursive;
+    font-style: bold;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
 
 .Homepage__main--div {
     width: 100vw;
+    height: 100vh;
     background-color: azure;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.nav-lead-span {
-    height: 40px;
+.home_fishing-spot-card-detail {
+    font-family: 'Merienda', cursive;
 }
 
 .Homepage__content--div {
@@ -35,6 +38,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+}
+
+.home_fishing-spot-outerlink {
+    text-decoration: none;
+    color: black;
 }
 
 .home__fishing-spot--div {
@@ -42,17 +51,20 @@
     height: 100px;
     display: flex;
     align-items: center;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 5px 10px 5px 10px;
     margin-bottom: 10px;
     background-color: aquamarine;
     border-radius: 5px;
     box-shadow: 2px 2px 2px black;
-    transition: background-color 0.5s;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .home__fishing-spot--div:hover {
     background-color: aqua;
+}
+
+.home__fishing-spot--div:active {
+    box-shadow: -2px -2px 2px black;
 }
 
 .home__fishing-spot-img--div {

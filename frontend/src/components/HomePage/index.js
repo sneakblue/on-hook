@@ -60,7 +60,6 @@ export default function HomePage() {
 
     return (
         <div className='Homepage__main--div'>
-            <span className="nav-lead-span"></span>
             <div className='Homepage__content--div'>
                 <h1 className='Homepage__title--h1'>Nearby Fishing Spots</h1>
                 {(currLat !== 0 && currLong !== 0) && <MapSection
@@ -71,18 +70,18 @@ export default function HomePage() {
                 <div className='Homepage__main-fishing-spot--div'>
                     {nearby.length > 0 && nearby.map(fishingSpot => {
                         return (
-                            <div key={fishingSpot.id} className='home__fishing-spot--div'>
-                                <Link to={`/fishing-spot/${fishingSpot.id}`}>
-                                    <div className='home__fishing-spot-img--div'>
-                                        <img alt={fishingSpot.id} src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='home__fishing-spot--img'/>
+                            <Link to={`/fishing-spot/${fishingSpot.id}`} className='home_fishing-spot-outerlink'>
+                                <div key={fishingSpot.id} className='home__fishing-spot--div'>
+                                        <div className='home__fishing-spot-img--div'>
+                                            <img alt={fishingSpot.id} src={fishingSpot.images.length > 0 ? fishingSpot.images[0].url : defaultImage} className='home__fishing-spot--img'/>
+                                        </div>
+                                    <div>
+                                        <h4>{fishingSpot.name}</h4>
+                                        <p className='home_fishing-spot-card-detail'>{fishingSpot.city}, {fishingSpot.state}</p>
+                                        <p className='home_fishing-spot-card-detail'>{fishingSpot.lat}, {fishingSpot.lng}</p>
                                     </div>
-                                </Link>
-                                <div>
-                                    <h4>{fishingSpot.name}</h4>
-                                    <h5>{fishingSpot.city}, {fishingSpot.state}</h5>
-                                    <h5>{fishingSpot.lat}, {fishingSpot.lng}</h5>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>

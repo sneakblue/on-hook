@@ -28,6 +28,8 @@ body {
     height: 20px;
     width: 70px;
     background-color: aquamarine;
+    font-family: 'Merienda', cursive;
+    padding: 5px;
     margin: 5px;
     display: flex;
     justify-content: center;
@@ -37,13 +39,13 @@ body {
 }
 
 .signup__submit--btn:hover {
-    box-shadow: 2px 2px 2px black;
     cursor: pointer;
     background-color: aqua;
 }
 
 .signup__submit--btn:active {
     box-shadow: -2px -2px 2px black;
+    background-color: darkcyan;
 }
 
 .signup__main--h1 {
@@ -55,4 +57,5 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    font-family: 'Merienda', cursive;
 }

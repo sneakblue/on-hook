@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* background-image: url('https://images.unsplash.com/photo-1605499907240-d4240d766581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'); */
 }
 
 .splashPage__description--div {
@@ -37,12 +36,14 @@
 .splashPage__link--btn {
     text-decoration: none;
     font-weight: bold;
+    font-family: 'Merienda', cursive;
     color: black;
     margin: 10px;
     padding: 5px;
     border-radius: 5px;
     background-color: aquamarine;
     box-shadow: 1px 1px 3px black;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .splashPage__link--btn:hover {

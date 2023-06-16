@@ -154,7 +154,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                 className='fishing-spot--form'
             >
                 <div className='form__input--div'>
-                    <label htmlFor='name'>Name</label>
+                    <label className='fishing-spot-form--label' htmlFor='name'>Name</label>
                     <input
                         type='text'
                         name='name'
@@ -164,7 +164,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='description'>Description</label>
+                    <label className='fishing-spot-form--label' htmlFor='description'>Description</label>
                     <textarea
                         name='description'
                         value={description}
@@ -177,7 +177,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='pic'>Pictures</label>
+                    <label className='fishing-spot-form--label' htmlFor='pic'>Pictures</label>
                     <input
                         type='file'
                         multiple
@@ -187,7 +187,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='city'>City</label>
+                    <label className='fishing-spot-form--label' htmlFor='city'>City</label>
                     <input
                         type='text'
                         name='city'
@@ -197,7 +197,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='state'>State</label>
+                    <label className='fishing-spot-form--label' htmlFor='state'>State</label>
                     <input
                         type='text'
                         name='state'
@@ -207,7 +207,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='country'>Country</label>
+                    <label className='fishing-spot-form--label' htmlFor='country'>Country</label>
                     <input
                         type='text'
                         name='country'
@@ -217,7 +217,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='lat'>Lattitude</label>
+                    <label className='fishing-spot-form--label' htmlFor='lat'>Lattitude</label>
                     <input
                         type='number'
                         name='lat'
@@ -227,7 +227,7 @@ export default function FishingSpotForm ({ mapLat, mapLng, isMapEdit, setShowMod
                     />
                 </div>
                 <div className='form__input--div'>
-                    <label htmlFor='lng'>Longitude</label>
+                    <label className='fishing-spot-form--label' htmlFor='lng'>Longitude</label>
                     <input
                         type='number'
                         name='lng'
